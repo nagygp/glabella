@@ -1,6 +1,6 @@
-[![Build Status](https://travis-ci.com/nagygp/labelface.svg?branch=master)](https://travis-ci.com/gap-packages/labelface)
+[![Build Status](https://travis-ci.com/nagygp/labelface.svg?branch=master)](https://travis-ci.com/nagygp/labelface)
 [![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/nagygp/labelface?branch=master&svg=true)](https://ci.appveyor.com/project/nagygp/labelface)
-[![Code Coverage](https://codecov.io/github/nagygp/labelface/coverage.svg?branch=master&token=)](https://codecov.io/gh/gap-packages/labelface)
+[![Code Coverage](https://codecov.io/github/nagygp/labelface/coverage.svg?branch=master&token=)](https://codecov.io/gh/nagygp/labelface)
 
 # The labelface package
 
