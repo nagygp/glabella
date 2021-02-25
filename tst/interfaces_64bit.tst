@@ -14,7 +14,7 @@
 ##
 ##  The argument of STOP_TEST may be an arbitrary identifier string.
 ## 
-gap> START_TEST("labelface package: blissinterface.tst");
+gap> START_TEST("labelface package: labelface.tst");
 gap> SizeScreen([72,23]);
 [ 72, 23 ]
 gap> 
@@ -121,5 +121,5 @@ gap> GraphCanonicalLabeling@labelface(3, path, false, false);
 [ [ (1,3) ], (1,2,3), 4110465937 ]
 gap> ###################################
 gap> 
-gap> STOP_TEST( "blissinterface.tst", 10000 );
+gap> STOP_TEST( "labelface.tst", 10000 );
 

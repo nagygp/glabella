@@ -1,5 +1,5 @@
-LogTo("/tmp/blissinterface_test.tst");
-START_TEST("labelface package: blissinterface.tst");
+LogTo("/tmp/labelface_test.tst");
+START_TEST("labelface package: labelface.tst");
 SizeScreen([72,23]);
 
 ExtendRootDirectories([Concatenation(GAPInfo.UserHome,"/MyGAP/")]);
@@ -54,7 +54,7 @@ NautyGraphCanonicalLabeling(3, path, false, true);
 NautyGraphCanonicalLabeling(3, path, false, false);
 ###################################
 
-STOP_TEST( "blissinterface.tst", 10000 );
+STOP_TEST( "labelface.tst", 10000 );
 LogTo();
 
 StringTime(Runtime());

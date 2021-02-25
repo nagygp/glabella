@@ -43,6 +43,6 @@ Piperno <Cite Key="Nauty:2014" />.
   <![CDATA[./configure
   make]]></Listing>
 - Start &GAP; in the usual way (i.e. type <C>gap</C> at the command line).
-- Type <C>LoadPackage("blissinterface");</C>
+- Type <C>LoadPackage("labelface");</C>
 - For questions, remarks and issues please use the 
   <URL Text="issue tracker">https://github.com/gap-packages/labelface/issues</URL>.

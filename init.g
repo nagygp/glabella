@@ -1,5 +1,5 @@
 #
-# labelface: Low level interface to the bliss graph automorphism tool
+# labelface: Low level interface to graph automorphism canonical labeling tools
 #
 # Reading the declaration part of the package.
 #

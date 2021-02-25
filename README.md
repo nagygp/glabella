@@ -1,5 +1,5 @@
 [![Build Status](https://travis-ci.com/gap-packages/labelface.svg?branch=master)](https://travis-ci.com/gap-packages/labelface)
-[![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/gap-packages/blissinterface?branch=master&svg=true)](https://ci.appveyor.com/project/nagygp/blissinterface)
+[![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/gap-packages/labelface?branch=master&svg=true)](https://ci.appveyor.com/project/nagygp/labelface)
 [![Code Coverage](https://codecov.io/github/gap-packages/labelface/coverage.svg?branch=master&token=)](https://codecov.io/gh/gap-packages/labelface)
 
 # The labelface package

@@ -1,5 +1,5 @@
 #
-# labelface: Low level interface to the bliss graph automorphism tool
+# labelface: Low level interface to graph automorphism canonical labeling tools
 #
 # This file is part of the build system of a GAP kernel extension.
 # Requires GNU autoconf, GNU automake and GNU libtool.

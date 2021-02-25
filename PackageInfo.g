@@ -1,5 +1,5 @@
 #
-# labelface: Low level interface to the bliss graph automorphism tool
+# labelface: Low level interface to graph automorphism canonical labeling tools
 #
 # This file contains package meta data. For additional information on
 # the meaning and correct usage of these fields, please consult the
@@ -9,9 +9,9 @@
 SetPackageInfo( rec(
 
 PackageName := "labelface",
-Subtitle := "Low level interface to the bliss graph automorphism tool",
-Version := "0.22",
-Date := "26/03/2020", # dd/mm/yyyy format
+Subtitle := "Low level interface to graph automorphism canonical labeling tools",
+Version := "0.3",
+Date := "25/02/2021", # dd/mm/yyyy format
 License := "GPL-2.0-or-later",
 
 Persons := [
@@ -63,7 +63,7 @@ PackageDoc := rec(
   HTMLStart := "doc/chap0.html",
   PDFFile   := "doc/manual.pdf",
   SixFile   := "doc/manual.six",
-  LongTitle := "Low level interface to the bliss graph automorphism tool",
+  LongTitle := "Low level interface to graph automorphism canonical labeling tools",
 ),
 
 Dependencies := rec(
