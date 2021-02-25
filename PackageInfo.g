@@ -1,5 +1,5 @@
 #
-# BlissInterface: Low level interface to the bliss graph automorphism tool
+# labelface: Low level interface to the bliss graph automorphism tool
 #
 # This file contains package meta data. For additional information on
 # the meaning and correct usage of these fields, please consult the
@@ -8,7 +8,7 @@
 #
 SetPackageInfo( rec(
 
-PackageName := "BlissInterface",
+PackageName := "labelface",
 Subtitle := "Low level interface to the bliss graph automorphism tool",
 Version := "0.22",
 Date := "26/03/2020", # dd/mm/yyyy format
@@ -33,10 +33,10 @@ Persons := [
 
 SourceRepository := rec(
     Type := "git",
-    URL := "https://github.com/gap-packages/BlissInterface",
+    URL := "https://github.com/gap-packages/labelface",
 ),
 IssueTrackerURL := Concatenation( ~.SourceRepository.URL, "/issues" ),
-PackageWWWHome  := "https://gap-packages.github.io/BlissInterface/",
+PackageWWWHome  := "https://gap-packages.github.io/labelface/",
 PackageInfoURL  := Concatenation( ~.PackageWWWHome, "PackageInfo.g" ),
 README_URL      := Concatenation( ~.PackageWWWHome, "README.md" ),
 ArchiveURL      := Concatenation( ~.SourceRepository.URL,
@@ -58,7 +58,7 @@ Status := "dev",
 AbstractHTML   :=  "",
 
 PackageDoc := rec(
-  BookName  := "BlissInterface",
+  BookName  := "labelface",
   ArchiveURLSubset := ["doc"],
   HTMLStart := "doc/chap0.html",
   PDFFile   := "doc/manual.pdf",
@@ -75,11 +75,11 @@ Dependencies := rec(
 
 AvailabilityTest := function()
   local dir, lib;
-  dir := DirectoriesPackagePrograms("BlissInterface");
-  lib := Filename(dir, "BlissInterface.so");
+  dir := DirectoriesPackagePrograms("labelface");
+  lib := Filename(dir, "labelface.so");
   if lib = fail then
     LogPackageLoadingMessage(PACKAGE_WARNING,
-                             "failed to load kernel module of package BlissInterface");
+                             "failed to load kernel module of package labelface");
     return fail;
   fi;
   return true;

@@ -1,5 +1,5 @@
 #
-# BlissInterface: Low level interface to the bliss graph automorphism tool
+# labelface: Low level interface to the bliss graph automorphism tool
 #
 #! @Chapter Usage of the package
 #!
@@ -36,7 +36,7 @@ DeclareGlobalVariable("OPTIONS@");
 #! 
 #! @Section Interfaces
 #! 
-#! This section will describe the funtions of <Package>BlissInterface</Package>, 
+#! This section will describe the funtions of <Package>labelface</Package>, 
 #! and their nonchecking counterparts. The nonchecking versions are slightly 
 #! faster but it must be used with extreme care. Bad parameters may result 
 #! in unpredictable behaviour. 

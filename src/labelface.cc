@@ -1,5 +1,5 @@
 /*
- * BlissInterface: Low level interface to the bliss graph automorphism tool
+ * labelface: Low level interface to the bliss graph automorphism tool
  */
 
 #include "compiled.h" // GAP headers
@@ -322,7 +322,7 @@ static Int InitLibrary(StructInitInfo *module) {
 */
 static StructInitInfo module = {
     /* type        = */ MODULE_DYNAMIC,
-    /* name        = */ "BlissInterface",
+    /* name        = */ "labelface",
     /* revision_c  = */ 0,
     /* revision_h  = */ 0,
     /* version     = */ 0,

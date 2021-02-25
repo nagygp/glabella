@@ -1,9 +1,9 @@
 LogTo("/tmp/blissinterface_test.tst");
-START_TEST("BlissInterface package: blissinterface.tst");
+START_TEST("labelface package: blissinterface.tst");
 SizeScreen([72,23]);
 
 ExtendRootDirectories([Concatenation(GAPInfo.UserHome,"/MyGAP/")]);
-LoadPackage( "BlissInterface", false );
+LoadPackage( "labelface", false );
 
 ###################################
 fano:=Set([[1,2,4],[2,3,5],[3,4,6],[4,5,7],

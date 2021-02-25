@@ -1,9 +1,9 @@
-gap> START_TEST("BlissInterface package: nautyinterface.tst");
+gap> START_TEST("labelface package: nautyinterface.tst");
 gap> SizeScreen([72,23]);
 [ 72, 23 ]
 gap> 
 gap> ExtendRootDirectories([Concatenation(GAPInfo.UserHome,"/MyGAP/")]);
-gap> LoadPackage( "BlissInterface", false );
+gap> LoadPackage( "labelface", false );
 true
 gap> 
 gap> ###################################

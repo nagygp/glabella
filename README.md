@@ -1,17 +1,17 @@
-[![Build Status](https://travis-ci.com/gap-packages/BlissInterface.svg?branch=master)](https://travis-ci.com/gap-packages/BlissInterface)
+[![Build Status](https://travis-ci.com/gap-packages/labelface.svg?branch=master)](https://travis-ci.com/gap-packages/labelface)
 [![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/gap-packages/blissinterface?branch=master&svg=true)](https://ci.appveyor.com/project/nagygp/blissinterface)
-[![Code Coverage](https://codecov.io/github/gap-packages/BlissInterface/coverage.svg?branch=master&token=)](https://codecov.io/gh/gap-packages/BlissInterface)
+[![Code Coverage](https://codecov.io/github/gap-packages/labelface/coverage.svg?branch=master&token=)](https://codecov.io/gh/gap-packages/labelface)
 
-# The BlissInterface package
+# The labelface package
 
-* Website: https://gap-packages.github.io/BlissInterface/
-* Repository: https://github.com/gap-packages/BlissInterface
+* Website: https://gap-packages.github.io/labelface/
+* Repository: https://github.com/gap-packages/labelface
 
 This package provides a low level interface to the software [***bliss:*** A Tool for Computing Automorphism Groups and Canonical Labelings of Graphs](http://www.tcs.hut.fi/Software/bliss/), written by Tommi Junttila and Petteri Kaski. 
 
-The BlissInterface package uses an external binary and therefore a complete installation only works on UNIX systems or systems that support a UNIX-like environment, e.g. OS X, or Windows with Cygwin. 
+The labelface package uses an external binary and therefore a complete installation only works on UNIX systems or systems that support a UNIX-like environment, e.g. OS X, or Windows with Cygwin. 
 
-On the package website precompiled binaries are available for certain environments. To compile the package, change to the `/pkg/BlissInterface*` directory  of your GAP installation and then call
+On the package website precompiled binaries are available for certain environments. To compile the package, change to the `/pkg/labelface*` directory  of your GAP installation and then call
 	
 	./configure <path>
 
@@ -27,11 +27,11 @@ to compile the binary.
 
 Now start GAP and type
 
-	LoadPackage("BlissInterface");
+	LoadPackage("labelface");
 
 to load the package. You will see the package banner. If you have not compiled the external binary, you should receive a warning.
 
-For details on how to use the BlissInterface package see the package documentation in the `doc` subdirectory (view its HTML version or  `manual.pdf`  via a PDF viewer). 
+For details on how to use the labelface package see the package documentation in the `doc` subdirectory (view its HTML version or  `manual.pdf`  via a PDF viewer). 
 
 ## Contact
 
@@ -39,11 +39,11 @@ Maintainer:
 
 * [Gábor P. Nagy](https://algebra.math.bme.hu/nagy-gabor), Budapest University of Technology, Hungary.
 
-For questions, remarks and issues please use the [issue tracker](https://github.com/gap-packages/BlissInterface/issues).
+For questions, remarks and issues please use the [issue tracker](https://github.com/gap-packages/labelface/issues).
 
 ## License
 
-BlissInterface is free software; you can redistribute it and/or modify it under the terms of the Version 2 of the GNU General Public License. For details see the file LICENSE.
+labelface is free software; you can redistribute it and/or modify it under the terms of the Version 2 of the GNU General Public License. For details see the file LICENSE.
 
 ## Credits
 

@@ -1,8 +1,6 @@
 #
-# BlissInterface: Low level interface to the bliss graph automorphism tool
+# labelface: Low level interface to the bliss graph automorphism tool
 #
 # Reading the implementation part of the package.
 #
-ReadPackage( "BlissInterface", "gap/BlissInterface.gi");
-ReadPackage( "BlissInterface", "gap/NautyInterface.gi");
-ReadPackage( "BlissInterface", "gap/interfaces.gi");
+ReadPackage( "labelface", "gap/interfaces.gi");

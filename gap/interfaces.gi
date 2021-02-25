@@ -1,5 +1,5 @@
 #
-# BlissInterface: Low level interface to the bliss graph automorphism tool
+# labelface: Low level interface to the bliss graph automorphism tool
 #
 # Implementations
 #

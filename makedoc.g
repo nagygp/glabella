@@ -1,5 +1,5 @@
 #
-# BlissInterface: Low level interface to the bliss graph automorphism tool
+# labelface: Low level interface to the bliss graph automorphism tool
 #
 # This file is a script which compiles the package manual.
 #

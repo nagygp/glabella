@@ -1,6 +1,6 @@
 #############################################################################
 ##
-#A  bliss.tst             BlissInterface package                Gábor P. Nagy
+#A  bliss.tst             labelface package                Gábor P. Nagy
 ##
 ##  To create a test file, place GAP prompts, input and output exactly as
 ##  they must appear in the GAP session. Do not remove lines containing 
@@ -14,12 +14,12 @@
 ##
 ##  The argument of STOP_TEST may be an arbitrary identifier string.
 ## 
-gap> START_TEST("BlissInterface package: blissinterface.tst");
+gap> START_TEST("labelface package: blissinterface.tst");
 gap> SizeScreen([72,23]);
 [ 72, 23 ]
 gap> 
 gap> ExtendRootDirectories([Concatenation(GAPInfo.UserHome,"/MyGAP/")]);
-gap> LoadPackage( "BlissInterface", false );
+gap> LoadPackage( "labelface", false );
 true
 gap> 
 gap> ###################################
