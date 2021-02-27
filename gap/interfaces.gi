@@ -6,6 +6,17 @@
 
 InstallValue( OPTIONS@, rec( solver:= "bliss", colouring_format:="plain" ) );
 
+InstallGlobalFunction( GraphCanonicalLabelingNC@,
+function( n, outneigh, colours, isdirected )
+    if OPTIONS@.solver = "bliss" then
+    	return BLISS_GRAPH_CANONICAL_LABELING( n, outneigh, colours, isdirected );
+    elif OPTIONS@.solver = "nauty" then
+        return NAUTY_GRAPH_CANONICAL_LABELING( n, outneigh, colours[1], colours[2], isdirected );
+	else
+		Error("unknown solver");
+    fi;
+end );
+
 InstallGlobalFunction( GraphCanonicalLabeling@,
 function( n, outneigh, colours, isdirected )
     local vertices, stops;
@@ -16,15 +27,15 @@ function( n, outneigh, colours, isdirected )
 		Error( "BI: <2> must be a list of lists of integers between 1 and <1>.");
 	fi;
 	if not IsBool(isdirected) then
-		Error( "BI: <3> must be true or false.");
+		Error( "BI: <4> must be true or false.");
 	fi;
     # invalid colouring formats are replaced by 0 or [0,0]
     if OPTIONS@.colouring_format = "nauty" then
         if not(IsList(colours) and Length(colours)=2) then 
             colours := [0,0];
-		elif not(Length(colours[1])=n and ForAll(colours[1],IsPosInt)) then
+		elif not(IsList(colours[1]) and Length(colours[1])=n and ForAll(colours[1],IsPosInt)) then
 			colours[1]:=0;
-		elif not(Length(colours[2])=n and ForAll(colours[2],IsPosInt)) then
+		elif not(IsList(colours[2]) and Length(colours[2])=n and ForAll(colours[2],IsPosInt)) then
 			colours[2]:=0;
         fi;
     else 
@@ -59,16 +70,6 @@ function( n, outneigh, colours, isdirected )
 	return GraphCanonicalLabelingNC@( n, outneigh, colours, isdirected );
 end );
 
-InstallGlobalFunction( GraphCanonicalLabelingNC@,
-function( n, outneigh, colours, isdirected )
-    if OPTIONS@.solver = "bliss" then
-    	return BLISS_GRAPH_CANONICAL_LABELING( n, outneigh, colours, isdirected );
-    elif OPTIONS@.solver = "nauty" then
-        return NAUTY_GRAPH_CANONICAL_LABELING( n, outneigh, colours[1], colours[2], isdirected );
-	else
-		Error("unknown solver");
-    fi;
-end );
 
 # # upper vertices [1..n], lower vertcies n+[1..m]
 # InstallGlobalFunction( BipartiteCanonicalLabeling@,
