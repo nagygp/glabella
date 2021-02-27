@@ -2,23 +2,7 @@
 # labelface: Low level interface to graph automorphism canonical labeling tools
 #
 #! @Chapter Usage of the package
-#!
-#! @Section Introduction
-#! 
-#! @Section Installation
-#! 
-#! @Section Solvers
-#! 
-#! In the present version of the package, we have access to the following solvers:
-#! <List>
-#! <Item><URL Text="bliss: A Tool for Computing 
-#! Automorphism Groups and Canonical Labelings of 
-#! Graphs">http://www.tcs.hut.fi/Software/bliss/</URL>, 
-#! written by Tommi Junttila and Petteri Kaski <Cite Key="Bliss:2007" />. </Item>
-#! <Item><URL Text="nauty: Graph Canonical Labeling and Automorphism Group
-#! Computation">https://pallini.di.uniroma1.it/</URL>, written by Brendan McKay and Adolfo Piperno
-#! and Adolfo Piperno <Cite Key="Nauty:2014" />.</Item>
-#! </List>
+#! @Section Interfaces
 #! 
 #! @Description
 #!    The solver can be set using the variable <C>OPTIONS&#64;</C>. This is a 
@@ -34,7 +18,6 @@
 DeclareGlobalVariable("OPTIONS@");
 #! 
 #! 
-#! @Section Interfaces
 #! 
 #! This section will describe the funtions of <Package>labelface</Package>, 
 #! and their nonchecking counterparts. The nonchecking versions are slightly 
@@ -92,5 +75,3 @@ DeclareGlobalFunction( "BipartiteCanonicalLabeling@" );
 #!   well-formed. 
 #! @Arguments n, outneigh, colours, isdirected
 DeclareGlobalFunction( "BipartiteCanonicalLabelingNC@" );
-
-#! @Section Examples

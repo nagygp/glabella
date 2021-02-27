@@ -1,0 +1,9 @@
+#
+# labelface: Low level interface to graph automorphism canonical labeling tools
+#
+@Chapter Introduction
+@Section General aims
+@Section Installation
+@Chapter Usage of the package
+@Section Interfaces
+@Section Examples

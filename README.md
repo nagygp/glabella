@@ -5,11 +5,15 @@
 # The labelface package
 
 * Website: https://gap-packages.github.io/labelface/
-* Repository: https://github.com/gap-packages/labelface
+* Repository: https://github.com/nagygp/labelface
 
-This package provides a low level interface to the software [***bliss:*** A Tool for Computing Automorphism Groups and Canonical Labelings of Graphs](http://www.tcs.hut.fi/Software/bliss/), written by Tommi Junttila and Petteri Kaski. 
+This package provides a low level interface to softwware that can compute automorphisms, isomorphisms and canonical labelings of graphs. Recently, the following programs are avaible:
 
-The labelface package uses an external binary and therefore a complete installation only works on UNIX systems or systems that support a UNIX-like environment, e.g. OS X, or Windows with Cygwin. 
+* [***bliss:*** A Tool for Computing Automorphism Groups and Canonical Labelings of Graphs](http://www.tcs.hut.fi/Software/bliss/), written by Tommi Junttila and Petteri Kaski. 
+* [***nauty:*** Graph Canonical Labeling and Automorphism Group Computation](https://pallini.di.uniroma1.it/), written by Brendan McKay and Adolfo Piperno
+#! and Adolfo Piperno.
+
+The **labelface** package uses external binaries and GAP kernel modules, and therefore a complete installation only works on UNIX systems or systems that support a UNIX-like environment, e.g. OS X, Windows with Cygwin, or WSL2. 
 
 On the package website precompiled binaries are available for certain environments. To compile the package, change to the `/pkg/labelface*` directory  of your GAP installation and then call
 	
@@ -39,7 +43,7 @@ Maintainer:
 
 * [Gábor P. Nagy](https://algebra.math.bme.hu/nagy-gabor), Budapest University of Technology, Hungary.
 
-For questions, remarks and issues please use the [issue tracker](https://github.com/gap-packages/labelface/issues).
+For questions, remarks and issues please use the [issue tracker](https://github.com/nagygp/labelface/issues).
 
 ## License
 
@@ -47,4 +51,4 @@ labelface is free software; you can redistribute it and/or modify it under the t
 
 ## Credits
 
-This package uses open source components of the GAP package **Digraphs**. You can find the source code of its open source project along with license information on  https://github.com/gap-packages/Digraphs. 
+This package uses open source components of the GAP packages [**Digraphs**](https://github.com/gap-packages/Digraphs) and [**NautyTracesInterface**](https://github.com/gap-packages/NautyTracesInterface). You can find the source code of its open source project along with license information on their websites. 

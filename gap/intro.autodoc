@@ -3,30 +3,47 @@
 Important parts of this package are based on the packages <Package>Digraphs</Package> <Cite 
 Key="Digraphs0.15.2" /> and <Package>NautyTracesInterface</Package> <Cite Key="NautyTracesInterface0.2" />.
 
-@Chapter Usage of the package
-
-@Section Introduction
+@Abstract 
 
 The &GAP; package <Package>labelface</Package> provides a low level 
-interface to the software <URL Text="bliss: A Tool for Computing 
-Automorphism Groups and Canonical Labelings of 
-Graphs">http://www.tcs.hut.fi/Software/bliss/</URL>, 
-written by Tommi Junttila and Petteri Kaski <Cite Key="Bliss:2007" />. 
+interface to software that can compute automorphisms, isomorphisms 
+and canonical labelings of graphs. The graphs can be directed or 
+undirected, and a vertex colouring can be specified. In the present
+version, the package provides interfaces to the programs <E>bliss</E>,
+<E>nauty</E>, and <E>Traces</E>.
 
-The only interest of this package is the computation of the group 
-of colour preserving automorphisms of coloured graphs. The graphs 
-can be directed or undirected, bipartite or not. Duplicate edges 
-between vertices are ignored but try to avoid introducing them in 
-the first place as they are not ignored immediately but will 
-consume memory and computation resources for a while.
+@Chapter Introduction
+
+@Section General aims
+
+The &GAP; package <Package>labelface</Package> provides a low level 
+interface to software that can compute automorphisms, isomorphisms 
+and canonical labelings of graphs. The graphs can be directed or 
+undirected, and a vertex colouring can be specified. Duplicate 
+edges between vertices are ignored. 
+
+These interfaces do not intend to be feature rich and user friendly. 
+They are targeted to experienced GAP users and package authors, who
+can use them for their specific classes of graphs and other discrete
+mathematical structures, without the neccessity of compiling C and C++
+codes.
 
 For more specialized algorithms and methods of the theory of graphs,
 we recommend the packages <Package>Digraphs</Package> <Cite 
 Key="Digraphs0.15.2" /> and <Package>GRAPE</Package> <Cite 
 Key="GRAPE4.8.2" />. 
-To compute graph automorphisms see also the software  <URL Text="nauty">
-http://users.cecs.anu.edu.au/~bdm/nauty/</URL> by Brendan McKay and Adolfo 
-Piperno <Cite Key="Nauty:2014" />.
+
+In the present version of the package, we have access to the following solvers:
+<List>
+<Item><URL Text="bliss: A Tool for Computing 
+Automorphism Groups and Canonical Labelings of 
+Graphs">http://www.tcs.hut.fi/Software/bliss/</URL>, 
+written by Tommi Junttila and Petteri Kaski <Cite Key="Bliss:2007" />. </Item>
+<Item><URL Text="nauty and Traces: Graph Canonical Labeling and Automorphism Group
+Computation">https://pallini.di.uniroma1.it/</URL>, written by Brendan McKay and Adolfo Piperno
+and Adolfo Piperno <Cite Key="Nauty:2014" />.</Item>
+</List>
+
 
 @Section Installation
 

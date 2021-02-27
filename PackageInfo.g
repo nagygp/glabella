@@ -9,7 +9,7 @@
 SetPackageInfo( rec(
 
 PackageName := "labelface",
-Subtitle := "Low level interface to graph automorphism canonical labeling tools",
+Subtitle := "Low level interfaces to graph automorphism and canonical labeling tools",
 Version := "0.3",
 Date := "25/02/2021", # dd/mm/yyyy format
 License := "GPL-2.0-or-later",
