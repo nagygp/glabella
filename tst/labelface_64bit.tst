@@ -23,20 +23,25 @@ gap> LoadPackage( "labelface", false );
 true
 gap> 
 gap> ###################################
-gap> OPTIONS@labelface.colouring_format := "plain";
-"plain"
-gap> OPTIONS@labelface.solver := "bliss";
-"bliss"
-gap> 
 gap> v:=Combinations([1..10],5);;
 gap> johnson:=List(v,x->Filtered([1..Size(v)],i->Size(Intersection(x,v[i]))=2));;
-gap> bl1:=GraphCanonicalLabeling@labelface(Size(v),last,0,false);;
+gap> bl1:=GraphCanonicalLabeling@labelface(Size(v),johnson,0,false);;
 gap> Size(bl1[1]);
 6
 gap> bl1[3];
 4157290354
 gap> Print(StructureDescription(Group(bl1[1])),"\n");
 C2 x S10
+gap> 
+gap> bl1n:=GraphCanonicalLabeling@labelface(Size(v),johnson,0,false,"nauty");;
+gap> Size(bl1n[1]);
+9
+gap> bl1n[3];
+1321160822
+gap> Print(StructureDescription(Group(bl1n[1])),"\n");
+C2 x S10
+gap> 
+gap> 
 gap> 
 gap> petersen:=[[2,5,6],[1,3,7],[2,4,8],[3,5,9],[1,4,10],
 >     [1,8,9],[2,9,10],[3,6,10],[4,6,7],[5,7,8]];
@@ -53,6 +58,13 @@ gap> bl2c:=GraphCanonicalLabeling@labelface(10, petersen,
 [ [ (2,5)(3,4)(7,10)(8,9), (1,2,3,4,5)(6,7,8,9,10) ], 
   (1,5,3,2,4)(6,10,7)(8,9), 2440551578 ]
 gap> Print(StructureDescription(Group(bl2c[1])),"\n");
+D10
+gap> 
+gap> bl2cn:=GraphCanonicalLabeling@labelface(10, petersen, 
+>     [1,1,1,1,1,2,2,2,2,2], false, "nauty");
+[ [ (2,5)(3,4)(7,10)(8,9), (1,2)(3,5)(6,7)(8,10) ], (3,5,4)(7,8,9), 
+  1075461802 ]
+gap> Print(StructureDescription(Group(bl2cn[1])),"\n");
 D10
 gap> 
 gap> dir_edges:=[

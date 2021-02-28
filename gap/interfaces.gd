@@ -7,41 +7,34 @@
 #! This section will describe the funtions of <Package>labelface</Package>, 
 #! and their nonchecking counterparts. 
 #! 
-#! @Description
-#!    The solver can be set using the variable <C>OPTIONS&#64;</C>. This is a 
-#!   record with two fields: <C>OPTIONS&#64;.solver</C> can take the values 
-#!   <C>"bliss"</C> and <C>"nauty"</C>. Default is <C>"bliss"</C>.
-#!   <P />The field <C>OPTIONS&#64;.colouring_format</C>
-#!   specifies the format of the vertex colouring of the graph in question. 
-#!   The value <C>"plain"</C> means the colouring is given by a list of integers
-#!   of length $n$, such that the $i$th value is the colour of vertex $i$. When 
-#!   <C>OPTIONS&#64;.colouring_format = "nauty"</C>, then the vertex colouring
-#!   is given by a pair of list of length $n$, using nauty's format. 
-#!   Default is <C>"plain"</C>.
-DeclareGlobalVariable("OPTIONS@");
+#! Let $\Gamma$ be a graph on the set $\{1,\ldots,n\}$ of vertices. $G$ may be directed or not; loops and duplicate edges are ignored. The graph is given by the list of its adjacencies $N_1,\ldots,N_n$, where $N_i$ is the set of (out)neighbors of the vertex $i$. 
 #! 
+#! A vertex colouring of $\Gamma$ can be given in two different formats. The <E>plain</E> format is a list $c_1,\ldots,c_n$ of integers; $c_i$ being the colour of the vertex $i$. The <E>nauty</E> format consists of two lists: $u_1,\ldots,u_n$ is a permutation of $\{1,\ldots,n\}$, and $s_1,\ldots,s_n \in \{0,1\}$. The second list indicates the division of the vertices into colours: if $s_i=0$, then a colour class ends at position $i$. For example, the lists
+#! $$u=[3,4,6,7,2,1,5,8,9], \quad s=[0,0,1,1,1,0,1,1,0]$$
+#! represent the colour classes $\{\{3\},\{4\},\{1,2,6,7\},\{5,8,9\}\}$. In plain format, the same colouring can be given by the list $c=[1,1,2,3,4,1,1,4,4]$. 
 #! 
+#! The solver programs (recently bliss 0.73, nauty and Traces 2.7R1) compute the generators of the automorphism group of the (coloured) graph $\Gamma$. Moreover a canonical labelling of $\Gamma$ is computed, this is a permutation of the vertices that bring the graph in a canonical format. Isomorphic graphs in canonical format are equal. Notice that canonical labellings can depend on the solver used, the version of the solver, the version of this packages, the version of GAP, parameter settings of the solver, and possibly even the compiler and computer used. 
 #! 
-#! This section will describe the funtions of <Package>labelface</Package>, 
-#! and their nonchecking counterparts. The nonchecking versions are slightly 
-#! faster but it must be used with extreme care. Bad parameters may result 
-#! in unpredictable behaviour. 
+#! The solver programs also compute a 32-bit hash value of the graph. The same as above: this hash value is an isomorphy invariant that depends on your software and hardware environment. It also depends on the colouring in bliss, but not in nauty and Traces.
+#!  
+#! 
+#! This section will describe the funtions of <Package>labelface</Package>,  and their nonchecking counterparts. The nonchecking versions are slightly faster but it must be used with extreme care. Bad parameters may result in unpredictable behaviour. 
 #!
 #! @BeginGroup G1
 #! @Description
 #!   The coloured graph <C>G</C> has vertices <C>[1..n]</C>. 
-#!   If <A>isdirected</A> is <C>true</C> then <C>G</C> is directed. 
+#!   If <A>isdirected</A> is <C>true</C> then <C>G</C> is directed. (Default: <C>false</C>.)
 #!   The edges of <C>G</C> are given by <A>outneigh</A>, which is a list 
 #!   <C>[N_1,...,N_n]</C>, such that <C>N_i</C> is the list of (out)neighbors 
 #!   of the vertex <C>i</C>. Duplicate edges between vertices and loops are ignored.
-#!   <P />If <A>colours</A> is a list of length <C>n</C> then its elements are used to
-#!   define a vertex colouring of <C>G</C>, otherwise all vertices have colour <C>0</C>.
-#! @Arguments n, outneigh, colours, isdirected
+#!   <P />For coloured graphs, <A>colouring</A> is either a list of length <C>n</C> (plain format), or a pair of two lists of length <C>n</C> (nauty format). For malformatted colourings, all vertices have colour <C>0</C>.
+#!   <P />The solver can be specified by the strings <C>"bliss"</C> or <C>"nauty"</C>. (Default: <C>"bliss"</C>.)
+#! @Arguments n, outneigh, colouring[, isdirected[, solver]]
 #! @Returns
 #!   The triple <C>[gens,cl,hash]</C> as GAP object, where <C>gens</C> is a list
 #!   of generators for the group of colour preserving automorphisms of 
 #!   the graph <C>G</C>, <C>cl</C> is a canonical labeling of <C>G</C>, 
-#!   and <C>hash</C> is an integer valued hash of the permuted graph.
+#!   and <C>hash</C> is an integer valued 32-bit hash of the permuted graph.
 DeclareGlobalFunction( "GraphCanonicalLabeling@" );
 #! @EndGroup
 
@@ -50,6 +43,6 @@ DeclareGlobalFunction( "GraphCanonicalLabeling@" );
 #!   <C>GraphCanonicalLabeling</C>, using the same arguments. Results are 
 #!   unpredictable if the parameters are not well-formed. 
 #! @Group G1
-#! @Arguments n, outneigh, colours, isdirected
+#! @Arguments n, outneigh, colours, isdirected, solver
 DeclareGlobalFunction( "GraphCanonicalLabelingNC@" );
 

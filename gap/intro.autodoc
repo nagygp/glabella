@@ -37,10 +37,10 @@ In the present version of the package, we have access to the following solvers:
 <List>
 <Item><URL Text="bliss: A Tool for Computing 
 Automorphism Groups and Canonical Labelings of 
-Graphs">http://www.tcs.hut.fi/Software/bliss/</URL>, 
+Graphs (version 0.73)">http://www.tcs.hut.fi/Software/bliss/</URL>
 written by Tommi Junttila and Petteri Kaski <Cite Key="Bliss:2007" />. </Item>
 <Item><URL Text="nauty and Traces: Graph Canonical Labeling and Automorphism Group
-Computation">https://pallini.di.uniroma1.it/</URL>, written by Brendan McKay and Adolfo Piperno
+Computation (version 2.7R1)">https://pallini.di.uniroma1.it/</URL>, written by Brendan McKay and Adolfo Piperno
 and Adolfo Piperno <Cite Key="Nauty:2014" />.</Item>
 </List>
 

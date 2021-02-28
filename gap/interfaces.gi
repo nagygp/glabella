@@ -4,13 +4,11 @@
 # Implementations
 #
 
-InstallValue( OPTIONS@, rec( solver:= "bliss", colouring_format:="plain" ) );
-
 InstallGlobalFunction( GraphCanonicalLabelingNC@,
-function( n, outneigh, colours, isdirected )
-    if OPTIONS@.solver = "bliss" then
+function( n, outneigh, colours, isdirected, solver )
+    if solver = "bliss" then
     	return BLISS_GRAPH_CANONICAL_LABELING( n, outneigh, colours, isdirected );
-    elif OPTIONS@.solver = "nauty" then
+    elif solver = "nauty" then
         return NAUTY_GRAPH_CANONICAL_LABELING( n, outneigh, colours[1], colours[2], isdirected );
 	else
 		Error("unknown solver");
@@ -18,8 +16,18 @@ function( n, outneigh, colours, isdirected )
 end );
 
 InstallGlobalFunction( GraphCanonicalLabeling@,
-function( n, outneigh, colours, isdirected )
-    local vertices, stops;
+function( n, outneigh, colouring, args... )
+    local vertices, stops, solver, colouring_format, isdirected;
+	if Length(args) > 0 then 
+		isdirected := args[1];
+	else 
+		isdirected := false;
+	fi;
+	if Length(args) > 1 then
+		solver := args[2];
+	else
+		solver := "bliss";
+	fi;
 	if not IsPosInt(n) then
 		Error( "BI: <1> must be a positive integer.");
 	fi;
@@ -29,45 +37,46 @@ function( n, outneigh, colours, isdirected )
 	if not IsBool(isdirected) then
 		Error( "BI: <4> must be true or false.");
 	fi;
+    # identify colouring format
+	if IsList(colouring) and Length(colouring)=2 and 
+		IsList(colouring[1]) and Length(colouring[1])=n and ForAll(colouring[1],IsPosInt) and
+		IsList(colouring[2]) and Length(colouring[2])=n and ForAll(colouring[2],IsPosInt)
+	then 
+		colouring_format := "nauty";
+	else 
+		colouring_format := "plain";
+	fi;
     # invalid colouring formats are replaced by 0 or [0,0]
-    if OPTIONS@.colouring_format = "nauty" then
-        if not(IsList(colours) and Length(colours)=2) then 
-            colours := [0,0];
-		elif not(IsList(colours[1]) and Length(colours[1])=n and ForAll(colours[1],IsPosInt)) then
-			colours[1]:=0;
-		elif not(IsList(colours[2]) and Length(colours[2])=n and ForAll(colours[2],IsPosInt)) then
-			colours[2]:=0;
-        fi;
-    else 
-        if not (IsList(colours) and Length(colours)=n and ForAll(colours,IsInt)) then
-            colours := 0;
-        fi;
+    if colouring_format = "plain" and
+        not (IsList(colouring) and Length(colouring)=n and ForAll(colouring,IsInt)) 
+	then
+        colouring := 0;
     fi;
     # if solver and colouring format mismatch
-    if OPTIONS@.colouring_format = "plain" and OPTIONS@.solver = "nauty" then
-        if colours = 0 then
-            colours := [0,0];
+    if colouring_format = "plain" and solver = "nauty" then
+        if colouring = 0 then
+            colouring := [0,0];
         else
-            stops:=ShallowCopy(colours);
+            stops:=ShallowCopy(colouring);
             vertices:=[1..n];
             StableSortParallel(stops,vertices);
             stops:=List([1..n],
                 function(i) if i=n or stops[i]<>stops[i+1] then return 0; else return 1; fi; end
 		    ); 
-            colours := [vertices, stops];
+            colouring := [vertices, stops];
         fi;
     fi;
-    if OPTIONS@.colouring_format = "nauty" and OPTIONS@.solver = "bliss" then
-        if colours = [0,0] then
-            colours := 0;
+    if colouring_format = "nauty" and solver = "bliss" then
+        if colouring = [0,0] then
+            colouring := 0;
         else
-			colours[2] := Concatenation([0],1-colours[2]);
-			colours[2] := List([1..n],i->Sum(colours[2]{[1..i]}));
-			StableSortParallel(colours[1],colours[2]);
-            colours := colours[2];
+			colouring[2] := Concatenation([0],1-colouring[2]);
+			colouring[2] := List([1..n],i->Sum(colouring[2]{[1..i]}));
+			StableSortParallel(colouring[1],colouring[2]);
+            colouring := colouring[2];
         fi;
     fi;
-	return GraphCanonicalLabelingNC@( n, outneigh, colours, isdirected );
+	return GraphCanonicalLabelingNC@( n, outneigh, colouring, isdirected, solver );
 end );
 
 

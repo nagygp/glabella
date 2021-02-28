@@ -6,15 +6,19 @@ ExtendRootDirectories([Concatenation(GAPInfo.UserHome,"/MyGAP/")]);
 LoadPackage( "labelface", false );
 
 ###################################
-OPTIONS@labelface.colouring_format := "plain";
-OPTIONS@labelface.solver := "bliss";
-
 v:=Combinations([1..10],5);;
 johnson:=List(v,x->Filtered([1..Size(v)],i->Size(Intersection(x,v[i]))=2));;
-bl1:=GraphCanonicalLabeling@labelface(Size(v),last,0,false);;
+bl1:=GraphCanonicalLabeling@labelface(Size(v),johnson,0,false);;
 Size(bl1[1]);
 bl1[3];
 Print(StructureDescription(Group(bl1[1])),"\n");
+
+bl1n:=GraphCanonicalLabeling@labelface(Size(v),johnson,0,false,"nauty");;
+Size(bl1n[1]);
+bl1n[3];
+Print(StructureDescription(Group(bl1n[1])),"\n");
+
+
 
 petersen:=[[2,5,6],[1,3,7],[2,4,8],[3,5,9],[1,4,10],
     [1,8,9],[2,9,10],[3,6,10],[4,6,7],[5,7,8]];
@@ -24,6 +28,10 @@ Print(StructureDescription(Group(bl2[1])),"\n");
 bl2c:=GraphCanonicalLabeling@labelface(10, petersen, 
     [1,1,1,1,1,2,2,2,2,2], false);
 Print(StructureDescription(Group(bl2c[1])),"\n");
+
+bl2cn:=GraphCanonicalLabeling@labelface(10, petersen, 
+    [1,1,1,1,1,2,2,2,2,2], false, "nauty");
+Print(StructureDescription(Group(bl2cn[1])),"\n");
 
 dir_edges:=[
     [1,2],[2,3],[3,1],[4,5],[5,6],[6,4],[7,8],[8,9],[9,7],
