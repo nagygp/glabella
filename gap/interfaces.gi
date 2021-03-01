@@ -55,7 +55,7 @@ function( n, outneigh, colouring, args... )
         colouring := 0;
     fi;
     # if solver and colouring format mismatch
-    if colouring_format = "plain" and solver in ["nauty","sparsenauty","traces"] then
+    if colouring_format = "plain" and solver in ["nauty","sparsenauty"] then
         if colouring = 0 then
             colouring := [0,0];
         else
