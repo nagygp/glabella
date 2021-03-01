@@ -10,8 +10,7 @@
 This package provides a low level interface to softwware that can compute automorphisms, isomorphisms and canonical labelings of graphs. Recently, the following programs are avaible:
 
 * [***bliss:*** A Tool for Computing Automorphism Groups and Canonical Labelings of Graphs](http://www.tcs.hut.fi/Software/bliss/), written by Tommi Junttila and Petteri Kaski. 
-* [***nauty:*** Graph Canonical Labeling and Automorphism Group Computation](https://pallini.di.uniroma1.it/), written by Brendan McKay and Adolfo Piperno
-#! and Adolfo Piperno.
+* [***nauty:*** Graph Canonical Labeling and Automorphism Group Computation](https://pallini.di.uniroma1.it/), written by Brendan McKay and Adolfo Piperno.
 
 The **labelface** package uses external binaries and GAP kernel modules, and therefore a complete installation only works on UNIX systems or systems that support a UNIX-like environment, e.g. OS X, Windows with Cygwin, or WSL2. 
 

@@ -10,6 +10,8 @@ function( n, outneigh, colours, isdirected, solver )
     	return BLISS_GRAPH_CANONICAL_LABELING( n, outneigh, colours, isdirected );
     elif solver = "nauty" then
         return NAUTY_GRAPH_CANONICAL_LABELING( n, outneigh, colours[1], colours[2], isdirected );
+    elif solver = "sparsenauty" then
+        return NAUTY_SPARSEGRAPH_CANONICAL_LABELING( n, outneigh, colours[1], colours[2], isdirected );
 	else
 		Error("unknown solver");
     fi;
@@ -53,7 +55,7 @@ function( n, outneigh, colouring, args... )
         colouring := 0;
     fi;
     # if solver and colouring format mismatch
-    if colouring_format = "plain" and solver = "nauty" then
+    if colouring_format = "plain" and solver in ["nauty","sparsenauty","traces"] then
         if colouring = 0 then
             colouring := [0,0];
         else

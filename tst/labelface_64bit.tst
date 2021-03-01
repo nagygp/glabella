@@ -41,7 +41,13 @@ gap> bl1n[3];
 gap> Print(StructureDescription(Group(bl1n[1])),"\n");
 C2 x S10
 gap> 
-gap> 
+gap> bl1sn:=GraphCanonicalLabeling@labelface(Size(v),johnson,0,false,"sparsenauty");;
+gap> Size(bl1sn[1]);
+7
+gap> bl1sn[3];
+483636399
+gap> Print(StructureDescription(Group(bl1sn[1])),"\n");
+C2 x S10
 gap> 
 gap> petersen:=[[2,5,6],[1,3,7],[2,4,8],[3,5,9],[1,4,10],
 >     [1,8,9],[2,9,10],[3,6,10],[4,6,7],[5,7,8]];
@@ -65,6 +71,13 @@ gap> bl2cn:=GraphCanonicalLabeling@labelface(10, petersen,
 [ [ (2,5)(3,4)(7,10)(8,9), (1,2)(3,5)(6,7)(8,10) ], (3,5,4)(7,8,9), 
   1075461802 ]
 gap> Print(StructureDescription(Group(bl2cn[1])),"\n");
+D10
+gap> 
+gap> bl2csn:=GraphCanonicalLabeling@labelface(10, petersen, 
+>     [1,1,1,1,1,2,2,2,2,2], false, "sparsenauty");
+[ [ (2,5)(3,4)(7,10)(8,9), (1,2,3,4,5)(6,7,8,9,10) ], 
+  (2,3,4,5)(6,7,10)(8,9), 1073589711 ]
+gap> Print(StructureDescription(Group(bl2csn[1])),"\n");
 D10
 gap> 
 gap> dir_edges:=[
