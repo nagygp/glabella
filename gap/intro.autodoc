@@ -9,8 +9,8 @@ The &GAP; package <Package>labelface</Package> provides a low level
 interface to software that can compute automorphisms, isomorphisms 
 and canonical labelings of graphs. The graphs can be directed or 
 undirected, and a vertex colouring can be specified. In the present
-version, the package provides interfaces to the programs <E>bliss</E>,
-<E>nauty</E>, and <E>Traces</E>.
+version, the package provides interfaces to the programs <E>bliss</E>
+and <E>nauty</E>.
 
 @Chapter Introduction
 

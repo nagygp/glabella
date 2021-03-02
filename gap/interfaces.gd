@@ -13,9 +13,9 @@
 #! $$u=[3,4,6,7,2,1,5,8,9], \quad s=[0,0,1,1,1,0,1,1,0]$$
 #! represent the colour classes $\{\{3\},\{4\},\{1,2,6,7\},\{5,8,9\}\}$. In plain format, the same colouring can be given by the list $c=[1,1,2,3,4,1,1,4,4]$. 
 #! 
-#! The solver programs (recently bliss 0.73, nauty and Traces 2.7R1) compute the generators of the automorphism group of the (coloured) graph $\Gamma$. Moreover a canonical labelling of $\Gamma$ is computed, this is a permutation of the vertices that bring the graph in a canonical format. Isomorphic graphs in canonical format are equal. Notice that canonical labellings can depend on the solver used, the version of the solver, the version of this packages, the version of GAP, parameter settings of the solver, and possibly even the compiler and computer used. 
+#! The solver programs (recently bliss 0.73, nauty 2.7R1) compute the generators of the automorphism group of the (coloured) graph $\Gamma$. Moreover a canonical labelling of $\Gamma$ is computed, this is a permutation of the vertices that bring the graph in a canonical format. Isomorphic graphs in canonical format are equal. Notice that canonical labellings can depend on the solver used, the version of the solver, the version of this packages, the version of GAP, parameter settings of the solver, and possibly even the compiler and computer used. 
 #! 
-#! The solver programs also compute a 32-bit hash value of the graph. The same as above: this hash value is an isomorphy invariant that depends on your software and hardware environment. It also depends on the colouring in bliss, but not in nauty and Traces.
+#! The solver programs also compute a 32-bit hash value of the graph. The same as above: this hash value is an isomorphy invariant that depends on your software and hardware environment. It also depends on the colouring in bliss, but not in nauty.
 #!  
 #! 
 #! This section will describe the funtions of <Package>labelface</Package>,  and their nonchecking counterparts. The nonchecking versions are slightly faster but it must be used with extreme care. Bad parameters may result in unpredictable behaviour. 
