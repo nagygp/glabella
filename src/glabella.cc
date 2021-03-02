@@ -1,5 +1,5 @@
 /*
- * labelface: Low level interface to graph automorphism canonical labeling tools
+ * glabella: Low level interface to graph automorphism canonical labeling tools
  */
 
 #include "compiled.h" // GAP headers
@@ -230,7 +230,7 @@ Obj FuncNAUTY_SPARSEGRAPH_CANONICAL_LABELING(Obj self, Obj nr_vert, Obj outneigh
  * Modified by G.P. Nagy, 21/08/2019
  */
 
-void labelface_hook_function(void *user_param_v, unsigned int N,
+void glabella_hook_function(void *user_param_v, unsigned int N,
                              const unsigned int *aut) {
   UInt4 *ptr;
   Obj p, gens, user_param;
@@ -260,7 +260,7 @@ void labelface_hook_function(void *user_param_v, unsigned int N,
  * system, and <cl> is a canonical labeling of the digraph.
  */
 
-static Obj labelface_autgr_canlab(bliss::AbstractGraph *graph) {
+static Obj glabella_autgr_canlab(bliss::AbstractGraph *graph) {
   Obj autos, p, n;
   UInt4 *ptr;
   const unsigned int *canon;
@@ -275,7 +275,7 @@ static Obj labelface_autgr_canlab(bliss::AbstractGraph *graph) {
   SET_ELM_PLIST(autos, 2, n);
   SET_LEN_PLIST(autos, 2);
 
-  canon = graph->canonical_form(stats, labelface_hook_function, autos);
+  canon = graph->canonical_form(stats, glabella_hook_function, autos);
 
   p = PermToGAP((int *)canon, graph->get_nof_vertices());
   SET_ELM_PLIST(autos, 2, p);
@@ -344,7 +344,7 @@ Obj FuncBLISS_GRAPH_CANONICAL_LABELING(Obj self, Obj n, Obj outneigh,
       g->add_edge(i - 1, INT_INTOBJ(ELM_PLIST(block, j)) - 1);
     }
   }
-  Obj ret = labelface_autgr_canlab(g);
+  Obj ret = glabella_autgr_canlab(g);
   delete g;
   return ret;
 }
@@ -415,7 +415,7 @@ static Int InitLibrary(StructInitInfo *module) {
 */
 static StructInitInfo module = {
     /* type        = */ MODULE_DYNAMIC,
-    /* name        = */ "labelface",
+    /* name        = */ "glabella",
     /* revision_c  = */ 0,
     /* revision_h  = */ 0,
     /* version     = */ 0,

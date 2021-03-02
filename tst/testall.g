@@ -1,16 +1,16 @@
 #
-# labelface: Low level interface to graph automorphism canonical labeling tools
+# glabella: Low level interface to graph automorphism canonical labeling tools
 #
 # This file runs package tests. It is also referenced in the package
 # metadata in PackageInfo.g.
 #
-LoadPackage( "labelface" );
+LoadPackage( "glabella" );
 
-dir := DirectoriesPackageLibrary( "labelface", "tst" );
+dir := DirectoriesPackageLibrary( "glabella", "tst" );
 if GAPInfo.BytesPerVariable=8 then 
-  toexclude := [ "labelface_32bit.tst", "nautyinterface_32bit.tst" ]; 
+  toexclude := [ "glabella_32bit.tst", "nautyinterface_32bit.tst" ]; 
 else
-  toexclude := [ "labelface_64bit.tst", "nautyinterface_64bit.tst" ];
+  toexclude := [ "glabella_64bit.tst", "nautyinterface_64bit.tst" ];
 fi;
 
 TestDirectory( dir,

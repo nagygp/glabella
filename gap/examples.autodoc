@@ -7,7 +7,7 @@ collineation group $PSL(3,2)$. By colouring the vertices of $\Gamma$, we get
 stabilizers of points and/or line.
 
 @BeginExampleSession
-gap> LoadPackage( "labelface", false );
+gap> LoadPackage( "glabella", false );
 true
 gap> 
 gap> fano:=Set([[1,2,4],[2,3,5],[3,4,6],[4,5,7],

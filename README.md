@@ -1,20 +1,20 @@
-[![Build Status](https://travis-ci.com/nagygp/labelface.svg?branch=master)](https://travis-ci.com/nagygp/labelface)
-[![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/nagygp/labelface?branch=master&svg=true)](https://ci.appveyor.com/project/nagygp/labelface)
-[![Code Coverage](https://codecov.io/github/nagygp/labelface/coverage.svg?branch=master&token=)](https://codecov.io/gh/nagygp/labelface)
+[![Build Status](https://travis-ci.com/nagygp/glabella.svg?branch=master)](https://travis-ci.com/nagygp/glabella)
+[![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/nagygp/glabella?branch=master&svg=true)](https://ci.appveyor.com/project/nagygp/glabella)
+[![Code Coverage](https://codecov.io/github/nagygp/glabella/coverage.svg?branch=master&token=)](https://codecov.io/gh/nagygp/glabella)
 
-# The labelface package
+# The glabella package
 
-* Website: https://gap-packages.github.io/labelface/
-* Repository: https://github.com/nagygp/labelface
+* Website: https://gap-packages.github.io/glabella/
+* Repository: https://github.com/nagygp/glabella
 
 This package provides a low level interface to softwware that can compute automorphisms, isomorphisms and canonical labelings of graphs. Recently, the following programs are avaible:
 
 * [***bliss:*** A Tool for Computing Automorphism Groups and Canonical Labelings of Graphs](http://www.tcs.hut.fi/Software/bliss/), written by Tommi Junttila and Petteri Kaski. 
 * [***nauty:*** Graph Canonical Labeling and Automorphism Group Computation](https://pallini.di.uniroma1.it/), written by Brendan McKay and Adolfo Piperno.
 
-The **labelface** package uses external binaries and GAP kernel modules, and therefore a complete installation only works on UNIX systems or systems that support a UNIX-like environment, e.g. OS X, Windows with Cygwin, or WSL2. 
+The **glabella** package uses external binaries and GAP kernel modules, and therefore a complete installation only works on UNIX systems or systems that support a UNIX-like environment, e.g. OS X, Windows with Cygwin, or WSL2. 
 
-On the package website precompiled binaries are available for certain environments. To compile the package, change to the `/pkg/labelface*` directory  of your GAP installation and then call
+On the package website precompiled binaries are available for certain environments. To compile the package, change to the `/pkg/glabella*` directory  of your GAP installation and then call
 	
 	./configure <path>
 
@@ -30,11 +30,11 @@ to compile the binary.
 
 Now start GAP and type
 
-	LoadPackage("labelface");
+	LoadPackage("glabella");
 
 to load the package. You will see the package banner. If you have not compiled the external binary, you should receive a warning.
 
-For details on how to use the labelface package see the package documentation in the `doc` subdirectory (view its HTML version or  `manual.pdf`  via a PDF viewer). 
+For details on how to use the glabella package see the package documentation in the `doc` subdirectory (view its HTML version or  `manual.pdf`  via a PDF viewer). 
 
 ## Contact
 
@@ -42,11 +42,11 @@ Maintainer:
 
 * [Gábor P. Nagy](https://algebra.math.bme.hu/nagy-gabor), Budapest University of Technology, Hungary.
 
-For questions, remarks and issues please use the [issue tracker](https://github.com/nagygp/labelface/issues).
+For questions, remarks and issues please use the [issue tracker](https://github.com/nagygp/glabella/issues).
 
 ## License
 
-labelface is free software; you can redistribute it and/or modify it under the terms of the Version 2 of the GNU General Public License. For details see the file LICENSE.
+glabella is free software; you can redistribute it and/or modify it under the terms of the Version 2 of the GNU General Public License. For details see the file LICENSE.
 
 ## Credits
 

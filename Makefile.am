@@ -1,17 +1,17 @@
 #
-# labelface: Low level interface to graph automorphism canonical labeling tools
+# glabella: Low level interface to graph automorphism canonical labeling tools
 #
 # This file is part of the build system of a GAP kernel extension.
 # Requires automake.
 #
 ACLOCAL_AMFLAGS = -I m4
 
-labelface_INCLUDE = -I$(top_srcdir)/extern/
+glabella_INCLUDE = -I$(top_srcdir)/extern/
 
 BINARCHDIR = bin/$(GAPARCH)
-GAPINSTALLLIB = $(abs_top_srcdir)/$(BINARCHDIR)/labelface.so
+GAPINSTALLLIB = $(abs_top_srcdir)/$(BINARCHDIR)/glabella.so
 
-lib_LTLIBRARIES = labelface.la
+lib_LTLIBRARIES = glabella.la
 
 pkginclude_HEADERS = extern/bliss-0.73/graph.hh
 pkginclude_HEADERS += extern/bliss-0.73/partition.hh
@@ -19,52 +19,52 @@ pkginclude_HEADERS += extern/bliss-0.73/orbit.hh
 pkginclude_HEADERS += extern/bliss-0.73/heap.hh
 pkginclude_HEADERS += extern/bliss-0.73/timer.hh
 
-labelface_la_SOURCES = src/labelface.cc 
-labelface_la_SOURCES += extern/bliss-0.73/graph.cc 
-labelface_la_SOURCES += extern/bliss-0.73/partition.cc
-labelface_la_SOURCES += extern/bliss-0.73/orbit.cc 
-labelface_la_SOURCES += extern/bliss-0.73/heap.cc
-labelface_la_SOURCES += extern/bliss-0.73/timer.cc
+glabella_la_SOURCES = src/glabella.cc 
+glabella_la_SOURCES += extern/bliss-0.73/graph.cc 
+glabella_la_SOURCES += extern/bliss-0.73/partition.cc
+glabella_la_SOURCES += extern/bliss-0.73/orbit.cc 
+glabella_la_SOURCES += extern/bliss-0.73/heap.cc
+glabella_la_SOURCES += extern/bliss-0.73/timer.cc
 
 pkginclude_HEADERS += extern/bliss-0.73/defs.hh
 pkginclude_HEADERS += extern/bliss-0.73/uintseqhash.hh
 pkginclude_HEADERS += extern/bliss-0.73/utils.hh
 
-labelface_la_SOURCES += extern/bliss-0.73/defs.cc 
-labelface_la_SOURCES += extern/bliss-0.73/uintseqhash.cc
-labelface_la_SOURCES += extern/bliss-0.73/utils.cc
+glabella_la_SOURCES += extern/bliss-0.73/defs.cc 
+glabella_la_SOURCES += extern/bliss-0.73/uintseqhash.cc
+glabella_la_SOURCES += extern/bliss-0.73/utils.cc
 
 pkginclude_HEADERS += extern/nauty27r1/nauty.h
 
-labelface_la_SOURCES += extern/nauty27r1/nauty.c
-labelface_la_SOURCES += extern/nauty27r1/naugraph.c
-labelface_la_SOURCES += extern/nauty27r1/nautil.c
-labelface_la_SOURCES += extern/nauty27r1/nausparse.c
-labelface_la_SOURCES += extern/nauty27r1/schreier.c
-labelface_la_SOURCES += extern/nauty27r1/naurng.c
-labelface_la_SOURCES += extern/nauty27r1/traces.c
-labelface_la_SOURCES += extern/nauty27r1/gtools.c
-labelface_la_SOURCES += extern/nauty27r1/naututil.c
-labelface_la_SOURCES += extern/nauty27r1/nautinv.c
-labelface_la_SOURCES += extern/nauty27r1/gutil1.c
-labelface_la_SOURCES += extern/nauty27r1/gutil2.c
-labelface_la_SOURCES += extern/nauty27r1/gtnauty.c
-labelface_la_SOURCES += extern/nauty27r1/naugroup.c
-labelface_la_SOURCES += extern/nauty27r1/nautycliquer.c
+glabella_la_SOURCES += extern/nauty27r1/nauty.c
+glabella_la_SOURCES += extern/nauty27r1/naugraph.c
+glabella_la_SOURCES += extern/nauty27r1/nautil.c
+glabella_la_SOURCES += extern/nauty27r1/nausparse.c
+glabella_la_SOURCES += extern/nauty27r1/schreier.c
+glabella_la_SOURCES += extern/nauty27r1/naurng.c
+glabella_la_SOURCES += extern/nauty27r1/traces.c
+glabella_la_SOURCES += extern/nauty27r1/gtools.c
+glabella_la_SOURCES += extern/nauty27r1/naututil.c
+glabella_la_SOURCES += extern/nauty27r1/nautinv.c
+glabella_la_SOURCES += extern/nauty27r1/gutil1.c
+glabella_la_SOURCES += extern/nauty27r1/gutil2.c
+glabella_la_SOURCES += extern/nauty27r1/gtnauty.c
+glabella_la_SOURCES += extern/nauty27r1/naugroup.c
+glabella_la_SOURCES += extern/nauty27r1/nautycliquer.c
 
-labelface_la_CPPFLAGS = $(GAP_CPPFLAGS)
-labelface_la_CFLAGS = $(GAP_CFLAGS)
-labelface_la_LDFLAGS = $(GAP_LDFLAGS) -module -avoid-version
+glabella_la_CPPFLAGS = $(GAP_CPPFLAGS)
+glabella_la_CFLAGS = $(GAP_CFLAGS)
+glabella_la_LDFLAGS = $(GAP_LDFLAGS) -module -avoid-version
 if SYS_IS_CYGWIN
-labelface_la_LDFLAGS += -no-undefined -version-info 0:0:0 -Wl,$(GAPROOT)/bin/$(GAPARCH)/gap.dll
+glabella_la_LDFLAGS += -no-undefined -version-info 0:0:0 -Wl,$(GAPROOT)/bin/$(GAPARCH)/gap.dll
 endif
 
-all-local: labelface.la
+all-local: glabella.la
 	$(mkdir_p) $(top_srcdir)/$(BINARCHDIR)
 if SYS_IS_CYGWIN
-	cp .libs/labelface.dll $(GAPINSTALLLIB)
+	cp .libs/glabella.dll $(GAPINSTALLLIB)
 else
-	cp .libs/labelface.so $(GAPINSTALLLIB)
+	cp .libs/glabella.so $(GAPINSTALLLIB)
 endif
 	@echo "SUCCESS!"
 

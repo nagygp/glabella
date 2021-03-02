@@ -1,10 +1,10 @@
 #
-# labelface: Low level interface to graph automorphism canonical labeling tools
+# glabella: Low level interface to graph automorphism canonical labeling tools
 #
 #! @Chapter Usage of the package
 #! @Section Interfaces
 #! 
-#! This section will describe the funtions of <Package>labelface</Package>, 
+#! This section will describe the funtions of <Package>glabella</Package>, 
 #! and their nonchecking counterparts. 
 #! 
 #! Let $\Gamma$ be a graph on the set $\{1,\ldots,n\}$ of vertices. $G$ may be directed or not; loops and duplicate edges are ignored. The graph is given by the list of its adjacencies $N_1,\ldots,N_n$, where $N_i$ is the set of (out)neighbors of the vertex $i$. 
@@ -18,7 +18,7 @@
 #! The solver programs also compute a 32-bit hash value of the graph. The same as above: this hash value is an isomorphy invariant that depends on your software and hardware environment. It also depends on the colouring in bliss, but not in nauty.
 #!  
 #! 
-#! This section will describe the funtions of <Package>labelface</Package>,  and their nonchecking counterparts. The nonchecking versions are slightly faster but it must be used with extreme care. Bad parameters may result in unpredictable behaviour. 
+#! This section will describe the funtions of <Package>glabella</Package>,  and their nonchecking counterparts. The nonchecking versions are slightly faster but it must be used with extreme care. Bad parameters may result in unpredictable behaviour. 
 #!
 #! @BeginGroup G1
 #! @Description
@@ -48,4 +48,4 @@ DeclareGlobalFunction( "GraphCanonicalLabelingNC@" );
 
 #! @Description
 #!   An infoclass for the package. Its default value is $0$.
-DeclareInfoClass( "Infolabelface" );
+DeclareInfoClass( "Infoglabella" );

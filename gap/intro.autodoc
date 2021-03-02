@@ -5,7 +5,7 @@ Key="Digraphs0.15.2" /> and <Package>NautyTracesInterface</Package> <Cite Key="N
 
 @Abstract 
 
-The &GAP; package <Package>labelface</Package> provides a low level 
+The &GAP; package <Package>glabella</Package> provides a low level 
 interface to software that can compute automorphisms, isomorphisms 
 and canonical labelings of graphs. The graphs can be directed or 
 undirected, and a vertex colouring can be specified. In the present
@@ -16,7 +16,7 @@ and <E>nauty</E>.
 
 @Section General aims
 
-The &GAP; package <Package>labelface</Package> provides a low level 
+The &GAP; package <Package>glabella</Package> provides a low level 
 interface to software that can compute automorphisms, isomorphisms 
 and canonical labelings of graphs. The graphs can be directed or 
 undirected, and a vertex colouring can be specified. Duplicate 
@@ -47,19 +47,19 @@ and Adolfo Piperno <Cite Key="Nauty:2014" />.</Item>
 
 @Section Installation
 
-- Download the package from <URL>https://github.com/gap-packages/labelface</URL>.
-- Unzip/untar the file, this should create a directory called <F>labelface*</F>.
+- Download the package from <URL>https://github.com/gap-packages/glabella</URL>.
+- Unzip/untar the file, this should create a directory called <F>glabella*</F>.
 - Locate the <F>pkg</F> directory of your &GAP; directory, which contains the 
   directories <F>lib</F>, <F>doc</F> and so on. Move the directory 
-  <F>labelface*</F> into the <F>pkg</F> directory.
+  <F>glabella*</F> into the <F>pkg</F> directory.
 - Alternatively, you can use your <F>pkg</F> directory. Make sure it is in your 
   &GAP; root path.
-- It is necessary to compile the &labelface; package. Inside the 
-  <F>pkg/labelface*</F> directory, type
+- It is necessary to compile the &glabella; package. Inside the 
+  <F>pkg/glabella*</F> directory, type
   <Listing>
   <![CDATA[./configure
   make]]></Listing>
 - Start &GAP; in the usual way (i.e. type <C>gap</C> at the command line).
-- Type <C>LoadPackage("labelface");</C>
+- Type <C>LoadPackage("glabella");</C>
 - For questions, remarks and issues please use the 
-  <URL Text="issue tracker">https://github.com/gap-packages/labelface/issues</URL>.
+  <URL Text="issue tracker">https://github.com/gap-packages/glabella/issues</URL>.

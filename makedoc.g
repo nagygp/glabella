@@ -1,5 +1,5 @@
 #
-# labelface: Low level interface to graph automorphism canonical labeling tools
+# glabella: Low level interface to graph automorphism canonical labeling tools
 #
 # This file is a script which compiles the package manual.
 #

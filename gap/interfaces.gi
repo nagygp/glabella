@@ -1,5 +1,5 @@
 #
-# labelface: Low level interface to graph automorphism canonical labeling tools
+# glabella: Low level interface to graph automorphism canonical labeling tools
 #
 # Implementations
 #
@@ -7,13 +7,13 @@
 InstallGlobalFunction( GraphCanonicalLabelingNC@,
 function( n, outneigh, colours, isdirected, solver )
     if solver = "bliss" then
-		Info( Infolabelface, 2, "BLISS_GRAPH_CANONICAL_LABELING called" );
+		Info( Infoglabella, 2, "BLISS_GRAPH_CANONICAL_LABELING called" );
     	return BLISS_GRAPH_CANONICAL_LABELING( n, outneigh, colours, isdirected );
     elif solver = "nauty" then
-		Info( Infolabelface, 2, "NAUTY_GRAPH_CANONICAL_LABELING called" );
+		Info( Infoglabella, 2, "NAUTY_GRAPH_CANONICAL_LABELING called" );
         return NAUTY_GRAPH_CANONICAL_LABELING( n, outneigh, colours[1], colours[2], isdirected );
     elif solver = "sparsenauty" then
-		Info( Infolabelface, 2, "NAUTY_SPARSEGRAPH_CANONICAL_LABELING called" );
+		Info( Infoglabella, 2, "NAUTY_SPARSEGRAPH_CANONICAL_LABELING called" );
         return NAUTY_SPARSEGRAPH_CANONICAL_LABELING( n, outneigh, colours[1], colours[2], isdirected );
 	else
 		Error("unknown solver");
@@ -55,16 +55,16 @@ function( n, outneigh, colouring, args... )
     if colouring_format = "plain" and
         not (IsList(colouring) and Length(colouring)=n and ForAll(colouring,IsInt)) 
 	then
-		Info( Infolabelface, 1, "Invalid plain format colouring, set to 0" );
+		Info( Infoglabella, 1, "Invalid plain format colouring, set to 0" );
         colouring := 0;
     fi;
     # if solver and colouring format mismatch
     if colouring_format = "plain" and solver in ["nauty","sparsenauty"] then
         if colouring = 0 then
-			Info( Infolabelface, 1, "Invalid nauty format colouring, set to [0,0]" );
+			Info( Infoglabella, 1, "Invalid nauty format colouring, set to [0,0]" );
             colouring := [0,0];
         else
-			Info( Infolabelface, 1, "Convert colouring to nauty format" );
+			Info( Infoglabella, 1, "Convert colouring to nauty format" );
             stops:=ShallowCopy(colouring);
             vertices:=[1..n];
             StableSortParallel(stops,vertices);
@@ -76,10 +76,10 @@ function( n, outneigh, colouring, args... )
     fi;
     if colouring_format = "nauty" and solver = "bliss" then
         if colouring = [0,0] then
-			Info( Infolabelface, 1, "Invalid plain format colouring, set to 0" );
+			Info( Infoglabella, 1, "Invalid plain format colouring, set to 0" );
             colouring := 0;
         else
-			Info( Infolabelface, 1, "Convert colouring to plain format" );
+			Info( Infoglabella, 1, "Convert colouring to plain format" );
 			colouring[2] := Concatenation([0],1-colouring[2]);
 			colouring[2] := List([1..n],i->Sum(colouring[2]{[1..i]}));
 			StableSortParallel(colouring[1],colouring[2]);

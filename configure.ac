@@ -1,5 +1,5 @@
 #
-# labelface: Low level interface to graph automorphism canonical labeling tools
+# glabella: Low level interface to graph automorphism canonical labeling tools
 #
 # This file is part of the build system of a GAP kernel extension.
 # Requires GNU autoconf, GNU automake and GNU libtool.
@@ -9,8 +9,8 @@ dnl ##
 dnl ## Setup autoconf
 dnl ##
 AC_PREREQ([2.68])
-AC_INIT([labelface], [package])
-AC_CONFIG_SRCDIR([src/labelface.cc])
+AC_INIT([glabella], [package])
+AC_CONFIG_SRCDIR([src/glabella.cc])
 AC_CONFIG_HEADER([src/_pkgconfig.h:cnf/pkgconfig.h.in])
 AC_CONFIG_MACRO_DIR([m4])
 AC_CONFIG_AUX_DIR([cnf])

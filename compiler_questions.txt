@@ -14,15 +14,15 @@ pkginclude_HEADERS += extern/bliss-0.73/timer.hh
 pkginclude_HEADERS += extern/bliss-0.73/uintseqhash.hh
 pkginclude_HEADERS += extern/bliss-0.73/utils.hh
 
-labelface_la_SOURCES = src/labelface.cc 
-labelface_la_SOURCES += extern/bliss-0.73/graph.cc 
-labelface_la_SOURCES += extern/bliss-0.73/defs.cc 
-labelface_la_SOURCES += extern/bliss-0.73/orbit.cc 
-labelface_la_SOURCES += extern/bliss-0.73/partition.cc
-labelface_la_SOURCES += extern/bliss-0.73/heap.cc
-labelface_la_SOURCES += extern/bliss-0.73/timer.cc
-labelface_la_SOURCES += extern/bliss-0.73/uintseqhash.cc
-labelface_la_SOURCES += extern/bliss-0.73/utils.cc
+glabella_la_SOURCES = src/glabella.cc 
+glabella_la_SOURCES += extern/bliss-0.73/graph.cc 
+glabella_la_SOURCES += extern/bliss-0.73/defs.cc 
+glabella_la_SOURCES += extern/bliss-0.73/orbit.cc 
+glabella_la_SOURCES += extern/bliss-0.73/partition.cc
+glabella_la_SOURCES += extern/bliss-0.73/heap.cc
+glabella_la_SOURCES += extern/bliss-0.73/timer.cc
+glabella_la_SOURCES += extern/bliss-0.73/uintseqhash.cc
+glabella_la_SOURCES += extern/bliss-0.73/utils.cc
 
 ----------------- minimalist working version on ubuntu
 
@@ -32,12 +32,12 @@ pkginclude_HEADERS += extern/bliss-0.73/orbit.hh
 pkginclude_HEADERS += extern/bliss-0.73/heap.hh
 pkginclude_HEADERS += extern/bliss-0.73/timer.hh
 
-labelface_la_SOURCES = src/labelface.cc 
-labelface_la_SOURCES += extern/bliss-0.73/graph.cc 
-labelface_la_SOURCES += extern/bliss-0.73/partition.cc
-labelface_la_SOURCES += extern/bliss-0.73/orbit.cc 
-labelface_la_SOURCES += extern/bliss-0.73/heap.cc
-labelface_la_SOURCES += extern/bliss-0.73/timer.cc
+glabella_la_SOURCES = src/glabella.cc 
+glabella_la_SOURCES += extern/bliss-0.73/graph.cc 
+glabella_la_SOURCES += extern/bliss-0.73/partition.cc
+glabella_la_SOURCES += extern/bliss-0.73/orbit.cc 
+glabella_la_SOURCES += extern/bliss-0.73/heap.cc
+glabella_la_SOURCES += extern/bliss-0.73/timer.cc
 
 ----------------- do we need this on cygwin???
 
@@ -45,9 +45,9 @@ pkginclude_HEADERS += extern/bliss-0.73/defs.hh
 pkginclude_HEADERS += extern/bliss-0.73/uintseqhash.hh
 pkginclude_HEADERS += extern/bliss-0.73/utils.hh
 
-labelface_la_SOURCES += extern/bliss-0.73/defs.cc 
-labelface_la_SOURCES += extern/bliss-0.73/uintseqhash.cc
-labelface_la_SOURCES += extern/bliss-0.73/utils.cc
+glabella_la_SOURCES += extern/bliss-0.73/defs.cc 
+glabella_la_SOURCES += extern/bliss-0.73/uintseqhash.cc
+glabella_la_SOURCES += extern/bliss-0.73/utils.cc
 
 pkginclude_HEADERS = extern/bliss-0.73/bignum.hh
 pkginclude_HEADERS += extern/bliss-0.73/bliss_C.h

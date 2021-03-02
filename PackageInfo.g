@@ -1,5 +1,5 @@
 #
-# labelface: Low level interface to graph automorphism canonical labeling tools
+# glabella: Low level interface to graph automorphism canonical labeling tools
 #
 # This file contains package meta data. For additional information on
 # the meaning and correct usage of these fields, please consult the
@@ -8,7 +8,7 @@
 #
 SetPackageInfo( rec(
 
-PackageName := "labelface",
+PackageName := "glabella",
 Subtitle := "Low level interfaces to graph automorphism and canonical labeling tools",
 Version := "0.3",
 Date := "25/02/2021", # dd/mm/yyyy format
@@ -33,10 +33,10 @@ Persons := [
 
 SourceRepository := rec(
     Type := "git",
-    URL := "https://github.com/gap-packages/labelface",
+    URL := "https://github.com/gap-packages/glabella",
 ),
 IssueTrackerURL := Concatenation( ~.SourceRepository.URL, "/issues" ),
-PackageWWWHome  := "https://gap-packages.github.io/labelface/",
+PackageWWWHome  := "https://gap-packages.github.io/glabella/",
 PackageInfoURL  := Concatenation( ~.PackageWWWHome, "PackageInfo.g" ),
 README_URL      := Concatenation( ~.PackageWWWHome, "README.md" ),
 ArchiveURL      := Concatenation( ~.SourceRepository.URL,
@@ -58,7 +58,7 @@ Status := "dev",
 AbstractHTML   :=  "",
 
 PackageDoc := rec(
-  BookName  := "labelface",
+  BookName  := "glabella",
   ArchiveURLSubset := ["doc"],
   HTMLStart := "doc/chap0.html",
   PDFFile   := "doc/manual.pdf",
@@ -75,11 +75,11 @@ Dependencies := rec(
 
 AvailabilityTest := function()
   local dir, lib;
-  dir := DirectoriesPackagePrograms("labelface");
-  lib := Filename(dir, "labelface.so");
+  dir := DirectoriesPackagePrograms("glabella");
+  lib := Filename(dir, "glabella.so");
   if lib = fail then
     LogPackageLoadingMessage(PACKAGE_WARNING,
-                             "failed to load kernel module of package labelface");
+                             "failed to load kernel module of package glabella");
     return fail;
   fi;
   return true;
