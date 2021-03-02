@@ -46,3 +46,6 @@ DeclareGlobalFunction( "GraphCanonicalLabeling@" );
 #! @Arguments n, outneigh, colours, isdirected, solver
 DeclareGlobalFunction( "GraphCanonicalLabelingNC@" );
 
+#! @Description
+#!   An infoclass for the package. Its default value is $0$.
+DeclareInfoClass( "Infolabelface" );

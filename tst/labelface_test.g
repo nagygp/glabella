@@ -18,6 +18,7 @@ Size(bl1n[1]);
 bl1n[3];
 Print(StructureDescription(Group(bl1n[1])),"\n");
 
+SetInfoLevel( Infolabelface, 1 );
 bl1sn:=GraphCanonicalLabeling@labelface(Size(v),johnson,0,false,"sparsenauty");;
 Size(bl1sn[1]);
 bl1sn[3];
@@ -36,6 +37,7 @@ bl2cn:=GraphCanonicalLabeling@labelface(10, petersen,
     [1,1,1,1,1,2,2,2,2,2], false, "nauty");
 Print(StructureDescription(Group(bl2cn[1])),"\n");
 
+SetInfoLevel( Infolabelface, 2 );
 bl2csn:=GraphCanonicalLabeling@labelface(10, petersen, 
     [1,1,1,1,1,2,2,2,2,2], false, "sparsenauty");
 Print(StructureDescription(Group(bl2csn[1])),"\n");
