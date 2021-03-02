@@ -41,7 +41,7 @@ gap> bl1n[3];
 gap> Print(StructureDescription(Group(bl1n[1])),"\n");
 C2 x S10
 gap> 
-gap> SetInfoLevel( Infoglabella, 1 );
+gap> SetInfoLevel( InfoGlabella, 1 );
 gap> bl1sn:=GraphCanonicalLabeling@glabella(Size(v),johnson,0,false,"sparsenauty");;
 #I  Invalid plain format colouring, set to 0
 #I  Invalid nauty format colouring, set to [0,0]
@@ -78,7 +78,7 @@ gap> bl2cn:=GraphCanonicalLabeling@glabella(10, petersen,
 gap> Print(StructureDescription(Group(bl2cn[1])),"\n");
 D10
 gap> 
-gap> SetInfoLevel( Infoglabella, 2 );
+gap> SetInfoLevel( InfoGlabella, 2 );
 gap> bl2csn:=GraphCanonicalLabeling@glabella(10, petersen, 
 >     [1,1,1,1,1,2,2,2,2,2], false, "sparsenauty");
 #I  Convert colouring to nauty format

@@ -7,7 +7,7 @@ LoadPackage( "glabella", false );
 
 ###################################
 v:=Combinations([1..10],5);;
-johnson:=List(v,x->Filtered([1..Size(v)],i->Size(Intersection(x,v[i]))=2));;
+johnson:=List(v,x->Filtered([1..Size(v)],i->Size(Intersection(x,v[i]))=4));;
 bl1:=GraphCanonicalLabeling@glabella(Size(v),johnson,0,false);;
 Size(bl1[1]);
 bl1[3];
@@ -18,7 +18,7 @@ Size(bl1n[1]);
 bl1n[3];
 Print(StructureDescription(Group(bl1n[1])),"\n");
 
-SetInfoLevel( Infoglabella, 1 );
+SetInfoLevel( InfoGlabella, 1 );
 bl1sn:=GraphCanonicalLabeling@glabella(Size(v),johnson,0,false,"sparsenauty");;
 Size(bl1sn[1]);
 bl1sn[3];
@@ -37,7 +37,7 @@ bl2cn:=GraphCanonicalLabeling@glabella(10, petersen,
     [1,1,1,1,1,2,2,2,2,2], false, "nauty");
 Print(StructureDescription(Group(bl2cn[1])),"\n");
 
-SetInfoLevel( Infoglabella, 2 );
+SetInfoLevel( InfoGlabella, 2 );
 bl2csn:=GraphCanonicalLabeling@glabella(10, petersen, 
     [1,1,1,1,1,2,2,2,2,2], false, "sparsenauty");
 Print(StructureDescription(Group(bl2csn[1])),"\n");
