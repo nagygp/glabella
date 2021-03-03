@@ -19,3 +19,4 @@ ignore:
   - "tst/*"     # ignore test harness code
   - "tst/**/*"  # ignore test harness code
   - "extern/bliss-0.73/*"   # ignore bliss-0.73
+  - "extern/nauty27r1/*"   # ignore nauty-2.7R1
