@@ -1,5 +1,4 @@
-[![Build Status](https://travis-ci.com/nagygp/glabella.svg?branch=master)](https://travis-ci.com/nagygp/glabella)
-[![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/nagygp/glabella?branch=master&svg=true)](https://ci.appveyor.com/project/nagygp/glabella)
+[![Build Status](https://github.com/nagygp/glabella/workflows/CI/badge.svg?branch=master)](https://github.com/nagygp/glabella/actions?query=workflow%3ACI+branch%3Amaster)
 [![Code Coverage](https://codecov.io/github/nagygp/glabella/coverage.svg?branch=master&token=)](https://codecov.io/gh/nagygp/glabella)
 
 # The glabella package

@@ -28,7 +28,7 @@
 #!   <C>[N_1,...,N_n]</C>, such that <C>N_i</C> is the list of (out)neighbors 
 #!   of the vertex <C>i</C>. Duplicate edges between vertices and loops are ignored.
 #!   <P />For coloured graphs, <A>colouring</A> is either a list of length <C>n</C> (plain format), or a pair of two lists of length <C>n</C> (nauty format). For malformatted colourings, all vertices have colour <C>0</C>.
-#!   <P />The solver can be specified by the strings <C>"bliss"</C> or <C>"nauty"</C>. (Default: <C>"bliss"</C>.)
+#!   <P />The solver can be specified by the strings <C>"bliss"</C>, <C>"nauty"</C> or <C>"sparsenauty"</C>. (Default: <C>"bliss"</C>.)
 #! @Arguments n, outneigh, colouring[, isdirected[, solver]]
 #! @Returns
 #!   The triple <C>[gens,cl,hash]</C> as GAP object, where <C>gens</C> is a list
@@ -39,7 +39,7 @@ DeclareGlobalFunction( "GraphCanonicalLabeling@" );
 #! @EndGroup
 
 #! @Description
-#!   <C>GraphCanonicalLabelingNC</C> is the operation that is called by the function
+#!   <P /><C>GraphCanonicalLabelingNC</C> is the operation that is called by the function
 #!   <C>GraphCanonicalLabeling</C>, using the same arguments. Results are 
 #!   unpredictable if the parameters are not well-formed. 
 #! @Group G1
