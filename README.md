@@ -3,7 +3,7 @@
 
 # The glabella package
 
-* Website: https://gap-packages.github.io/glabella/
+* Website: https://nagygp.github.io/glabella/
 * Repository: https://github.com/nagygp/glabella
 
 This package provides a low level interface to softwware that can compute automorphisms, isomorphisms and canonical labellings of graphs. Recently, the following programs are avaible:

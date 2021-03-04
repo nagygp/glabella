@@ -10,8 +10,8 @@ SetPackageInfo( rec(
 
 PackageName := "glabella",
 Subtitle := "Low level interfaces to graph automorphism and canonical labelling tools",
-Version := "0.3",
-Date := "25/02/2021", # dd/mm/yyyy format
+Version := "0.31",
+Date := "04/03/2021", # dd/mm/yyyy format
 License := "GPL-2.0-or-later",
 
 Persons := [
@@ -33,10 +33,10 @@ Persons := [
 
 SourceRepository := rec(
     Type := "git",
-    URL := "https://github.com/gap-packages/glabella",
+    URL := "https://github.com/nagygp/glabella",
 ),
 IssueTrackerURL := Concatenation( ~.SourceRepository.URL, "/issues" ),
-PackageWWWHome  := "https://gap-packages.github.io/glabella/",
+PackageWWWHome  := "https://nagygp.github.io/glabella/",
 PackageInfoURL  := Concatenation( ~.PackageWWWHome, "PackageInfo.g" ),
 README_URL      := Concatenation( ~.PackageWWWHome, "README.md" ),
 ArchiveURL      := Concatenation( ~.SourceRepository.URL,
