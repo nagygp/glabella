@@ -1,58 +1,94 @@
-[![Build Status](https://github.com/nagygp/glabella/workflows/CI/badge.svg?branch=master)](https://github.com/nagygp/glabella/actions?query=workflow%3ACI+branch%3Amaster)
-[![Code Coverage](https://codecov.io/github/nagygp/glabella/coverage.svg?branch=master&token=)](https://codecov.io/gh/nagygp/glabella)
+#
+# glabella: Low level interface to graph automorphism canonical labelling tools
+#
+# This file contains package meta data. For additional information on
+# the meaning and correct usage of these fields, please consult the
+# manual of the "Example" package as well as the comments in its
+# PackageInfo.g file.
+#
+SetPackageInfo( rec(
 
-# The glabella package
+PackageName := "glabella",
+Subtitle := "Low level interfaces to graph automorphism and canonical labelling tools",
+Version := "0.31",
+Date := "04/03/2021", # dd/mm/yyyy format
+License := "GPL-2.0-or-later",
 
-* Website: https://nagygp.github.io/glabella/
-* Repository: https://github.com/nagygp/glabella
+Persons := [
+  rec(
+    IsAuthor := true,
+    IsMaintainer := true,
+    FirstNames := "Gábor P.",
+    LastName := "Nagy",
+    WWWHome := "https://algebra.math.bme.hu/nagy-gabor",
+    Email := "nagyg@math.bme.hu",
+    PostalAddress := Concatenation(
+               "Department of Algebra, Budapest University of Technology\n",
+               "Egry József utca 1\n",
+               "H-1111 Budapest (Hungary)" ),
+    Place := "Budapest",
+    Institution := "Budapest University of Technology and Economics",
+  ),
+],
 
-This package provides a low level interface to softwware that can compute automorphisms, isomorphisms and canonical labellings of graphs. Recently, the following programs are avaible:
+SourceRepository := rec(
+    Type := "git",
+    URL := "https://github.com/nagygp/glabella",
+),
+IssueTrackerURL := Concatenation( ~.SourceRepository.URL, "/issues" ),
+PackageWWWHome  := "https://nagygp.github.io/glabella/",
+PackageInfoURL  := Concatenation( ~.PackageWWWHome, "PackageInfo.g" ),
+README_URL      := Concatenation( ~.PackageWWWHome, "README.md" ),
+ArchiveURL      := Concatenation( ~.SourceRepository.URL,
+                                 "/releases/download/v", ~.Version,
+                                 "/", ~.PackageName, "-", ~.Version ),
 
-* [***bliss:*** A Tool for Computing Automorphism Groups and Canonical Labellings of Graphs](http://www.tcs.hut.fi/Software/bliss/), written by Tommi Junttila and Petteri Kaski. 
-* [***nauty:*** Graph Canonical Labelling and Automorphism Group Computation](https://pallini.di.uniroma1.it/), written by Brendan McKay and Adolfo Piperno.
+ArchiveFormats := ".tar.gz",
 
-The **glabella** package uses external binaries and GAP kernel modules, and therefore a complete installation only works on UNIX systems or systems that support a UNIX-like environment, e.g. OS X, Windows with Cygwin, or WSL2. 
+##  Status information. Currently the following cases are recognized:
+##    "accepted"      for successfully refereed packages
+##    "submitted"     for packages submitted for the refereeing
+##    "deposited"     for packages for which the GAP developers agreed
+##                    to distribute them with the core GAP system
+##    "dev"           for development versions of packages
+##    "other"         for all other packages
+##
+Status := "dev",
 
-On the package website precompiled binaries are available for certain environments. To compile the package, change to the `/pkg/glabella*` directory  of your GAP installation and then call
-	
-	./configure <path>
+AbstractHTML   :=  "",
 
-where <path> is a path to the main GAP root directory; so normally you would call
+PackageDoc := rec(
+  BookName  := "glabella",
+  ArchiveURLSubset := ["doc"],
+  HTMLStart := "doc/chap0.html",
+  PDFFile   := "doc/manual.pdf",
+  SixFile   := "doc/manual.six",
+  LongTitle := "Low level interface to graph automorphism canonical labelling tools",
+),
 
-	./configure ../..
+Dependencies := rec(
+  GAP := ">= 4.10",
+  NeededOtherPackages := [ ],
+  SuggestedOtherPackages := [ ],
+  ExternalConditions := [ ],
+),
 
-(the `../..` is the default and so may be omitted) and then call
+AvailabilityTest := function()
+  local dir, lib;
+  dir := DirectoriesPackagePrograms("glabella");
+  lib := Filename(dir, "glabella.so");
+  if lib = fail then
+    LogPackageLoadingMessage(PACKAGE_WARNING,
+                             "failed to load kernel module of package glabella");
+    return fail;
+  fi;
+  return true;
+end,
 
-	make 
-  
-to compile the binary.
+TestFile := "tst/testall.g",
 
-Now start GAP and type
+Keywords := [ "bliss", "nauty", "graph isomorphism", "canonical labelling", "automorphism group" ],
 
-	LoadPackage("glabella");
+));
 
-to load the package. You will see the package banner. If you have not compiled the external binary, you should receive a warning.
 
-For details on how to use the glabella package see the package documentation in the `doc` subdirectory (view its HTML version or  `manual.pdf`  via a PDF viewer). 
-
-## Contact
-
-### Maintainer
-
-* [Gábor P. Nagy](https://algebra.math.bme.hu/nagy-gabor), Budapest University of Technology, Hungary.
-
-For questions, remarks and issues please use the [issue tracker](https://github.com/nagygp/glabella/issues).
-
-### Plans and TODOs
-
-* Testing, benchmarking
-* Interface to Traces
-* Add further nauty features (e.g. vertex-invariants)
-
-## License
-
-glabella is free software; you can redistribute it and/or modify it under the terms of the Version 2 of the GNU General Public License. For details see the file LICENSE.
-
-## Credits
-
-This package uses open source components of the GAP packages [**Digraphs**](https://github.com/gap-packages/Digraphs) and [**NautyTracesInterface**](https://github.com/gap-packages/NautyTracesInterface). You can find the source code of its open source project along with license information on their websites. 
