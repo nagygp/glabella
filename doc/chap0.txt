@@ -1,1 +1,58 @@
-Placeholder
+  
+  
+                                   [1X glabella [101X
+  
+  
+   [1X Low level interfaces to graph automorphism and canonical labelling tools [101X
+  
+  
+                                      0.31
+  
+  
+                                  4 March 2021
+  
+  
+                                 Gábor P. Nagy
+  
+  
+  
+  Gábor P. Nagy
+      Email:    [7Xmailto:nagyg@math.bme.hu[107X
+      Homepage: [7Xhttps://algebra.math.bme.hu/nagy-gabor[107X
+      Address:  [33X[0;14YDepartment of Algebra, Budapest University of Technology[133X
+                [33X[0;14YEgry József utca 1[133X
+                [33X[0;14YH-1111 Budapest (Hungary)[133X
+  
+  
+  
+  -------------------------------------------------------
+  [1XAbstract[101X
+  [33X[0;0YThe [5XGAP[105X package [5Xglabella[105X provides a low level interface to software that can
+  compute  automorphisms, isomorphisms and canonical labellings of graphs. The
+  graphs  can  be  directed  or  undirected,  and  a  vertex  colouring can be
+  specified.  In  the  present version, the package provides interfaces to the
+  programs [13Xbliss[113X and [13Xnauty[113X.[133X
+  
+  
+  -------------------------------------------------------
+  [1XAcknowledgements[101X
+  [33X[0;0YImportant parts of this package are based on the packages [5XDigraphs[105X [DBJM+19]
+  and [5XNautyTracesInterface[105X [GGT18].[133X
+  
+  
+  -------------------------------------------------------
+  
+  
+  [1XContents (glabella)[101X
+  
+  1 [33X[0;0YIntroduction[133X
+    1.1 [33X[0;0YGeneral aims[133X
+    1.2 [33X[0;0YInstallation[133X
+  2 [33X[0;0YUsage of the package[133X
+    2.1 [33X[0;0YInterfaces[133X
+      2.1-1 GraphCanonicalLabelling@
+      2.1-2 InfoGlabella
+    2.2 [33X[0;0YExamples[133X
+  
+  
+  [32X

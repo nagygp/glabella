@@ -1,0 +1,60 @@
+  
+  [1X1 [33X[0;0YIntroduction[133X[101X
+  
+  
+  [1X1.1 [33X[0;0YGeneral aims[133X[101X
+  
+  [33X[0;0YThe [5XGAP[105X package [5Xglabella[105X provides a low level interface to software that can
+  compute  automorphisms, isomorphisms and canonical labellings of graphs. The
+  graphs  can  be  directed  or  undirected,  and  a  vertex  colouring can be
+  specified. Duplicate edges between vertices are ignored.[133X
+  
+  [33X[0;0YThese  interfaces  do  not intend to be feature rich and user friendly. They
+  are  targeted to experienced GAP users and package authors, who can use them
+  for  their  specific  classes  of  graphs  and  other  discrete mathematical
+  structures, without the neccessity of compiling C and C++ codes.[133X
+  
+  [33X[0;0YFor  more  specialized  algorithms  and  methods of the theory of graphs, we
+  recommend the packages [5XDigraphs[105X [DBJM+19] and [5XGRAPE[105X [Soi19].[133X
+  
+  [33X[0;0YIn  the  present  version  of  the  package, we have access to the following
+  solvers:[133X
+  
+  [30X    [33X[0;6Ybliss:   A  Tool  for  Computing  Automorphism  Groups  and  Canonical
+        Labellings          of          Graphs          (version         0.73)
+        ([7Xhttp://www.tcs.hut.fi/Software/bliss/[107X)  written by Tommi Junttila and
+        Petteri Kaski [JK07].[133X
+  
+  [30X    [33X[0;6Ynauty  and  Traces:  Graph  Canonical Labelling and Automorphism Group
+        Computation (version 2.7R1) ([7Xhttps://pallini.di.uniroma1.it/[107X), written
+        by Brendan McKay and Adolfo Piperno [MP14].[133X
+  
+  
+  [1X1.2 [33X[0;0YInstallation[133X[101X
+  
+  [30X    [33X[0;6YDownload the package from [7Xhttps://github.com/nagygp/glabella[107X.[133X
+  
+  [30X    [33X[0;6YUnzip/untar the file, this should create a directory called [11Xglabella*[111X.[133X
+  
+  [30X    [33X[0;6YLocate  the  [11Xpkg[111X  directory  of your [5XGAP[105X directory, which contains the
+        directories  [11Xlib[111X, [11Xdoc[111X and so on. Move the directory [11Xglabella*[111X into the
+        [11Xpkg[111X directory.[133X
+  
+  [30X    [33X[0;6YAlternatively, you can use your [11Xpkg[111X directory. Make sure it is in your
+        [5XGAP[105X root path.[133X
+  
+  [30X    [33X[0;6YIt   is   necessary  to  compile  the  [5Xglabella[105X  package.  Inside  the
+        [11Xpkg/glabella*[111X directory, type[133X
+  
+  [4X      [32X[104X
+          [4X  ./configure[104X
+          [4X  make[104X
+        [4X[32X[104X
+  
+  [30X    [33X[0;6YStart [5XGAP[105X in the usual way (i.e. type [10Xgap[110X at the command line).[133X
+  
+  [30X    [33X[0;6YType [10XLoadPackage("glabella");[110X[133X
+  
+  [30X    [33X[0;6YFor  questions,  remarks  and  issues  please  use  the  issue tracker
+        ([7Xhttps://github.com/nagygp/glabella/issues[107X).[133X
+  
