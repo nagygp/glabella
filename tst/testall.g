@@ -1,5 +1,5 @@
 #
-# glabella: Low level interface to graph automorphism canonical labeling tools
+# glabella: Low level interface to graph automorphism canonical labelling tools
 #
 # This file runs package tests. It is also referenced in the package
 # metadata in PackageInfo.g.

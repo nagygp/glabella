@@ -7,7 +7,7 @@ Key="Digraphs0.15.2" /> and <Package>NautyTracesInterface</Package> <Cite Key="N
 
 The &GAP; package <Package>glabella</Package> provides a low level 
 interface to software that can compute automorphisms, isomorphisms 
-and canonical labelings of graphs. The graphs can be directed or 
+and canonical labellings of graphs. The graphs can be directed or 
 undirected, and a vertex colouring can be specified. In the present
 version, the package provides interfaces to the programs <E>bliss</E>
 and <E>nauty</E>.
@@ -18,7 +18,7 @@ and <E>nauty</E>.
 
 The &GAP; package <Package>glabella</Package> provides a low level 
 interface to software that can compute automorphisms, isomorphisms 
-and canonical labelings of graphs. The graphs can be directed or 
+and canonical labellings of graphs. The graphs can be directed or 
 undirected, and a vertex colouring can be specified. Duplicate 
 edges between vertices are ignored. 
 
@@ -36,10 +36,10 @@ Key="GRAPE4.8.2" />.
 In the present version of the package, we have access to the following solvers:
 <List>
 <Item><URL Text="bliss: A Tool for Computing 
-Automorphism Groups and Canonical Labelings of 
+Automorphism Groups and Canonical Labellings of 
 Graphs (version 0.73)">http://www.tcs.hut.fi/Software/bliss/</URL>
 written by Tommi Junttila and Petteri Kaski <Cite Key="Bliss:2007" />. </Item>
-<Item><URL Text="nauty and Traces: Graph Canonical Labeling and Automorphism Group
+<Item><URL Text="nauty and Traces: Graph Canonical Labelling and Automorphism Group
 Computation (version 2.7R1)">https://pallini.di.uniroma1.it/</URL>, written by Brendan McKay 
 and Adolfo Piperno <Cite Key="Nauty:2014" />.</Item>
 </List>

@@ -1,5 +1,5 @@
 #
-# glabella: Low level interface to graph automorphism canonical labeling tools
+# glabella: Low level interface to graph automorphism canonical labelling tools
 #
 #! @Chapter Usage of the package
 #! @Section Interfaces
@@ -33,18 +33,18 @@
 #! @Returns
 #!   The triple <C>[gens,cl,hash]</C> as GAP object, where <C>gens</C> is a list
 #!   of generators for the group of colour preserving automorphisms of 
-#!   the graph <C>G</C>, <C>cl</C> is a canonical labeling of <C>G</C>, 
+#!   the graph <C>G</C>, <C>cl</C> is a canonical labelling of <C>G</C>, 
 #!   and <C>hash</C> is an integer valued 32-bit hash of the permuted graph.
-DeclareGlobalFunction( "GraphCanonicalLabeling@" );
+DeclareGlobalFunction( "GraphCanonicalLabelling@" );
 #! @EndGroup
 
 #! @Description
-#!   <P /><C>GraphCanonicalLabelingNC</C> is the operation that is called by the function
-#!   <C>GraphCanonicalLabeling</C>, using the same arguments. Results are 
+#!   <P /><C>GraphCanonicalLabellingNC</C> is the operation that is called by the function
+#!   <C>GraphCanonicalLabelling</C>, using the same arguments. Results are 
 #!   unpredictable if the parameters are not well-formed. 
 #! @Group G1
 #! @Arguments n, outneigh, colours, isdirected, solver
-DeclareGlobalFunction( "GraphCanonicalLabelingNC@" );
+DeclareGlobalFunction( "GraphCanonicalLabellingNC@" );
 
 #! @Description
 #!   An infoclass for the package. Its default value is $0$.

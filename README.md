@@ -6,10 +6,10 @@
 * Website: https://gap-packages.github.io/glabella/
 * Repository: https://github.com/nagygp/glabella
 
-This package provides a low level interface to softwware that can compute automorphisms, isomorphisms and canonical labelings of graphs. Recently, the following programs are avaible:
+This package provides a low level interface to softwware that can compute automorphisms, isomorphisms and canonical labellings of graphs. Recently, the following programs are avaible:
 
-* [***bliss:*** A Tool for Computing Automorphism Groups and Canonical Labelings of Graphs](http://www.tcs.hut.fi/Software/bliss/), written by Tommi Junttila and Petteri Kaski. 
-* [***nauty:*** Graph Canonical Labeling and Automorphism Group Computation](https://pallini.di.uniroma1.it/), written by Brendan McKay and Adolfo Piperno.
+* [***bliss:*** A Tool for Computing Automorphism Groups and Canonical Labellings of Graphs](http://www.tcs.hut.fi/Software/bliss/), written by Tommi Junttila and Petteri Kaski. 
+* [***nauty:*** Graph Canonical Labelling and Automorphism Group Computation](https://pallini.di.uniroma1.it/), written by Brendan McKay and Adolfo Piperno.
 
 The **glabella** package uses external binaries and GAP kernel modules, and therefore a complete installation only works on UNIX systems or systems that support a UNIX-like environment, e.g. OS X, Windows with Cygwin, or WSL2. 
 
@@ -37,11 +37,17 @@ For details on how to use the glabella package see the package documentation in 
 
 ## Contact
 
-Maintainer:
+### Maintainer
 
 * [Gábor P. Nagy](https://algebra.math.bme.hu/nagy-gabor), Budapest University of Technology, Hungary.
 
 For questions, remarks and issues please use the [issue tracker](https://github.com/nagygp/glabella/issues).
+
+### Plans and TODOs
+
+* Testing, benchmarking
+* Interface to Traces
+* Add further nauty features (e.g. vertex-invariants)
 
 ## License
 

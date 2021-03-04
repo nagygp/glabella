@@ -1,5 +1,5 @@
 /*
- * glabella: Low level interface to graph automorphism canonical labeling tools
+ * glabella: Low level interface to graph automorphism canonical labelling tools
  */
 
 #include "compiled.h" // GAP headers
@@ -257,7 +257,7 @@ void glabella_hook_function(void *user_param_v, unsigned int N,
 /*
  * Returns: a GAP object list [gens,cl], where <gens> are generators
  * of the aut group of the bipartite digraph, associated to the Bipartite
- * system, and <cl> is a canonical labeling of the digraph.
+ * system, and <cl> is a canonical labelling of the digraph.
  */
 
 static Obj glabella_autgr_canlab(bliss::AbstractGraph *graph) {
@@ -312,7 +312,7 @@ static Obj glabella_autgr_canlab(bliss::AbstractGraph *graph) {
  *
  *
  * Returns: The pair <C>[gens,cl]</C> as GAP object, where <C>gens</C> is a list
- * of generators for <C>Aut(G)</C> and <C>cl</C> is a canonical labeling of
+ * of generators for <C>Aut(G)</C> and <C>cl</C> is a canonical labelling of
  * <C>G</C>.
  *
  * Nonchecking version.

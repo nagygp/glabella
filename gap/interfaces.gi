@@ -1,10 +1,10 @@
 #
-# glabella: Low level interface to graph automorphism canonical labeling tools
+# glabella: Low level interface to graph automorphism canonical labelling tools
 #
 # Implementations
 #
 
-InstallGlobalFunction( GraphCanonicalLabelingNC@,
+InstallGlobalFunction( GraphCanonicalLabellingNC@,
 function( n, outneigh, colours, isdirected, solver )
     if solver = "bliss" then
 		Info( InfoGlabella, 2, "BLISS_GRAPH_CANONICAL_LABELING called" );
@@ -20,7 +20,7 @@ function( n, outneigh, colours, isdirected, solver )
     fi;
 end );
 
-InstallGlobalFunction( GraphCanonicalLabeling@,
+InstallGlobalFunction( GraphCanonicalLabelling@,
 function( n, outneigh, colouring, args... )
     local vertices, stops, solver, colouring_format, isdirected;
 	if Length(args) > 0 then 
@@ -86,12 +86,12 @@ function( n, outneigh, colouring, args... )
             colouring := colouring[2];
         fi;
     fi;
-	return GraphCanonicalLabelingNC@( n, outneigh, colouring, isdirected, solver );
+	return GraphCanonicalLabellingNC@( n, outneigh, colouring, isdirected, solver );
 end );
 
 
 # # upper vertices [1..n], lower vertcies n+[1..m]
-# InstallGlobalFunction( BipartiteCanonicalLabeling@,
+# InstallGlobalFunction( BipartiteCanonicalLabelling@,
 # function( n, m, outneigh, ucolours, lcolours, arg... )
 # 	local isdirected;
 # 	if Length(arg)>0 and IsBool(arg[1]) then
@@ -112,7 +112,7 @@ end );
 # 		lcolours := ListWithIdenticalEntries(m,0);
 # 	fi;
 
-#     return GraphCanonicalLabelingNC@(
+#     return GraphCanonicalLabellingNC@(
 # 		n+m, 
 # 		Concatenation(ListWithIdenticalEntries(n,[]),outneigh), 
 # 		Concatenation(ucolours,lcolours), 
@@ -120,9 +120,9 @@ end );
 # 	); 
 # end );
 
-# InstallGlobalFunction( BipartiteCanonicalLabelingNC@,
+# InstallGlobalFunction( BipartiteCanonicalLabellingNC@,
 # function( n, m, outneigh, ucolours, lcolours, isdirected )
-# 	return GraphCanonicalLabelingNC@( 
+# 	return GraphCanonicalLabellingNC@( 
 # 		n+m, 
 # 		Concatenation(ListWithIdenticalEntries(n,[]),outneigh), 
 # 		Concatenation(ucolours,lcolours), 

@@ -25,7 +25,7 @@ gap>
 gap> ###################################
 gap> v:=Combinations([1..10],5);;
 gap> johnson:=List(v,x->Filtered([1..Size(v)],i->Size(Intersection(x,v[i]))=2));;
-gap> bl1:=GraphCanonicalLabeling@glabella(Size(v),johnson,0,false);;
+gap> bl1:=GraphCanonicalLabelling@glabella(Size(v),johnson,0,false);;
 gap> Size(bl1[1]);
 6
 gap> bl1[3];
@@ -33,7 +33,7 @@ gap> bl1[3];
 gap> Print(StructureDescription(Group(bl1[1])),"\n");
 C2 x S10
 gap> 
-gap> bl1n:=GraphCanonicalLabeling@glabella(Size(v),johnson,0,false,"nauty");;
+gap> bl1n:=GraphCanonicalLabelling@glabella(Size(v),johnson,0,false,"nauty");;
 gap> Size(bl1n[1]);
 9
 gap> bl1n[3];
@@ -42,7 +42,7 @@ gap> Print(StructureDescription(Group(bl1n[1])),"\n");
 C2 x S10
 gap> 
 gap> SetInfoLevel( InfoGlabella, 1 );
-gap> bl1sn:=GraphCanonicalLabeling@glabella(Size(v),johnson,0,false,"sparsenauty");;
+gap> bl1sn:=GraphCanonicalLabelling@glabella(Size(v),johnson,0,false,"sparsenauty");;
 #I  Invalid plain format colouring, set to 0
 #I  Invalid nauty format colouring, set to [0,0]
 gap> Size(bl1sn[1]);
@@ -56,21 +56,21 @@ gap> petersen:=[[2,5,6],[1,3,7],[2,4,8],[3,5,9],[1,4,10],
 >     [1,8,9],[2,9,10],[3,6,10],[4,6,7],[5,7,8]];
 [ [ 2, 5, 6 ], [ 1, 3, 7 ], [ 2, 4, 8 ], [ 3, 5, 9 ], [ 1, 4, 10 ], 
   [ 1, 8, 9 ], [ 2, 9, 10 ], [ 3, 6, 10 ], [ 4, 6, 7 ], [ 5, 7, 8 ] ]
-gap> bl2:=GraphCanonicalLabeling@glabella(10, petersen, false, false);
+gap> bl2:=GraphCanonicalLabelling@glabella(10, petersen, false, false);
 #I  Invalid plain format colouring, set to 0
 [ [ (4,8)(5,6)(9,10), (2,5,6)(3,4,9,7,10,8), (1,2,3,4,9,6)(5,7,8) ], 
   (1,10)(2,9)(3,6,8,4,5,7), 3430842650 ]
 gap> Print(StructureDescription(Group(bl2[1])),"\n");
 S5
 gap> 
-gap> bl2c:=GraphCanonicalLabeling@glabella(10, petersen, 
+gap> bl2c:=GraphCanonicalLabelling@glabella(10, petersen, 
 >     [1,1,1,1,1,2,2,2,2,2], false);
 [ [ (2,5)(3,4)(7,10)(8,9), (1,2,3,4,5)(6,7,8,9,10) ], 
   (1,5,3,2,4)(6,10,7)(8,9), 2440551578 ]
 gap> Print(StructureDescription(Group(bl2c[1])),"\n");
 D10
 gap> 
-gap> bl2cn:=GraphCanonicalLabeling@glabella(10, petersen, 
+gap> bl2cn:=GraphCanonicalLabelling@glabella(10, petersen, 
 >     [1,1,1,1,1,2,2,2,2,2], false, "nauty");
 #I  Convert colouring to nauty format
 [ [ (2,5)(3,4)(7,10)(8,9), (1,2)(3,5)(6,7)(8,10) ], (3,5,4)(7,8,9), 
@@ -79,7 +79,7 @@ gap> Print(StructureDescription(Group(bl2cn[1])),"\n");
 D10
 gap> 
 gap> SetInfoLevel( InfoGlabella, 2 );
-gap> bl2csn:=GraphCanonicalLabeling@glabella(10, petersen, 
+gap> bl2csn:=GraphCanonicalLabelling@glabella(10, petersen, 
 >     [1,1,1,1,1,2,2,2,2,2], false, "sparsenauty");
 #I  Convert colouring to nauty format
 #I  NAUTY_SPARSEGRAPH_CANONICAL_LABELING called
@@ -98,7 +98,7 @@ gap> dir_edges:=[
 gap> dg:=List([1..9],i->Filtered([1..9],j->[i,j] in dir_edges));
 [ [ 2, 4 ], [ 3, 5 ], [ 1, 6 ], [ 5, 7 ], [ 6, 8 ], [ 4, 9 ], 
   [ 1, 8 ], [ 2, 9 ], [ 3, 7 ] ]
-gap> bl3:=GraphCanonicalLabeling@glabella(9, dg, false, true);
+gap> bl3:=GraphCanonicalLabelling@glabella(9, dg, false, true);
 #I  Invalid plain format colouring, set to 0
 #I  BLISS_GRAPH_CANONICAL_LABELING called
 [ [ (2,4)(3,7)(6,8), (1,2,3)(4,5,6)(7,8,9) ], (1,9)(2,7,5,4,8)(3,6), 
@@ -106,7 +106,7 @@ gap> bl3:=GraphCanonicalLabeling@glabella(9, dg, false, true);
 gap> Print(StructureDescription(Group(bl3[1])),"\n");
 C3 x S3
 gap> 
-gap> bl4:=GraphCanonicalLabeling@glabella(9, dg, false, false);
+gap> bl4:=GraphCanonicalLabelling@glabella(9, dg, false, false);
 #I  Invalid plain format colouring, set to 0
 #I  BLISS_GRAPH_CANONICAL_LABELING called
 [ [ (2,3)(5,6)(8,9), (2,4)(3,7)(6,8), (1,2)(4,5)(7,8) ], 
@@ -116,11 +116,11 @@ gap> Print(StructureDescription(Group(bl4[1])),"\n");
 gap> 
 gap> path:=[[2],[3],[]];
 [ [ 2 ], [ 3 ], [  ] ]
-gap> GraphCanonicalLabeling@glabella(3, path, false, true);
+gap> GraphCanonicalLabelling@glabella(3, path, false, true);
 #I  Invalid plain format colouring, set to 0
 #I  BLISS_GRAPH_CANONICAL_LABELING called
 [ [  ], (1,2,3), 1876527224 ]
-gap> GraphCanonicalLabeling@glabella(3, path, false, false);
+gap> GraphCanonicalLabelling@glabella(3, path, false, false);
 #I  Invalid plain format colouring, set to 0
 #I  BLISS_GRAPH_CANONICAL_LABELING called
 [ [ (1,3) ], (1,2,3), 4110465937 ]
