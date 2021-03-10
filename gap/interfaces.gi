@@ -13,8 +13,10 @@ function( n, outneigh, colours, isdirected, solver )
 		Info( InfoGlabella, 2, "NAUTY_GRAPH_CANONICAL_LABELING called" );
         return NAUTY_GRAPH_CANONICAL_LABELING( n, outneigh, colours[1], colours[2], isdirected );
     elif solver = "sparsenauty" then
-		Info( InfoGlabella, 2, "NAUTY_SPARSEGRAPH_CANONICAL_LABELING called" );
-        return NAUTY_SPARSEGRAPH_CANONICAL_LABELING( n, outneigh, colours[1], colours[2], isdirected );
+		# Info( InfoGlabella, 2, "NAUTY_SPARSEGRAPH_CANONICAL_LABELING called" );
+        # return NAUTY_SPARSEGRAPH_CANONICAL_LABELING( n, outneigh, colours[1], colours[2], isdirected );
+		Info( InfoGlabella, 2, "TRACES_GRAPH_CANONICAL_LABELING called" );
+        return TRACES_GRAPH_CANONICAL_LABELING( n, outneigh, colours[1], colours[2], isdirected );
 	else
 		Error("unknown solver");
     fi;

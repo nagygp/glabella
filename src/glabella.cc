@@ -7,19 +7,14 @@
 #include "../extern/bliss-0.73/graph.hh" /* for bliss graph classes and namespaces */
 #include "../extern/nauty27r1/nautinv.h"
 #include "../extern/nauty27r1/naututil.h"
+
+#include "../extern/nauty27r1/traces.h"
 #include "../extern/nauty27r1/nauty.h"
+#include "../extern/nauty27r1/naurng.h"
+#include "../extern/nauty27r1/schreier.h"
+#include "../extern/nauty27r1/nausparse.h"
 
-/***************** NAUTY STARTS *********************/
-
-/*
- * The following code is a derivative work of the code from the GAP package
- * NautyTracesInterface 0.2 which is licensed GPLv2.
- *
- * Based on "userautomproc()" and "FuncNAUTY_DENSE()" of the GAP package
- * NautyTracesInterface 0.2.
- *
- * Modified by G.P. Nagy, 19/02/2021
- */
+/***************** THINGS *********************/
 
 static Obj automorphism_list;
 
@@ -33,6 +28,18 @@ static Obj PermToGAP(int *perm, int n) {
 
   return p;
 }
+
+/***************** NAUTY STARTS *********************/
+
+/*
+ * The following code is a derivative work of the code from the GAP package
+ * NautyTracesInterface 0.2 which is licensed GPLv2.
+ *
+ * Based on "userautomproc()" and "FuncNAUTY_DENSE()" of the GAP package
+ * NautyTracesInterface 0.2.
+ *
+ * Modified by G.P. Nagy, 19/02/2021
+ */
 
 static void userautomproc(int count, int *perm, int *orbits, int numorbits,
                           int stabvertex, int n) {
@@ -374,6 +381,15 @@ typedef Obj (*GVarFuncTypeDef)(/*arguments*/);
 
 // Table of functions to export
 static StructGVarFunc GVarFuncs[] = {
+    // GVAR_FUNC_TABLE_ENTRY(TRACES_GRAPH_CANONICAL_LABELING, 5,
+    //                       "n, outneigh, vertices, stops, isdirected"),
+    // { "TRACES_GRAPH_CANONICAL_LABELING", 
+    //   5, 
+    //   "n, outneigh, vertices, stops, isdirected", 
+    //   (GVarFuncTypeDef)FuncTRACES_GRAPH_CANONICAL_LABELING, 
+    //   //__FILE__ ":" "TRACES_GRAPH_CANONICAL_LABELING" 
+    //    "src/glabella_traces.c:FuncTRACES_GRAPH_CANONICAL_LABELING" 
+    // },
     GVAR_FUNC_TABLE_ENTRY(NAUTY_SPARSEGRAPH_CANONICAL_LABELING, 5,
                           "n, outneigh, vertices, stops, isdirected"),
     GVAR_FUNC_TABLE_ENTRY(NAUTY_GRAPH_CANONICAL_LABELING, 5,
