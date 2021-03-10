@@ -20,8 +20,6 @@ pkginclude_HEADERS += extern/bliss-0.73/heap.hh
 pkginclude_HEADERS += extern/bliss-0.73/timer.hh
 
 glabella_la_SOURCES = src/glabella.cc 
-#glabella_la_SOURCES = src/glabella_traces.c 
-
 
 glabella_la_SOURCES += extern/bliss-0.73/graph.cc 
 glabella_la_SOURCES += extern/bliss-0.73/partition.cc
@@ -38,24 +36,14 @@ glabella_la_SOURCES += extern/bliss-0.73/uintseqhash.cc
 glabella_la_SOURCES += extern/bliss-0.73/utils.cc
 
 
-pkginclude_HEADERS += extern/nauty27r1/foo.h
-pkginclude_HEADERS += extern/nauty27r1/naugstrings.h
-pkginclude_HEADERS += extern/nauty27r1/nautinv.h
-pkginclude_HEADERS += extern/nauty27r1/planarity.h
-pkginclude_HEADERS += extern/nauty27r1/traces.h
-pkginclude_HEADERS += extern/nauty27r1/gtools.h
-pkginclude_HEADERS += extern/nauty27r1/naututil.h
-pkginclude_HEADERS += extern/nauty27r1/quarticirred28.h
-pkginclude_HEADERS += extern/nauty27r1/gutils.h
-pkginclude_HEADERS += extern/nauty27r1/nautycliquer.h
-pkginclude_HEADERS += extern/nauty27r1/rng.h
-pkginclude_HEADERS += extern/nauty27r1/naugroup.h
-pkginclude_HEADERS += extern/nauty27r1/nautaux.h
 pkginclude_HEADERS += extern/nauty27r1/nauty.h
+pkginclude_HEADERS += extern/nauty27r1/naututil.h
 pkginclude_HEADERS += extern/nauty27r1/schreier.h
-
-
-
+pkginclude_HEADERS += extern/nauty27r1/gtools.h
+pkginclude_HEADERS += extern/nauty27r1/nautinv.h
+pkginclude_HEADERS += extern/nauty27r1/naugroup.h
+pkginclude_HEADERS += extern/nauty27r1/nautycliquer.h
+pkginclude_HEADERS += extern/nauty27r1/traces.h
 
 glabella_la_SOURCES += extern/nauty27r1/nauty.c
 glabella_la_SOURCES += extern/nauty27r1/naugraph.c
