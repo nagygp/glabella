@@ -116,6 +116,8 @@ Obj FuncNAUTY_GRAPH_CANONICAL_LABELING(Obj self, Obj nr_vert, Obj outneigh,
   automorphism_list = NEW_PLIST(T_PLIST, 0);
   DYNALLSTAT(graph, cg, cg_sz);
   DYNALLOC2(graph, cg, cg_sz, m, n, "malloc");
+  options.schreier = TRUE;
+  options.tc_level = 100;
   densenauty(g, lab, ptn, orbits, &options, &stats, m, n, cg);
 
   // compute 32-bit hashvalue
@@ -295,6 +297,7 @@ Obj FuncTRACES_GRAPH_CANONICAL_LABELING(Obj self, Obj nr_vert, Obj outneigh,
     options.defaultptn = TRUE; // lab, ptn are ignored
   }
   options.userautomproc = userautomproc_traces;
+  options.verbosity = 1;
 
   // call Traces
   automorphism_list = NEW_PLIST(T_PLIST, 0);
