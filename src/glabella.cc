@@ -29,6 +29,17 @@ static Obj PermToGAP(int *perm, int n) {
   return p;
 }
 
+static void userautomproc_traces(int count, int *perm,  int n) {
+  Obj p = PermToGAP(perm, n);
+  AddList(automorphism_list, p);
+}
+
+static void userautomproc(int count, int *perm, int *orbits, int numorbits,
+                          int stabvertex, int n) {
+  Obj p = PermToGAP(perm, n);
+  AddList(automorphism_list, p);
+}
+
 /***************** NAUTY STARTS *********************/
 
 /*
@@ -40,12 +51,6 @@ static Obj PermToGAP(int *perm, int n) {
  *
  * Modified by G.P. Nagy, 19/02/2021
  */
-
-static void userautomproc(int count, int *perm, int *orbits, int numorbits,
-                          int stabvertex, int n) {
-  Obj p = PermToGAP(perm, n);
-  AddList(automorphism_list, p);
-}
 
 Obj FuncNAUTY_GRAPH_CANONICAL_LABELING(Obj self, Obj nr_vert, Obj outneigh,
                                        Obj vertices, Obj stops,
@@ -226,6 +231,97 @@ Obj FuncNAUTY_SPARSEGRAPH_CANONICAL_LABELING(Obj self, Obj nr_vert, Obj outneigh
 }
 /*****************  SPARSE NAUTY ENDS  *********************/
 
+/***************** TRACES STARTS *********************/
+
+Obj FuncTRACES_GRAPH_CANONICAL_LABELING(Obj self, Obj nr_vert, Obj outneigh,
+                                       Obj vertices, Obj stops,
+                                       Obj isdirected) {
+
+  // allocate, declare, initialize 
+  DYNALLSTAT(int,lab,lab_sz);
+  DYNALLSTAT(int,ptn,ptn_sz);
+  DYNALLSTAT(int,orbits,orbits_sz);
+  DYNALLSTAT(int,map,map_sz);
+  static DEFAULTOPTIONS_TRACES(options);
+  TracesStats stats;
+
+  SG_DECL(sg); 
+  SG_DECL(cg);
+
+  options.getcanon = TRUE;
+  size_t n = INT_INTOBJ(nr_vert);
+  size_t m = SETWORDSNEEDED(n);
+
+  m = SETWORDSNEEDED(n);
+  nauty_check(WORDSIZE,m,n,NAUTYVERSIONID);
+
+  DYNALLOC1(int,lab,lab_sz,n,"malloc");
+  DYNALLOC1(int,ptn,ptn_sz,n,"malloc");
+  DYNALLOC1(int,orbits,orbits_sz,n,"malloc");
+  DYNALLOC1(int,map,map_sz,n,"malloc");
+
+  // set the edges
+  size_t nredges = 0;
+  size_t p = 0;
+  for (UInt i = 1; i <= n; i++) {
+    nredges += LEN_PLIST( ELM_PLIST( outneigh, i ) );
+  }
+
+  SG_ALLOC(sg,n,nredges,"malloc");
+  sg.nv = n;              /* Number of vertices */
+  sg.nde = nredges;       /* Number of directed edges */
+
+  for (size_t i = 0; i < n; i++) {
+    Obj block = ELM_PLIST(outneigh, i+1 );
+    UInt b_size = LEN_PLIST(block);
+
+    sg.v[i] = p;
+    sg.d[i] = b_size;
+
+    for (size_t j = 0; j < b_size; j++) {
+      sg.e[p] = INT_INTOBJ(ELM_PLIST(block, j + 1)) - 1;
+      ++p;
+    }
+  }
+
+  // set nauty's parameters
+  if (IS_LIST(vertices) && (LEN_LIST(vertices) == n)) {
+    options.defaultptn = FALSE; // lab, ptn are used
+    for (int i = 0; i < n; i++) {
+      lab[i] = INT_INTOBJ(ELM_PLIST(vertices, i + 1)) - 1;
+      ptn[i] = INT_INTOBJ(ELM_PLIST(stops, i + 1));
+    }
+  } else {
+    options.defaultptn = TRUE; // lab, ptn are ignored
+  }
+  options.userautomproc = userautomproc_traces;
+
+  // call Traces
+  automorphism_list = NEW_PLIST(T_PLIST, 0);
+  Traces(&sg,lab,ptn,orbits,&options,&stats,&cg);
+
+  // compute 32-bit hashvalue
+  long hash = hashgraph_sg(&cg, 255);
+
+  // collect results
+  Obj return_list = NEW_PLIST(T_PLIST, 0);
+  AddList(return_list, automorphism_list);
+  AddList(return_list, PermToGAP(lab, n));
+  AddList(return_list, INTOBJ_INT(hash));
+  automorphism_list = 0;
+
+  // free pointers
+  SG_FREE(sg);
+  SG_FREE(cg);
+  DYNFREE(lab,lab_sz);
+  DYNFREE(ptn,ptn_sz);
+  DYNFREE(orbits,orbits_sz);
+  
+  return return_list;
+}
+
+/*****************  TRACES ENDS  *********************/
+
 /***************** BLISS STARTS *********************/
 
 /*
@@ -381,8 +477,8 @@ typedef Obj (*GVarFuncTypeDef)(/*arguments*/);
 
 // Table of functions to export
 static StructGVarFunc GVarFuncs[] = {
-    // GVAR_FUNC_TABLE_ENTRY(TRACES_GRAPH_CANONICAL_LABELING, 5,
-    //                       "n, outneigh, vertices, stops, isdirected"),
+    GVAR_FUNC_TABLE_ENTRY(TRACES_GRAPH_CANONICAL_LABELING, 5,
+                          "n, outneigh, vertices, stops, isdirected"),
     // { "TRACES_GRAPH_CANONICAL_LABELING", 
     //   5, 
     //   "n, outneigh, vertices, stops, isdirected", 

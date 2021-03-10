@@ -20,7 +20,7 @@ pkginclude_HEADERS += extern/bliss-0.73/heap.hh
 pkginclude_HEADERS += extern/bliss-0.73/timer.hh
 
 glabella_la_SOURCES = src/glabella.cc 
-glabella_la_SOURCES = src/glabella_traces.c 
+#glabella_la_SOURCES = src/glabella_traces.c 
 
 
 glabella_la_SOURCES += extern/bliss-0.73/graph.cc 
