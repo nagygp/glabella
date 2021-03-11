@@ -153,7 +153,15 @@ Obj FuncSPARSENAUTY_GRAPH_CANONICAL_LABELING(Obj self, Obj nr_vert, Obj outneigh
   DYNALLSTAT(int,ptn,ptn_sz);
   DYNALLSTAT(int,orbits,orbits_sz);
   DYNALLSTAT(int,map,map_sz);
-  static DEFAULTOPTIONS_SPARSEGRAPH(options);
+  static optionblk options;
+  if (isdirected == True) {
+    static DEFAULTOPTIONS_SPARSEDIGRAPH(temp_options);
+    options = temp_options;
+  } else {
+    static DEFAULTOPTIONS_SPARSEGRAPH(temp_options2);
+    options = temp_options2;
+  }
+
   statsblk stats;
 
   SG_DECL(sg); 
