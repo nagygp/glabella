@@ -52,7 +52,7 @@ static void userautomproc(int count, int *perm, int *orbits, int numorbits,
  * Modified by G.P. Nagy, 19/02/2021
  */
 
-Obj FuncNAUTY_GRAPH_CANONICAL_LABELING(Obj self, Obj nr_vert, Obj outneigh,
+Obj FuncDENSENAUTY_GRAPH_CANONICAL_LABELING(Obj self, Obj nr_vert, Obj outneigh,
                                        Obj vertices, Obj stops,
                                        Obj isdirected) {
   // allocate the graph
@@ -144,7 +144,7 @@ Obj FuncNAUTY_GRAPH_CANONICAL_LABELING(Obj self, Obj nr_vert, Obj outneigh,
 
 /***************** SPARSE NAUTY STARTS *********************/
 
-Obj FuncNAUTY_SPARSEGRAPH_CANONICAL_LABELING(Obj self, Obj nr_vert, Obj outneigh,
+Obj FuncSPARSENAUTY_GRAPH_CANONICAL_LABELING(Obj self, Obj nr_vert, Obj outneigh,
                                        Obj vertices, Obj stops,
                                        Obj isdirected) {
 
@@ -489,9 +489,9 @@ static StructGVarFunc GVarFuncs[] = {
     //   //__FILE__ ":" "TRACES_GRAPH_CANONICAL_LABELING" 
     //    "src/glabella_traces.c:FuncTRACES_GRAPH_CANONICAL_LABELING" 
     // },
-    GVAR_FUNC_TABLE_ENTRY(NAUTY_SPARSEGRAPH_CANONICAL_LABELING, 5,
+    GVAR_FUNC_TABLE_ENTRY(SPARSENAUTY_GRAPH_CANONICAL_LABELING, 5,
                           "n, outneigh, vertices, stops, isdirected"),
-    GVAR_FUNC_TABLE_ENTRY(NAUTY_GRAPH_CANONICAL_LABELING, 5,
+    GVAR_FUNC_TABLE_ENTRY(DENSENAUTY_GRAPH_CANONICAL_LABELING, 5,
                           "n, outneigh, vertices, stops, isdirected"),
     GVAR_FUNC_TABLE_ENTRY(BLISS_GRAPH_CANONICAL_LABELING, 4,
                           "n, outneigh, colours, isdirected"),

@@ -33,7 +33,7 @@ gap> bl1[3];
 gap> Print(StructureDescription(Group(bl1[1])),"\n");
 C2 x S10
 gap> 
-gap> bl1n:=GraphCanonicalLabelling@glabella(Size(v),johnson,0,false,"nauty");;
+gap> bl1n:=GraphCanonicalLabelling@glabella(Size(v),johnson,0,false,"densenauty");;
 gap> Size(bl1n[1]);
 9
 gap> bl1n[3];
@@ -71,7 +71,7 @@ gap> Print(StructureDescription(Group(bl2c[1])),"\n");
 D10
 gap> 
 gap> bl2cn:=GraphCanonicalLabelling@glabella(10, petersen, 
->     [1,1,1,1,1,2,2,2,2,2], false, "nauty");
+>     [1,1,1,1,1,2,2,2,2,2], false, "densenauty");
 #I  Convert colouring to nauty format
 [ [ (2,5)(3,4)(7,10)(8,9), (1,2)(3,5)(6,7)(8,10) ], (3,5,4)(7,8,9), 
   1719978 ]
@@ -82,7 +82,7 @@ gap> SetInfoLevel( InfoGlabella, 2 );
 gap> bl2csn:=GraphCanonicalLabelling@glabella(10, petersen, 
 >     [1,1,1,1,1,2,2,2,2,2], false, "sparsenauty");
 #I  Convert colouring to nauty format
-#I  NAUTY_SPARSEGRAPH_CANONICAL_LABELING called
+#I  SPARSENAUTY_GRAPH_CANONICAL_LABELING called
 [ [ (2,5)(3,4)(7,10)(8,9), (1,2,3,4,5)(6,7,8,9,10) ], 
   (2,3,4,5)(6,7,10)(8,9), -152113 ]
 gap> Print(StructureDescription(Group(bl2csn[1])),"\n");

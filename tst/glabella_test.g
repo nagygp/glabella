@@ -13,7 +13,7 @@ Size(bl1[1]);
 bl1[3];
 Print(StructureDescription(Group(bl1[1])),"\n");
 
-bl1n:=GraphCanonicalLabelling@glabella(Size(v),johnson,0,false,"nauty");;
+bl1n:=GraphCanonicalLabelling@glabella(Size(v),johnson,0,false,"densenauty");;
 Size(bl1n[1]);
 bl1n[3];
 Print(StructureDescription(Group(bl1n[1])),"\n");
@@ -34,7 +34,7 @@ bl2c:=GraphCanonicalLabelling@glabella(10, petersen,
 Print(StructureDescription(Group(bl2c[1])),"\n");
 
 bl2cn:=GraphCanonicalLabelling@glabella(10, petersen, 
-    [1,1,1,1,1,2,2,2,2,2], false, "nauty");
+    [1,1,1,1,1,2,2,2,2,2], false, "densenauty");
 Print(StructureDescription(Group(bl2cn[1])),"\n");
 
 SetInfoLevel( InfoGlabella, 2 );

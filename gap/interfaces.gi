@@ -9,12 +9,13 @@ function( n, outneigh, colours, isdirected, solver )
     if solver = "bliss" then
 		Info( InfoGlabella, 2, "BLISS_GRAPH_CANONICAL_LABELING called" );
     	return BLISS_GRAPH_CANONICAL_LABELING( n, outneigh, colours, isdirected );
-    elif solver = "nauty" then
-		Info( InfoGlabella, 2, "NAUTY_GRAPH_CANONICAL_LABELING called" );
-        return NAUTY_GRAPH_CANONICAL_LABELING( n, outneigh, colours[1], colours[2], isdirected );
+    elif solver = "densenauty" then
+		Info( InfoGlabella, 2, "DENSENAUTY_GRAPH_CANONICAL_LABELING called" );
+        return DENSENAUTY_GRAPH_CANONICAL_LABELING( n, outneigh, colours[1], colours[2], isdirected );
     elif solver = "sparsenauty" then
-		# Info( InfoGlabella, 2, "NAUTY_SPARSEGRAPH_CANONICAL_LABELING called" );
-        # return NAUTY_SPARSEGRAPH_CANONICAL_LABELING( n, outneigh, colours[1], colours[2], isdirected );
+		Info( InfoGlabella, 2, "SPARSENAUTY_GRAPH_CANONICAL_LABELING called" );
+        return SPARSENAUTY_GRAPH_CANONICAL_LABELING( n, outneigh, colours[1], colours[2], isdirected );
+    elif solver = "traces" then
 		Info( InfoGlabella, 2, "TRACES_GRAPH_CANONICAL_LABELING called" );
         return TRACES_GRAPH_CANONICAL_LABELING( n, outneigh, colours[1], colours[2], isdirected );
 	else
@@ -61,7 +62,7 @@ function( n, outneigh, colouring, args... )
         colouring := 0;
     fi;
     # if solver and colouring format mismatch
-    if colouring_format = "plain" and solver in ["nauty","sparsenauty"] then
+    if colouring_format = "plain" and solver in ["densenauty","sparsenauty","traces"] then
         if colouring = 0 then
 			Info( InfoGlabella, 1, "Invalid nauty format colouring, set to [0,0]" );
             colouring := [0,0];
