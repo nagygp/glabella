@@ -52,6 +52,16 @@ gap> bl1sn[3];
 gap> Print(StructureDescription(Group(bl1sn[1])),"\n");
 C2 x S10
 gap> 
+gap> bl1tr:=GraphCanonicalLabelling@glabella(Size(v),johnson,0,false,"traces");;
+#I  Invalid plain format colouring, set to 0
+#I  Invalid nauty format colouring, set to [0,0]
+gap> Size(bl1tr[1]);
+3
+gap> bl1tr[3];
+000
+gap> Print(StructureDescription(Group(bl1tr[1])),"\n");
+C2 x S10
+gap> 
 gap> petersen:=[[2,5,6],[1,3,7],[2,4,8],[3,5,9],[1,4,10],
 >     [1,8,9],[2,9,10],[3,6,10],[4,6,7],[5,7,8]];
 [ [ 2, 5, 6 ], [ 1, 3, 7 ], [ 2, 4, 8 ], [ 3, 5, 9 ], [ 1, 4, 10 ], 
@@ -86,6 +96,15 @@ gap> bl2csn:=GraphCanonicalLabelling@glabella(10, petersen,
 [ [ (2,5)(3,4)(7,10)(8,9), (1,2,3,4,5)(6,7,8,9,10) ], 
   (2,3,4,5)(6,7,10)(8,9), -152113 ]
 gap> Print(StructureDescription(Group(bl2csn[1])),"\n");
+D10
+gap> 
+gap> bl2ctr:=GraphCanonicalLabelling@glabella(10, petersen, 
+>     [1,1,1,1,1,2,2,2,2,2], false, "traces");
+#I  Convert colouring to nauty format
+#I  TRACES_GRAPH_CANONICAL_LABELING called
+[ [ (1,2)(3,5)(6,7)(8,10), (1,4,2,5,3)(6,9,7,10,8) ], 
+  (1,4,2,3,5)(6,10)(8,9), 111 ]
+gap> Print(StructureDescription(Group(bl2ctr[1])),"\n");
 D10
 gap> 
 gap> dir_edges:=[

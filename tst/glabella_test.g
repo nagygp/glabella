@@ -7,7 +7,7 @@ LoadPackage( "glabella", false );
 
 ###################################
 v:=Combinations([1..10],5);;
-johnson:=List(v,x->Filtered([1..Size(v)],i->Size(Intersection(x,v[i]))=4));;
+johnson:=List(v,x->Filtered([1..Size(v)],i->Size(Intersection(x,v[i]))=2));;
 bl1:=GraphCanonicalLabelling@glabella(Size(v),johnson,0,false);;
 Size(bl1[1]);
 bl1[3];
@@ -23,6 +23,11 @@ bl1sn:=GraphCanonicalLabelling@glabella(Size(v),johnson,0,false,"sparsenauty");;
 Size(bl1sn[1]);
 bl1sn[3];
 Print(StructureDescription(Group(bl1sn[1])),"\n");
+
+bl1tr:=GraphCanonicalLabelling@glabella(Size(v),johnson,0,false,"traces");;
+Size(bl1tr[1]);
+bl1tr[3];
+Print(StructureDescription(Group(bl1tr[1])),"\n");
 
 petersen:=[[2,5,6],[1,3,7],[2,4,8],[3,5,9],[1,4,10],
     [1,8,9],[2,9,10],[3,6,10],[4,6,7],[5,7,8]];
@@ -41,6 +46,10 @@ SetInfoLevel( InfoGlabella, 2 );
 bl2csn:=GraphCanonicalLabelling@glabella(10, petersen, 
     [1,1,1,1,1,2,2,2,2,2], false, "sparsenauty");
 Print(StructureDescription(Group(bl2csn[1])),"\n");
+
+bl2ctr:=GraphCanonicalLabelling@glabella(10, petersen, 
+    [1,1,1,1,1,2,2,2,2,2], false, "traces");
+Print(StructureDescription(Group(bl2ctr[1])),"\n");
 
 dir_edges:=[
     [1,2],[2,3],[3,1],[4,5],[5,6],[6,4],[7,8],[8,9],[9,7],

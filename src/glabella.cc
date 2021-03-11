@@ -297,7 +297,7 @@ Obj FuncTRACES_GRAPH_CANONICAL_LABELING(Obj self, Obj nr_vert, Obj outneigh,
     options.defaultptn = TRUE; // lab, ptn are ignored
   }
   options.userautomproc = userautomproc_traces;
-  options.verbosity = 1;
+  options.verbosity = 0;
 
   // call Traces
   automorphism_list = NEW_PLIST(T_PLIST, 0);
