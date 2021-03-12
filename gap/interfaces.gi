@@ -37,13 +37,23 @@ function( n, outneigh, colouring, args... )
 		solver := "bliss";
 	fi;
 	if not IsPosInt(n) then
-		Error( "BI: <1> must be a positive integer.");
+		Error( "Glabella: <1> must be a positive integer." );
 	fi;
 	if not (IsList(outneigh) and Length(outneigh)=n and ForAll(outneigh, x->IsList(x) and ForAll(x,y->IsPosInt(y) and (y<=n)))) then
-		Error( "BI: <2> must be a list of lists of integers between 1 and <1>.");
+		Error( "Glabella: <2> must be a list of lists of integers between 1 and <1>." );
 	fi;
 	if not IsBool(isdirected) then
-		Error( "BI: <4> must be true or false.");
+		Error( "Glabella: <4> must be true or false.");
+	fi;
+	# check symmetry for undirected graphs
+	if (not isdirected) and 
+		ForAny( [1..Length(outneigh)], i -> ForAny( outneigh[i], j-> not i in outneigh[j] ) ) 
+	then 
+		Error( "Glabella: for undirected graphs the list of adjacencies must by symmetric." );
+	fi;
+	# Traces only works with undirected graphs
+	if solver = "traces" and isdirected then 
+		Error( "Glabella: Traces only works with undirected graphs." );
 	fi;
     # identify colouring format
 	if IsList(colouring) and Length(colouring)=2 and 
@@ -103,10 +113,10 @@ end );
 # 		isdirected := true;
 # 	fi;
 # 	if not (IsPosInt(n) and IsPosInt(m)) then
-# 		Error( "BI: <1> and <2> must be a positive integer.");
+# 		Error( "Glabella: <1> and <2> must be a positive integer.");
 # 	fi;
 # 	if not (IsList(outneigh) and Length(outneigh)=m and ForAll(outneigh, x->IsList(x) and ForAll(x,y->IsPosInt(y) and (y<=n)))) then
-# 		Error( "BI: <3> must be a list of lists of integers between 1 and <1>.");
+# 		Error( "Glabella: <3> must be a list of lists of integers between 1 and <1>.");
 # 	fi;
 # 	if not (IsList(ucolours) and Length(ucolours)=n and ForAll(ucolours,IsInt)) then
 # 		ucolours := ListWithIdenticalEntries(n,0);

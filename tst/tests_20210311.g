@@ -42,7 +42,8 @@ od;
 time; # stacks at q=11, 101 sec
 
 res:=[];;
-for q in [3,4,5,7,8,9,11] do
+#for q in [3,4,5,7,8,9,11] do
+for q in [3,4,5,7] do
 	u:=HermitianAbstractUnital(q); 
 	nrpts:=Order(u)^3+1;
 	bls:=BlocksOfUnital(u);;
@@ -65,7 +66,7 @@ for q in [3,4,5,7,8,9,11] do
 	Add(res,[q,cl]);
 	Print(q,": ", StructureDescription(Group(cl[1])), "\n");
 od;
-time; # stacks at q=11, 205 sec
+time; # stacks at q=11, 205 sec, sometimes panic for q=9
 
 res:=[];;
 for q in [3,4,5,7,8,9,11] do
