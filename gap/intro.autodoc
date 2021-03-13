@@ -47,7 +47,7 @@ and Adolfo Piperno <Cite Key="Nauty:2014" />.</Item>
 
 @Section Installation
 
-- Download the package from <URL>https://github.com/nagygp/glabella</URL>.
+- Download the package from <URL>https://nagygp.github.io/glabella/</URL>.
 - Unzip/untar the file, this should create a directory called <F>glabella*</F>.
 - Locate the <F>pkg</F> directory of your &GAP; directory, which contains the 
   directories <F>lib</F>, <F>doc</F> and so on. Move the directory 
