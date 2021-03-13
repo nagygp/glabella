@@ -24,7 +24,7 @@ downloads:
       url: https://github.com/nagygp/glabella/releases/download/v0.32/glabella-0.32.tar.gz
 
 abstract: |
-    The GAP package <strong>glabella</strong> provides a low level interface to softwares that can compute automorphisms, isomorphisms and canonical labellings of graphs. The graphs can be directed or undirected, and a vertex colouring can be specified. In the present version, the package provides interfaces to the programs <em>bliss, nauty</em> and </em>Traces.</em>
+    The GAP package <strong>glabella</strong> provides a low level interface to softwares that can compute automorphisms, isomorphisms and canonical labellings of graphs. The graphs can be directed or undirected, and a vertex colouring can be specified. In the present version, the package provides interfaces to the programs <em>bliss, nauty</em> and <em>Traces.</em>
 
 status: dev
 doc-html: doc/chap0.html

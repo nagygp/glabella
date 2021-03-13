@@ -60,7 +60,7 @@ AbstractHTML   :=  Concatenation(
   "that can compute automorphisms, isomorphisms and canonical labellings of graphs. ",
   "The graphs can be directed or undirected, and a vertex colouring can be specified. ",
   "In the present version, the package provides interfaces to the programs ",
-  "<em>bliss, nauty</em> and </em>Traces.</em>"
+  "<em>bliss, nauty</em> and <em>Traces.</em>"
 ),
 
 PackageDoc := rec(
