@@ -85,5 +85,3 @@ distclean-local:
 
 doc:
 	($(GAPROOT)/bin/gap.sh -A makedoc.g)
-
-
