@@ -46,7 +46,6 @@ For questions, remarks and issues please use the [issue tracker](https://github.
 ### Plans and TODOs
 
 * Testing, benchmarking
-* Interface to Traces
 * Add further nauty features (e.g. vertex-invariants)
 
 ## License

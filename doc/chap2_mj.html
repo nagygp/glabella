@@ -25,26 +25,39 @@
 <p id="mathjaxlink" class="pcenter"><a href="chap2.html">[MathJax off]</a></p>
 <p><a id="X7C96F6267A2105A0" name="X7C96F6267A2105A0"></a></p>
 <div class="ChapSects"><a href="chap2_mj.html#X7C96F6267A2105A0">2 <span class="Heading">Usage of the package</span></a>
-<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap2_mj.html#X815C2D007A090300">2.1 <span class="Heading">Interfaces</span></a>
+<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap2_mj.html#X8729B87B848E3F89">2.1 <span class="Heading">Theory</span></a>
+</span>
+</div>
+<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap2_mj.html#X8074CD4F845A9F05">2.2 <span class="Heading">Solvers</span></a>
 </span>
 <div class="ContSSBlock">
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2_mj.html#X78B0169E7FF635DE">2.1-1 GraphCanonicalLabelling@</a></span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2_mj.html#X7B1B34EC86E51E7A">2.1-2 InfoGlabella</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2_mj.html#X864485067965887F">2.2-1 <span class="Heading">bliss</span></a>
+</span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2_mj.html#X850EB4217D494CE7">2.2-2 <span class="Heading">nauty dense graphs</span></a>
+</span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2_mj.html#X7EA85717860CB95B">2.2-3 <span class="Heading">nauty sparse graphs</span></a>
+</span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2_mj.html#X83BE50B27C64A7DD">2.2-4 <span class="Heading">Traces</span></a>
+</span>
 </div></div>
-<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap2_mj.html#X7A489A5D79DA9E5C">2.2 <span class="Heading">Examples</span></a>
+<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap2_mj.html#X815C2D007A090300">2.3 <span class="Heading">Interfaces</span></a>
+</span>
+<div class="ContSSBlock">
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2_mj.html#X78B0169E7FF635DE">2.3-1 GraphCanonicalLabelling@</a></span>
+<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2_mj.html#X7B1B34EC86E51E7A">2.3-2 InfoGlabella</a></span>
+</div></div>
+<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap2_mj.html#X7A489A5D79DA9E5C">2.4 <span class="Heading">Examples</span></a>
 </span>
 </div>
 </div>
 
 <h3>2 <span class="Heading">Usage of the package</span></h3>
 
-<p><a id="X815C2D007A090300" name="X815C2D007A090300"></a></p>
+<p><a id="X8729B87B848E3F89" name="X8729B87B848E3F89"></a></p>
 
-<h4>2.1 <span class="Heading">Interfaces</span></h4>
+<h4>2.1 <span class="Heading">Theory</span></h4>
 
-<p>This section will describe the funtions of <strong class="pkg">glabella</strong>, and their nonchecking counterparts.</p>
-
-<p>Let <span class="SimpleMath">\(\Gamma\)</span> be a graph on the set <span class="SimpleMath">\(\{1,\ldots,n\}\)</span> of vertices. <span class="SimpleMath">\(G\)</span> may be directed or not; loops and duplicate edges are ignored. The graph is given by the list of its adjacencies <span class="SimpleMath">\(N_1,\ldots,N_n\)</span>, where <span class="SimpleMath">\(N_i\)</span> is the set of (out)neighbors of the vertex <span class="SimpleMath">\(i\)</span>.</p>
+<p>Let <span class="SimpleMath">\(\Gamma\)</span> be a graph on the set <span class="SimpleMath">\(\{1,\ldots,n\}\)</span> of vertices. <span class="SimpleMath">\(G\)</span> may be directed or not; loops and duplicate edges are ignored. The graph is given by the list of its adjacencies <span class="SimpleMath">\(N_1,\ldots,N_n\)</span>, where <span class="SimpleMath">\(N_i\)</span> is the set of (out)neighbors of the vertex <span class="SimpleMath">\(i\)</span>. For an undirected simple graph, the list of adjacencies must be symmetric, that is, <span class="SimpleMath">\(i \in N_j\)</span> if and only if <span class="SimpleMath">\(j\in N_i\)</span>.</p>
 
 <p>A vertex colouring of <span class="SimpleMath">\(\Gamma\)</span> can be given in two different formats. The <em>plain</em> format is a list <span class="SimpleMath">\(c_1,\ldots,c_n\)</span> of integers; <span class="SimpleMath">\(c_i\)</span> being the colour of the vertex <span class="SimpleMath">\(i\)</span>. The <em>nauty</em> format consists of two lists: <span class="SimpleMath">\(u_1,\ldots,u_n\)</span> is a permutation of <span class="SimpleMath">\(\{1,\ldots,n\}\)</span>, and <span class="SimpleMath">\(s_1,\ldots,s_n \in \{0,1\}\)</span>. The second list indicates the division of the vertices into colours: if <span class="SimpleMath">\(s_i=0\)</span>, then a colour class ends at position <span class="SimpleMath">\(i\)</span>. For example, the lists</p>
 
@@ -56,11 +69,45 @@
 
 <p>The solver programs also compute a 32-bit hash value of the graph. The same as above: this hash value is an isomorphy invariant that depends on your software and hardware environment. It also depends on the colouring in bliss, but not in nauty.</p>
 
+<p><a id="X8074CD4F845A9F05" name="X8074CD4F845A9F05"></a></p>
+
+<h4>2.2 <span class="Heading">Solvers</span></h4>
+
+<p>Our suggestion is to use <em>bliss</em> for directed graphs and <em>Traces</em> for undirected graphs. All solvers seem to perform better with undirected graphs.</p>
+
+<p><a id="X864485067965887F" name="X864485067965887F"></a></p>
+
+<h5>2.2-1 <span class="Heading">bliss</span></h5>
+
+<p>Very efficient solver, written in C++. Works well for both directed and undirected graphs.</p>
+
+<p><a id="X850EB4217D494CE7" name="X850EB4217D494CE7"></a></p>
+
+<h5>2.2-2 <span class="Heading">nauty dense graphs</span></h5>
+
+<p>Written in C. Works for both directed and undirected graphs. Only recommended for small graphs.</p>
+
+<p><a id="X7EA85717860CB95B" name="X7EA85717860CB95B"></a></p>
+
+<h5>2.2-3 <span class="Heading">nauty sparse graphs</span></h5>
+
+<p>Written in C. Works for both directed and undirected graphs. Not recommended for large graphs with few automorphisms.</p>
+
+<p><a id="X83BE50B27C64A7DD" name="X83BE50B27C64A7DD"></a></p>
+
+<h5>2.2-4 <span class="Heading">Traces</span></h5>
+
+<p>Very efficient solver, written in C. It only works for undirected graphs.</p>
+
+<p><a id="X815C2D007A090300" name="X815C2D007A090300"></a></p>
+
+<h4>2.3 <span class="Heading">Interfaces</span></h4>
+
 <p>This section will describe the funtions of <strong class="pkg">glabella</strong>, and their nonchecking counterparts. The nonchecking versions are slightly faster but it must be used with extreme care. Bad parameters may result in unpredictable behaviour.</p>
 
 <p><a id="X78B0169E7FF635DE" name="X78B0169E7FF635DE"></a></p>
 
-<h5>2.1-1 GraphCanonicalLabelling@</h5>
+<h5>2.3-1 GraphCanonicalLabelling@</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; GraphCanonicalLabelling@</code>( <var class="Arg">n</var>, <var class="Arg">outneigh</var>, <var class="Arg">colouring</var>[, <var class="Arg">isdirected</var>[, <var class="Arg">solver</var>]] )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; GraphCanonicalLabellingNC@</code>( <var class="Arg">n</var>, <var class="Arg">outneigh</var>, <var class="Arg">colours</var>, <var class="Arg">isdirected</var>, <var class="Arg">solver</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
@@ -70,20 +117,20 @@
 
 <p>For coloured graphs, <var class="Arg">colouring</var> is either a list of length <code class="code">n</code> (plain format), or a pair of two lists of length <code class="code">n</code> (nauty format). For malformatted colourings, all vertices have colour <code class="code">0</code>.</p>
 
-<p>The solver can be specified by the strings <code class="code">"bliss"</code>, <code class="code">"nauty"</code> or <code class="code">"sparsenauty"</code>. (Default: <code class="code">"bliss"</code>.)</p>
+<p>The solver can be specified by the strings <code class="code">"bliss"</code>, <code class="code">"densenauty"</code>, <code class="code">"sparsenauty"</code> or <code class="code">"traces"</code>. (Default: <code class="code">"bliss"</code>.)</p>
 
 <p><code class="code">GraphCanonicalLabellingNC</code> is the operation that is called by the function <code class="code">GraphCanonicalLabelling</code>, using the same arguments. Results are unpredictable if the parameters are not well-formed.</p>
 
 <p><a id="X7B1B34EC86E51E7A" name="X7B1B34EC86E51E7A"></a></p>
 
-<h5>2.1-2 InfoGlabella</h5>
+<h5>2.3-2 InfoGlabella</h5>
 
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; InfoGlabella</code></td><td class="tdright">(&nbsp;info class&nbsp;)</td></tr></table></div>
 <p>An infoclass for the package. Its default value is <span class="SimpleMath">\(0\)</span>.</p>
 
 <p><a id="X7A489A5D79DA9E5C" name="X7A489A5D79DA9E5C"></a></p>
 
-<h4>2.2 <span class="Heading">Examples</span></h4>
+<h4>2.4 <span class="Heading">Examples</span></h4>
 
 <p>The Johnson graph <span class="SimpleMath">\(J(n,k)\)</span> is a simple graph whose vertices are the <span class="SimpleMath">\(k\)</span>-subsets of <span class="SimpleMath">\(\{1,\ldots,n\}\)</span> and two vertices are connected by an edge if and only if their intersection has size <span class="SimpleMath">\(k-1\)</span>. If <span class="SimpleMath">\(2k\neq n\)</span>, then the automorphism group of <span class="SimpleMath">\(J(n,k,t)\)</span> is isomorphic to <span class="SimpleMath">\(S_n\)</span> i. If <span class="SimpleMath">\(2k=n\)</span>, then the automorphism group is isomorphic to <span class="SimpleMath">\(C_2 \times S_n\)</span>.</p>
 
@@ -103,7 +150,7 @@ true
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Print(StructureDescription(Group(bl1[1])),"\n");</span>
 C2 x S10
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput"></span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">bl1n:=GraphCanonicalLabelling@glabella(Size(v),johnson,0,false,"nauty");;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">bl1n:=GraphCanonicalLabelling@glabella(Size(v),johnson,0,false,"densenauty");;</span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Size(bl1n[1]);</span>
 9
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">bl1n[3];</span>
@@ -146,7 +193,7 @@ S5
 D10
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput"></span>
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">bl2cn:=GraphCanonicalLabelling@glabella(10, petersen, </span>
-<span class="GAPprompt">&gt;</span> <span class="GAPinput">    [1,1,1,1,1,2,2,2,2,2], false, "nauty");</span>
+<span class="GAPprompt">&gt;</span> <span class="GAPinput">    [1,1,1,1,1,2,2,2,2,2], false, "densenauty");</span>
 #I  Convert colouring to nauty format
 [ [ (2,5)(3,4)(7,10)(8,9), (1,2)(3,5)(6,7)(8,10) ], (3,5,4)(7,8,9), 
   1075461802 ]
@@ -157,7 +204,7 @@ D10
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">bl2csn:=GraphCanonicalLabelling@glabella(10, petersen, </span>
 <span class="GAPprompt">&gt;</span> <span class="GAPinput">    [1,1,1,1,1,2,2,2,2,2], false, "sparsenauty");</span>
 #I  Convert colouring to nauty format
-#I  NAUTY_SPARSEGRAPH_CANONICAL_LABELING called
+#I  SPARSENAUTY_GRAPH_CANONICAL_LABELING called
 [ [ (2,5)(3,4)(7,10)(8,9), (1,2,3,4,5)(6,7,8,9,10) ], 
   (2,3,4,5)(6,7,10)(8,9), 1073589711 ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Print(StructureDescription(Group(bl2csn[1])),"\n");</span>
@@ -195,7 +242,7 @@ C3 x S3
 (S3 x S3) : C2
 </pre></div>
 
-<p>The last example shows that the same set of edges may define both directed and undirected graphs.</p>
+<p>The last example shows that the for undirected simple graphs, one has to use symmetric list of adjacencies.</p>
 
 
 <div class="example"><pre>
@@ -206,10 +253,22 @@ C3 x S3
 #I  BLISS_GRAPH_CANONICAL_LABELING called
 [ [  ], (1,2,3), 1876527224 ]
 <span class="GAPprompt">gap&gt;</span> <span class="GAPinput">GraphCanonicalLabelling@glabella(3, path, false, false);</span>
+Error, Glabella: for undirected graphs the list of adjacencies must be symmet\
+ric. at /home/nagyg/MyGAP/pkg/glabella/gap/interfaces.gi:52 called from
+&lt;function "GraphCanonicalLabelling@glabella"&gt;( &lt;arguments&gt; )
+ called from read-eval loop at *stdin*:69
+you can 'quit;' to quit to outer loop, or
+you can 'return;' to continue
+<span class="GAPbrkprompt">brk&gt;</span> <span class="GAPinput">quit;</span>
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">path_undir:=[[2],[1,3],[2]];</span>
+[ [ 2 ], [ 1, 3 ], [ 2 ] ]
+<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">GraphCanonicalLabelling@glabella(3, path_undir, false, false);</span>
 #I  Invalid plain format colouring, set to 0
 #I  BLISS_GRAPH_CANONICAL_LABELING called
 [ [ (1,3) ], (1,2,3), 4110465937 ]
 </pre></div>
+
+<p>This section will describe the funtions of <strong class="pkg">glabella</strong>, and their nonchecking counterparts.</p>
 
 
 <div class="chlinkprevnextbot">&nbsp;<a href="chap0_mj.html">[Top of Book]</a>&nbsp;  <a href="chap0_mj.html#contents">[Contents]</a>&nbsp;  &nbsp;<a href="chap1_mj.html">[Previous Chapter]</a>&nbsp;  &nbsp;<a href="chapBib_mj.html">[Next Chapter]</a>&nbsp;  </div>

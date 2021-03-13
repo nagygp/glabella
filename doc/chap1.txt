@@ -32,7 +32,7 @@
   
   [1X1.2 [33X[0;0YInstallation[133X[101X
   
-  [30X    [33X[0;6YDownload the package from [7Xhttps://github.com/nagygp/glabella[107X.[133X
+  [30X    [33X[0;6YDownload the package from [7Xhttps://nagygp.github.io/glabella/[107X.[133X
   
   [30X    [33X[0;6YUnzip/untar the file, this should create a directory called [11Xglabella*[111X.[133X
   
