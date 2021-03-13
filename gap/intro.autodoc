@@ -6,7 +6,7 @@ Key="Digraphs0.15.2" /> and <Package>NautyTracesInterface</Package> <Cite Key="N
 @Abstract 
 
 The &GAP; package <Package>glabella</Package> provides a low level 
-interface to software that can compute automorphisms, isomorphisms 
+interface to softwares that can compute automorphisms, isomorphisms 
 and canonical labellings of graphs. The graphs can be directed or 
 undirected, and a vertex colouring can be specified. In the present
 version, the package provides interfaces to the programs <E>bliss</E>

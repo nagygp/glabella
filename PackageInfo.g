@@ -10,8 +10,8 @@ SetPackageInfo( rec(
 
 PackageName := "glabella",
 Subtitle := "Low level interfaces to graph automorphism and canonical labelling tools",
-Version := "0.31",
-Date := "04/03/2021", # dd/mm/yyyy format
+Version := "0.32",
+Date := "13/03/2021", # dd/mm/yyyy format
 License := "GPL-2.0-or-later",
 
 Persons := [
@@ -55,7 +55,13 @@ ArchiveFormats := ".tar.gz",
 ##
 Status := "dev",
 
-AbstractHTML   :=  "",
+AbstractHTML   :=  Concatenation( 
+  "The GAP package <strong>glabella</strong> provides a low level interface to softwares ",
+  "that can compute automorphisms, isomorphisms and canonical labellings of graphs. ",
+  "The graphs can be directed or undirected, and a vertex colouring can be specified. ",
+  "In the present version, the package provides interfaces to the programs ",
+  "<em>bliss, nauty</em> and <em>Traces.</em>"
+),
 
 PackageDoc := rec(
   BookName  := "glabella",
@@ -87,7 +93,7 @@ end,
 
 TestFile := "tst/testall.g",
 
-Keywords := [ "bliss", "nauty", "graph isomorphism", "canonical labelling", "automorphism group" ],
+Keywords := [ "bliss", "nauty", "traces", "graph isomorphism", "canonical labelling", "automorphism group" ],
 
 ));
 

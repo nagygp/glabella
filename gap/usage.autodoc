@@ -16,19 +16,19 @@ The solver programs also compute a 32-bit hash value of the graph. The same as a
  
 @Section Solvers
 
-Our suggestion is to use bliss for directed graphs and Traces for undirected graphs. 
- 
+Our suggestion is to use **bliss** for directed graphs and **Traces** for undirected graphs. All solvers seem to perform better with undirected graphs. 
+
 @Subsection bliss
 
 Very efficient solver, written in C++. Works well for both directed and undirected graphs. 
 
 @Subsection nauty dense graphs
 
-Written in C. Works well for both directed and undirected graphs. Only recommended for small graphs.
+Written in C. Works for both directed and undirected graphs. Only recommended for small graphs.
 
 @Subsection nauty sparse graphs
 
-Written in C. Works well for both directed and undirected graphs. Not recommended for large graphs with few automorphisms.
+Written in C. Works for both directed and undirected graphs. Not recommended for large graphs with few automorphisms. 
 
 @Subsection Traces
 
