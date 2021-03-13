@@ -59,12 +59,17 @@ dg:=List([1..9],i->Filtered([1..9],j->[i,j] in dir_edges));
 bl3:=GraphCanonicalLabelling@glabella(9, dg, false, true);
 Print(StructureDescription(Group(bl3[1])),"\n");
 
-bl4:=GraphCanonicalLabelling@glabella(9, dg, false, false);
+dg_undir:=List([1..9],i->Filtered([1..9],j->
+    ([i,j] in dir_edges) or ([j,i] in dir_edges)));
+bl4:=GraphCanonicalLabelling@glabella(9, dg_undir, false, false);
 Print(StructureDescription(Group(bl4[1])),"\n");
 
 path:=[[2],[3],[]];
 GraphCanonicalLabelling@glabella(3, path, false, true);
 GraphCanonicalLabelling@glabella(3, path, false, false);
+quit;
+path_undir:=[[2],[1,3],[2]];
+GraphCanonicalLabelling@glabella(3, path_undir, false, false);
 ###################################
 
 STOP_TEST( "glabella.tst", 10000 );

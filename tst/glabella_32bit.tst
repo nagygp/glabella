@@ -125,7 +125,12 @@ gap> bl3:=GraphCanonicalLabelling@glabella(9, dg, false, true);
 gap> Print(StructureDescription(Group(bl3[1])),"\n");
 C3 x S3
 gap> 
-gap> bl4:=GraphCanonicalLabelling@glabella(9, dg, false, false);
+gap> dg_undir:=List([1..9],i->Filtered([1..9],j->
+>     ([i,j] in dir_edges) or ([j,i] in dir_edges)));
+[ [ 2, 3, 4, 7 ], [ 1, 3, 5, 8 ], [ 1, 2, 6, 9 ], [ 1, 5, 6, 7 ], 
+  [ 2, 4, 6, 8 ], [ 3, 4, 5, 9 ], [ 1, 4, 8, 9 ], [ 2, 5, 7, 9 ], 
+  [ 3, 6, 7, 8 ] ]
+gap> bl4:=GraphCanonicalLabelling@glabella(9, dg_undir, false, false);
 #I  Invalid plain format colouring, set to 0
 #I  BLISS_GRAPH_CANONICAL_LABELING called
 [ [ (2,3)(5,6)(8,9), (2,4)(3,7)(6,8), (1,2)(4,5)(7,8) ], 
@@ -140,9 +145,15 @@ gap> GraphCanonicalLabelling@glabella(3, path, false, true);
 #I  BLISS_GRAPH_CANONICAL_LABELING called
 [ [  ], (1,2,3), -270956424 ]
 gap> GraphCanonicalLabelling@glabella(3, path, false, false);
+Error, Glabella: for undirected graphs the list of adjacencies must be\
+ symmetric.
+gap> path_undir:=[[2],[1,3],[2]];
+[ [ 2 ], [ 1, 3 ], [ 2 ] ]
+gap> GraphCanonicalLabelling@glabella(3, path_undir, false, false);
 #I  Invalid plain format colouring, set to 0
 #I  BLISS_GRAPH_CANONICAL_LABELING called
 [ [ (1,3) ], (1,2,3), -184501359 ]
 gap> ###################################
+gap> 
 gap> STOP_TEST( "glabella.tst", 10000 );
 
