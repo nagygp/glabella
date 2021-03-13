@@ -58,7 +58,7 @@ gap> bl1tr:=GraphCanonicalLabelling@glabella(Size(v),johnson,0,false,"traces");;
 gap> Size(bl1tr[1]);
 3
 gap> bl1tr[3];
-000
+54775416
 gap> Print(StructureDescription(Group(bl1tr[1])),"\n");
 C2 x S10
 gap> 
@@ -103,7 +103,7 @@ gap> bl2ctr:=GraphCanonicalLabelling@glabella(10, petersen,
 #I  Convert colouring to nauty format
 #I  TRACES_GRAPH_CANONICAL_LABELING called
 [ [ (1,2)(3,5)(6,7)(8,10), (1,4,2,5,3)(6,9,7,10,8) ], 
-  (1,4,2,3,5)(6,10)(8,9), 111 ]
+  (1,4,2,3,5)(6,10)(8,9), 17177191 ]
 gap> Print(StructureDescription(Group(bl2ctr[1])),"\n");
 D10
 gap> 
