@@ -16,7 +16,7 @@
 
 /***************** THINGS *********************/
 
-static Obj automorphism_list;
+static Obj automorphism_list = NEW_PLIST(T_PLIST, 0);
 
 static Obj PermToGAP(int *perm, int n) {
   Obj p = NEW_PERM4(n);
@@ -29,16 +29,41 @@ static Obj PermToGAP(int *perm, int n) {
   return p;
 }
 
-static void userautomproc_traces(int count, int *perm,  int n) {
-  Obj p = PermToGAP(perm, n);
-  AddList(automorphism_list, p);
-}
-
-static void userautomproc(int count, int *perm, int *orbits, int numorbits,
+static void userautomproc_nauty(int count, int *perm, int *orbits, int numorbits,
                           int stabvertex, int n) {
   Obj p = PermToGAP(perm, n);
   AddList(automorphism_list, p);
 }
+
+static void userautomproc_traces(int count, int *perm,  int n) {
+  // Obj p = PermToGAP(perm, n);
+  // AddList(automorphism_list, p);
+  userautomproc_nauty( count, perm, NULL, 0, 0, n);
+}
+
+/*
+ * The following code is a derivative work of the code from the GAP package
+ * Digraphs which is licensed GPLv3. This code therefore is also licensed under
+ * the terms of the GNU Public License, version 3.
+ *
+ * Based on "digraphs_hook_function()" of the GAP package Digraphs 0.15.2
+ * Modified by G.P. Nagy, 21/08/2019
+ */
+void bliss_hook_function(void *user_param_v, unsigned int N,
+                             const unsigned int *aut) {
+  UInt4 *ptr;
+  Obj p, gens, user_param;
+  UInt i, n;
+
+  // one needs this in C++ to avoid "invalid conversion" error
+  user_param = static_cast<Obj>(user_param_v);
+  n = INT_INTOBJ(ELM_PLIST(user_param, 2)); // the degree
+  p = PermToGAP((int *)aut, n);
+
+  gens = ELM_PLIST(user_param, 1);
+  AssPlist(gens, LEN_PLIST(gens) + 1, p);
+}
+
 
 /***************** NAUTY STARTS *********************/
 
@@ -46,7 +71,7 @@ static void userautomproc(int count, int *perm, int *orbits, int numorbits,
  * The following code is a derivative work of the code from the GAP package
  * NautyTracesInterface 0.2 which is licensed GPLv2.
  *
- * Based on "userautomproc()" and "FuncNAUTY_DENSE()" of the GAP package
+ * Based on "userautomproc_nauty()" and "FuncNAUTY_DENSE()" of the GAP package
  * NautyTracesInterface 0.2.
  *
  * Modified by G.P. Nagy, 19/02/2021
@@ -107,7 +132,7 @@ Obj FuncDENSENAUTY_GRAPH_CANONICAL_LABELING(Obj self, Obj nr_vert, Obj outneigh,
   } else {
     options.defaultptn = TRUE; // lab, ptn are ignored
   }
-  options.userautomproc = userautomproc;
+  options.userautomproc = userautomproc_nauty;
 
   nauty_check(WORDSIZE, m, n, NAUTYVERSIONID);
 
@@ -213,7 +238,7 @@ Obj FuncSPARSENAUTY_GRAPH_CANONICAL_LABELING(Obj self, Obj nr_vert, Obj outneigh
   } else {
     options.defaultptn = TRUE; // lab, ptn are ignored
   }
-  options.userautomproc = userautomproc;
+  options.userautomproc = userautomproc_nauty;
 
   // call nauty
   automorphism_list = NEW_PLIST(T_PLIST, 0);
@@ -340,30 +365,6 @@ Obj FuncTRACES_GRAPH_CANONICAL_LABELING(Obj self, Obj nr_vert, Obj outneigh,
  * Digraphs which is licensed GPLv3. This code therefore is also licensed under
  * the terms of the GNU Public License, version 3.
  *
- * Based on "digraphs_hook_function()" of the GAP package Digraphs 0.15.2
- * Modified by G.P. Nagy, 21/08/2019
- */
-
-void glabella_hook_function(void *user_param_v, unsigned int N,
-                             const unsigned int *aut) {
-  UInt4 *ptr;
-  Obj p, gens, user_param;
-  UInt i, n;
-
-  // one needs this in C++ to avoid "invalid conversion" error
-  user_param = static_cast<Obj>(user_param_v);
-  n = INT_INTOBJ(ELM_PLIST(user_param, 2)); // the degree
-  p = PermToGAP((int *)aut, n);
-
-  gens = ELM_PLIST(user_param, 1);
-  AssPlist(gens, LEN_PLIST(gens) + 1, p);
-}
-
-/*
- * The following code is a derivative work of the code from the GAP package
- * Digraphs which is licensed GPLv3. This code therefore is also licensed under
- * the terms of the GNU Public License, version 3.
- *
  * Based on "FuncDIGRAPH_AUTOMORPHISMS" of the GAP package Digraphs 0.15.2
  * Modified by G.P. Nagy, 21/08/2019
  */
@@ -389,7 +390,7 @@ static Obj glabella_autgr_canlab(bliss::AbstractGraph *graph) {
   SET_ELM_PLIST(autos, 2, n);
   SET_LEN_PLIST(autos, 2);
 
-  canon = graph->canonical_form(stats, glabella_hook_function, autos);
+  canon = graph->canonical_form(stats, bliss_hook_function, autos);
 
   p = PermToGAP((int *)canon, graph->get_nof_vertices());
   SET_ELM_PLIST(autos, 2, p);
