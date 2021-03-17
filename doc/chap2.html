@@ -15,9 +15,9 @@
 <body class="chap2"  onload="jscontent()">
 
 
-<div class="chlinktop"><span class="chlink1">Goto Chapter: </span><a href="chap0.html">Top</a>  <a href="chap1.html">1</a>  <a href="chap2.html">2</a>  <a href="chapBib.html">Bib</a>  <a href="chapInd.html">Ind</a>  </div>
+<div class="chlinktop"><span class="chlink1">Goto Chapter: </span><a href="chap0.html">Top</a>  <a href="chap1.html">1</a>  <a href="chap2.html">2</a>  <a href="chap3.html">3</a>  <a href="chapBib.html">Bib</a>  <a href="chapInd.html">Ind</a>  </div>
 
-<div class="chlinkprevnexttop">&nbsp;<a href="chap0.html">[Top of Book]</a>&nbsp;  <a href="chap0.html#contents">[Contents]</a>&nbsp;  &nbsp;<a href="chap1.html">[Previous Chapter]</a>&nbsp;  &nbsp;<a href="chapBib.html">[Next Chapter]</a>&nbsp;  </div>
+<div class="chlinkprevnexttop">&nbsp;<a href="chap0.html">[Top of Book]</a>&nbsp;  <a href="chap0.html#contents">[Contents]</a>&nbsp;  &nbsp;<a href="chap1.html">[Previous Chapter]</a>&nbsp;  &nbsp;<a href="chap3.html">[Next Chapter]</a>&nbsp;  </div>
 
 <p id="mathjaxlink" class="pcenter"><a href="chap2_mj.html">[MathJax on]</a></p>
 <p><a id="X7C96F6267A2105A0" name="X7C96F6267A2105A0"></a></p>
@@ -27,28 +27,18 @@
 </div>
 <div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap2.html#X8074CD4F845A9F05">2.2 <span class="Heading">Solvers</span></a>
 </span>
-<div class="ContSSBlock">
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2.html#X864485067965887F">2.2-1 <span class="Heading">bliss</span></a>
-</span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2.html#X850EB4217D494CE7">2.2-2 <span class="Heading">nauty dense graphs</span></a>
-</span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2.html#X7EA85717860CB95B">2.2-3 <span class="Heading">nauty sparse graphs</span></a>
-</span>
-<span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2.html#X83BE50B27C64A7DD">2.2-4 <span class="Heading">Traces</span></a>
-</span>
-</div></div>
+</div>
 <div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap2.html#X815C2D007A090300">2.3 <span class="Heading">Interfaces</span></a>
 </span>
 <div class="ContSSBlock">
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2.html#X78B0169E7FF635DE">2.3-1 GraphCanonicalLabelling@</a></span>
 <span class="ContSS"><br /><span class="nocss">&nbsp;&nbsp;</span><a href="chap2.html#X7B1B34EC86E51E7A">2.3-2 InfoGlabella</a></span>
 </div></div>
-<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap2.html#X7A489A5D79DA9E5C">2.4 <span class="Heading">Examples</span></a>
-</span>
-</div>
 </div>
 
 <h3>2 <span class="Heading">Usage of the package</span></h3>
+
+<p>This section will describe the funtions of <strong class="pkg">glabella</strong>, and their nonchecking counterparts.</p>
 
 <p><a id="X8729B87B848E3F89" name="X8729B87B848E3F89"></a></p>
 
@@ -62,7 +52,7 @@
 
 <p>represent the colour classes <span class="Math">\{\{3\},\{4\},\{1,2,6,7\},\{5,8,9\}\}</span>. In plain format, the same colouring can be given by the list <span class="Math">c=[1,1,2,3,4,1,1,4,4]</span>.</p>
 
-<p>The solver programs (recently bliss 0.73, nauty 2.7R1) compute the generators of the automorphism group of the (coloured) graph <span class="Math">\Gamma</span>. Moreover a canonical labelling of <span class="Math">\Gamma</span> is computed, this is a permutation of the vertices that bring the graph in a canonical format. Isomorphic graphs in canonical format are equal. Notice that canonical labellings can depend on the solver used, the version of the solver, the version of this packages, the version of GAP, parameter settings of the solver, and possibly even the compiler and computer used.</p>
+<p>The solver programs (recently bliss 0.73, nauty 2.7R1) compute the generators of the automorphism group of the (coloured) graph <span class="Math">\Gamma</span>. Moreover a canonical labelling of <span class="Math">\Gamma</span> is computed; this is a permutation of the vertices that brings the graph in a canonical format. Isomorphic graphs in canonical format are equal. Notice that canonical labellings can depend on the solver used, the version of the solver, the version of this packages, the version of GAP, parameter settings of the solver, and possibly even the compiler and computer used.</p>
 
 <p>The solver programs also compute a 32-bit hash value of the graph. The same as above: this hash value is an isomorphy invariant that depends on your software and hardware environment. It also depends on the colouring in bliss, but not in nauty.</p>
 
@@ -72,30 +62,25 @@
 
 <p>Our suggestion is to use <em>bliss</em> for directed graphs and <em>Traces</em> for undirected graphs. All solvers seem to perform better with undirected graphs.</p>
 
-<p><a id="X864485067965887F" name="X864485067965887F"></a></p>
 
-<h5>2.2-1 <span class="Heading">bliss</span></h5>
+<dl>
+<dt><strong class="Mark">bliss</strong></dt>
+<dd><p>Very efficient solver, written in C++. Works well for both directed and undirected graphs.</p>
 
-<p>Very efficient solver, written in C++. Works well for both directed and undirected graphs.</p>
+</dd>
+<dt><strong class="Mark">nauty dense graphs</strong></dt>
+<dd><p>Written in C. Works for both directed and undirected graphs. Only recommended for small graphs.</p>
 
-<p><a id="X850EB4217D494CE7" name="X850EB4217D494CE7"></a></p>
+</dd>
+<dt><strong class="Mark">nauty sparse graphs</strong></dt>
+<dd><p>Written in C. Works for both directed and undirected graphs. Not recommended for large graphs with few automorphisms.</p>
 
-<h5>2.2-2 <span class="Heading">nauty dense graphs</span></h5>
+</dd>
+<dt><strong class="Mark">Traces</strong></dt>
+<dd><p>Very efficient solver, written in C. It only works for undirected graphs.</p>
 
-<p>Written in C. Works for both directed and undirected graphs. Only recommended for small graphs.</p>
-
-<p><a id="X7EA85717860CB95B" name="X7EA85717860CB95B"></a></p>
-
-<h5>2.2-3 <span class="Heading">nauty sparse graphs</span></h5>
-
-<p>Written in C. Works for both directed and undirected graphs. Not recommended for large graphs with few automorphisms.</p>
-
-<p><a id="X83BE50B27C64A7DD" name="X83BE50B27C64A7DD"></a></p>
-
-<h5>2.2-4 <span class="Heading">Traces</span></h5>
-
-<p>Very efficient solver, written in C. It only works for undirected graphs.</p>
-
+</dd>
+</dl>
 <p><a id="X815C2D007A090300" name="X815C2D007A090300"></a></p>
 
 <h4>2.3 <span class="Heading">Interfaces</span></h4>
@@ -125,153 +110,11 @@
 <div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; InfoGlabella</code></td><td class="tdright">(&nbsp;info class&nbsp;)</td></tr></table></div>
 <p>An infoclass for the package. Its default value is <span class="Math">0</span>.</p>
 
-<p><a id="X7A489A5D79DA9E5C" name="X7A489A5D79DA9E5C"></a></p>
 
-<h4>2.4 <span class="Heading">Examples</span></h4>
-
-<p>The Johnson graph <span class="Math">J(n,k)</span> is a simple graph whose vertices are the <span class="Math">k</span>-subsets of <span class="Math">\{1,\ldots,n\}</span> and two vertices are connected by an edge if and only if their intersection has size <span class="Math">k-1</span>. If <span class="Math">2k\neq n</span>, then the automorphism group of <span class="Math">J(n,k,t)</span> is isomorphic to <span class="Math">S_n</span> i. If <span class="Math">2k=n</span>, then the automorphism group is isomorphic to <span class="Math">C_2 \times S_n</span>.</p>
+<div class="chlinkprevnextbot">&nbsp;<a href="chap0.html">[Top of Book]</a>&nbsp;  <a href="chap0.html#contents">[Contents]</a>&nbsp;  &nbsp;<a href="chap1.html">[Previous Chapter]</a>&nbsp;  &nbsp;<a href="chap3.html">[Next Chapter]</a>&nbsp;  </div>
 
 
-<div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">LoadPackage( "glabella", false );</span>
-true
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput"></span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">###################################</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">v:=Combinations([1..10],5);;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">johnson:=List(v,x-&gt;Filtered([1..Size(v)],i-&gt;Size(Intersection(x,v[i]))=4));;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">bl1:=GraphCanonicalLabelling@glabella(Size(v),johnson,0,false);;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Size(bl1[1]);</span>
-9
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">bl1[3];</span>
-3445689955
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Print(StructureDescription(Group(bl1[1])),"\n");</span>
-C2 x S10
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput"></span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">bl1n:=GraphCanonicalLabelling@glabella(Size(v),johnson,0,false,"densenauty");;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Size(bl1n[1]);</span>
-9
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">bl1n[3];</span>
-1564726612
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Print(StructureDescription(Group(bl1n[1])),"\n");</span>
-C2 x S10
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput"></span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SetInfoLevel( InfoGlabella, 1 );</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">bl1sn:=GraphCanonicalLabelling@glabella(Size(v),johnson,0,false,"sparsenauty");;</span>
-#I  Invalid plain format colouring, set to 0
-#I  Invalid nauty format colouring, set to [0,0]
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Size(bl1sn[1]);</span>
-9
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">bl1sn[3];</span>
-771356517
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Print(StructureDescription(Group(bl1sn[1])),"\n");</span>
-C2 x S10
-</pre></div>
-
-<p>The automorphism group of the Petersen graph is isomorphic to <span class="Math">S_5</span>. The automorphisms preserving two disjoint 5-cycles form a dihedral group of order 10.</p>
-
-
-<div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">petersen:=[[2,5,6],[1,3,7],[2,4,8],[3,5,9],[1,4,10],</span>
-<span class="GAPprompt">&gt;</span> <span class="GAPinput">    [1,8,9],[2,9,10],[3,6,10],[4,6,7],[5,7,8]];</span>
-[ [ 2, 5, 6 ], [ 1, 3, 7 ], [ 2, 4, 8 ], [ 3, 5, 9 ], [ 1, 4, 10 ], 
-  [ 1, 8, 9 ], [ 2, 9, 10 ], [ 3, 6, 10 ], [ 4, 6, 7 ], [ 5, 7, 8 ] ]
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">bl2:=GraphCanonicalLabelling@glabella(10, petersen, false, false);</span>
-#I  Invalid plain format colouring, set to 0
-[ [ (4,8)(5,6)(9,10), (2,5,6)(3,4,9,7,10,8), (1,2,3,4,9,6)(5,7,8) ], 
-  (1,10)(2,9)(3,6,8,4,5,7), 3430842650 ]
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Print(StructureDescription(Group(bl2[1])),"\n");</span>
-S5
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput"></span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">bl2c:=GraphCanonicalLabelling@glabella(10, petersen, </span>
-<span class="GAPprompt">&gt;</span> <span class="GAPinput">    [1,1,1,1,1,2,2,2,2,2], false);</span>
-[ [ (2,5)(3,4)(7,10)(8,9), (1,2,3,4,5)(6,7,8,9,10) ], 
-  (1,5,3,2,4)(6,10,7)(8,9), 2440551578 ]
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Print(StructureDescription(Group(bl2c[1])),"\n");</span>
-D10
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput"></span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">bl2cn:=GraphCanonicalLabelling@glabella(10, petersen, </span>
-<span class="GAPprompt">&gt;</span> <span class="GAPinput">    [1,1,1,1,1,2,2,2,2,2], false, "densenauty");</span>
-#I  Convert colouring to nauty format
-[ [ (2,5)(3,4)(7,10)(8,9), (1,2)(3,5)(6,7)(8,10) ], (3,5,4)(7,8,9), 
-  1075461802 ]
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Print(StructureDescription(Group(bl2cn[1])),"\n");</span>
-D10
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput"></span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">SetInfoLevel( InfoGlabella, 2 );</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">bl2csn:=GraphCanonicalLabelling@glabella(10, petersen, </span>
-<span class="GAPprompt">&gt;</span> <span class="GAPinput">    [1,1,1,1,1,2,2,2,2,2], false, "sparsenauty");</span>
-#I  Convert colouring to nauty format
-#I  SPARSENAUTY_GRAPH_CANONICAL_LABELING called
-[ [ (2,5)(3,4)(7,10)(8,9), (1,2,3,4,5)(6,7,8,9,10) ], 
-  (2,3,4,5)(6,7,10)(8,9), 1073589711 ]
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Print(StructureDescription(Group(bl2csn[1])),"\n");</span>
-D10
-</pre></div>
-
-<p>Let <span class="Math">\Gamma</span> be the direct product of two oriented cycles of size 3. Then <span class="Math">Aut(\Gamma)</span> is isomorphic to <span class="Math">(C_3 \times C_3).C_2</span>.</p>
-
-
-<div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">dir_edges:=[</span>
-<span class="GAPprompt">&gt;</span> <span class="GAPinput">    [1,2],[2,3],[3,1],[4,5],[5,6],[6,4],[7,8],[8,9],[9,7],</span>
-<span class="GAPprompt">&gt;</span> <span class="GAPinput">    [1,4],[4,7],[7,1],[2,5],[5,8],[8,2],[3,6],[6,9],[9,3]</span>
-<span class="GAPprompt">&gt;</span> <span class="GAPinput">];</span>
-[ [ 1, 2 ], [ 2, 3 ], [ 3, 1 ], [ 4, 5 ], [ 5, 6 ], [ 6, 4 ], 
-  [ 7, 8 ], [ 8, 9 ], [ 9, 7 ], [ 1, 4 ], [ 4, 7 ], [ 7, 1 ], 
-  [ 2, 5 ], [ 5, 8 ], [ 8, 2 ], [ 3, 6 ], [ 6, 9 ], [ 9, 3 ] ]
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">dg:=List([1..9],i-&gt;Filtered([1..9],j-&gt;[i,j] in dir_edges));</span>
-[ [ 2, 4 ], [ 3, 5 ], [ 1, 6 ], [ 5, 7 ], [ 6, 8 ], [ 4, 9 ], 
-  [ 1, 8 ], [ 2, 9 ], [ 3, 7 ] ]
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">bl3:=GraphCanonicalLabelling@glabella(9, dg, false, true);</span>
-#I  Invalid plain format colouring, set to 0
-#I  BLISS_GRAPH_CANONICAL_LABELING called
-[ [ (2,4)(3,7)(6,8), (1,2,3)(4,5,6)(7,8,9) ], (1,9)(2,7,5,4,8)(3,6), 
-  895877481 ]
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Print(StructureDescription(Group(bl3[1])),"\n");</span>
-C3 x S3
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput"></span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">bl4:=GraphCanonicalLabelling@glabella(9, dg, false, false);</span>
-#I  Invalid plain format colouring, set to 0
-#I  BLISS_GRAPH_CANONICAL_LABELING called
-[ [ (2,3)(5,6)(8,9), (2,4)(3,7)(6,8), (1,2)(4,5)(7,8) ], 
-  (1,9)(2,7,5,4,8)(3,6), 3628762130 ]
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">Print(StructureDescription(Group(bl4[1])),"\n");</span>
-(S3 x S3) : C2
-</pre></div>
-
-<p>The last example shows that the for undirected simple graphs, one has to use symmetric list of adjacencies.</p>
-
-
-<div class="example"><pre>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">path:=[[2],[3],[]];</span>
-[ [ 2 ], [ 3 ], [  ] ]
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">GraphCanonicalLabelling@glabella(3, path, false, true);</span>
-#I  Invalid plain format colouring, set to 0
-#I  BLISS_GRAPH_CANONICAL_LABELING called
-[ [  ], (1,2,3), 1876527224 ]
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">GraphCanonicalLabelling@glabella(3, path, false, false);</span>
-Error, Glabella: for undirected graphs the list of adjacencies must be symmet\
-ric. at /home/nagyg/MyGAP/pkg/glabella/gap/interfaces.gi:52 called from
-&lt;function "GraphCanonicalLabelling@glabella"&gt;( &lt;arguments&gt; )
- called from read-eval loop at *stdin*:69
-you can 'quit;' to quit to outer loop, or
-you can 'return;' to continue
-<span class="GAPbrkprompt">brk&gt;</span> <span class="GAPinput">quit;</span>
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">path_undir:=[[2],[1,3],[2]];</span>
-[ [ 2 ], [ 1, 3 ], [ 2 ] ]
-<span class="GAPprompt">gap&gt;</span> <span class="GAPinput">GraphCanonicalLabelling@glabella(3, path_undir, false, false);</span>
-#I  Invalid plain format colouring, set to 0
-#I  BLISS_GRAPH_CANONICAL_LABELING called
-[ [ (1,3) ], (1,2,3), 4110465937 ]
-</pre></div>
-
-<p>This section will describe the funtions of <strong class="pkg">glabella</strong>, and their nonchecking counterparts.</p>
-
-
-<div class="chlinkprevnextbot">&nbsp;<a href="chap0.html">[Top of Book]</a>&nbsp;  <a href="chap0.html#contents">[Contents]</a>&nbsp;  &nbsp;<a href="chap1.html">[Previous Chapter]</a>&nbsp;  &nbsp;<a href="chapBib.html">[Next Chapter]</a>&nbsp;  </div>
-
-
-<div class="chlinkbot"><span class="chlink1">Goto Chapter: </span><a href="chap0.html">Top</a>  <a href="chap1.html">1</a>  <a href="chap2.html">2</a>  <a href="chapBib.html">Bib</a>  <a href="chapInd.html">Ind</a>  </div>
+<div class="chlinkbot"><span class="chlink1">Goto Chapter: </span><a href="chap0.html">Top</a>  <a href="chap1.html">1</a>  <a href="chap2.html">2</a>  <a href="chap3.html">3</a>  <a href="chapBib.html">Bib</a>  <a href="chapInd.html">Ind</a>  </div>
 
 <hr />
 <p class="foot">generated by <a href="http://www.math.rwth-aachen.de/~Frank.Luebeck/GAPDoc">GAPDoc2HTML</a></p>

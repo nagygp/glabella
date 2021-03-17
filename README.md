@@ -1,4 +1,5 @@
 [![Build Status](https://github.com/nagygp/glabella/workflows/CI/badge.svg?branch=master)](https://github.com/nagygp/glabella/actions?query=workflow%3ACI+branch%3Amaster)
+[![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/nagygp/glabella?branch=master&svg=true)](https://ci.appveyor.com/project/nagygp/glabella)
 [![Code Coverage](https://codecov.io/github/nagygp/glabella/coverage.svg?branch=master&token=)](https://codecov.io/gh/nagygp/glabella)
 
 # The glabella package
@@ -47,10 +48,11 @@ For questions, remarks and issues please use the [issue tracker](https://github.
 
 * Testing, benchmarking
 * Add further nauty features (e.g. vertex-invariants)
+* Add further Traces features (e.g. known automorphisms)
 
 ## License
 
-glabella is free software; you can redistribute it and/or modify it under the terms of the Version 2 of the GNU General Public License. For details see the file LICENSE.
+**glabella** is free software; you can redistribute it and/or modify it under the terms of the Version 2 of the GNU General Public License. For details see the file LICENSE.
 
 ## Credits
 

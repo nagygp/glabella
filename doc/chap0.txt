@@ -6,10 +6,10 @@
    [1X Low level interfaces to graph automorphism and canonical labelling tools [101X
   
   
-                                      0.32
+                                      0.33
   
   
-                                 13 March 2021
+                                 17 March 2021
   
   
                                  Gábor P. Nagy
@@ -51,14 +51,10 @@
   2 [33X[0;0YUsage of the package[133X
     2.1 [33X[0;0YTheory[133X
     2.2 [33X[0;0YSolvers[133X
-      2.2-1 [33X[0;0Ybliss[133X
-      2.2-2 [33X[0;0Ynauty dense graphs[133X
-      2.2-3 [33X[0;0Ynauty sparse graphs[133X
-      2.2-4 [33X[0;0YTraces[133X
     2.3 [33X[0;0YInterfaces[133X
       2.3-1 GraphCanonicalLabelling@
       2.3-2 InfoGlabella
-    2.4 [33X[0;0YExamples[133X
+  3 [33X[0;0YExamples[133X
   
   
   [32X

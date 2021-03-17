@@ -1,6 +1,9 @@
   
   [1X2 [33X[0;0YUsage of the package[133X[101X
   
+  [33X[0;0YThis  section  will describe the funtions of [5Xglabella[105X, and their nonchecking
+  counterparts.[133X
+  
   
   [1X2.1 [33X[0;0YTheory[133X[101X
   
@@ -27,8 +30,8 @@
   
   [33X[0;0YThe   solver  programs  (recently  bliss  0.73,  nauty  2.7R1)  compute  the
   generators  of  the  automorphism  group  of  the  (coloured)  graph [23X\Gamma[123X.
-  Moreover  a canonical labelling of [23X\Gamma[123X is computed, this is a permutation
-  of  the  vertices  that  bring  the  graph in a canonical format. Isomorphic
+  Moreover  a canonical labelling of [23X\Gamma[123X is computed; this is a permutation
+  of  the  vertices  that  brings  the graph in a canonical format. Isomorphic
   graphs  in  canonical format are equal. Notice that canonical labellings can
   depend  on  the  solver used, the version of the solver, the version of this
   packages, the version of GAP, parameter settings of the solver, and possibly
@@ -45,28 +48,21 @@
   [33X[0;0YOur suggestion is to use [13Xbliss[113X for directed graphs and [13XTraces[113X for undirected
   graphs. All solvers seem to perform better with undirected graphs.[133X
   
+  [8Xbliss[108X
+        [33X[0;6YVery  efficient  solver,  written in C++. Works well for both directed
+        and undirected graphs.[133X
   
-  [1X2.2-1 [33X[0;0Ybliss[133X[101X
+  [8Xnauty dense graphs[108X
+        [33X[0;6YWritten  in  C.  Works  for  both directed and undirected graphs. Only
+        recommended for small graphs.[133X
   
-  [33X[0;0YVery  efficient  solver,  written  in  C++. Works well for both directed and
-  undirected graphs.[133X
+  [8Xnauty sparse graphs[108X
+        [33X[0;6YWritten  in  C.  Works  for  both  directed and undirected graphs. Not
+        recommended for large graphs with few automorphisms.[133X
   
-  
-  [1X2.2-2 [33X[0;0Ynauty dense graphs[133X[101X
-  
-  [33X[0;0YWritten   in  C.  Works  for  both  directed  and  undirected  graphs.  Only
-  recommended for small graphs.[133X
-  
-  
-  [1X2.2-3 [33X[0;0Ynauty sparse graphs[133X[101X
-  
-  [33X[0;0YWritten in C. Works for both directed and undirected graphs. Not recommended
-  for large graphs with few automorphisms.[133X
-  
-  
-  [1X2.2-4 [33X[0;0YTraces[133X[101X
-  
-  [33X[0;0YVery efficient solver, written in C. It only works for undirected graphs.[133X
+  [8XTraces[108X
+        [33X[0;6YVery  efficient  solver,  written  in  C. It only works for undirected
+        graphs.[133X
   
   
   [1X2.3 [33X[0;0YInterfaces[133X[101X
@@ -106,150 +102,4 @@
   [33X[1;0Y[29X[2XInfoGlabella[102X[32X info class[133X
   
   [33X[0;0YAn infoclass for the package. Its default value is [23X0[123X.[133X
-  
-  
-  [1X2.4 [33X[0;0YExamples[133X[101X
-  
-  [33X[0;0YThe  Johnson graph [23XJ(n,k)[123X is a simple graph whose vertices are the [23Xk[123X-subsets
-  of  [23X\{1,\ldots,n\}[123X  and two vertices are connected by an edge if and only if
-  their intersection has size [23Xk-1[123X. If [23X2k\neq n[123X, then the automorphism group of
-  [23XJ(n,k,t)[123X  is  isomorphic  to  [23XS_n[123X i. If [23X2k=n[123X, then the automorphism group is
-  isomorphic to [23XC_2 \times S_n[123X.[133X
-  
-  [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27XLoadPackage( "glabella", false );[127X[104X
-    [4X[28Xtrue[128X[104X
-    [4X[25Xgap>[125X [27X[127X[104X
-    [4X[25Xgap>[125X [27X###################################[127X[104X
-    [4X[25Xgap>[125X [27Xv:=Combinations([1..10],5);;[127X[104X
-    [4X[25Xgap>[125X [27Xjohnson:=List(v,x->Filtered([1..Size(v)],i->Size(Intersection(x,v[i]))=4));;[127X[104X
-    [4X[25Xgap>[125X [27Xbl1:=GraphCanonicalLabelling@glabella(Size(v),johnson,0,false);;[127X[104X
-    [4X[25Xgap>[125X [27XSize(bl1[1]);[127X[104X
-    [4X[28X9[128X[104X
-    [4X[25Xgap>[125X [27Xbl1[3];[127X[104X
-    [4X[28X3445689955[128X[104X
-    [4X[25Xgap>[125X [27XPrint(StructureDescription(Group(bl1[1])),"\n");[127X[104X
-    [4X[28XC2 x S10[128X[104X
-    [4X[25Xgap>[125X [27X[127X[104X
-    [4X[25Xgap>[125X [27Xbl1n:=GraphCanonicalLabelling@glabella(Size(v),johnson,0,false,"densenauty");;[127X[104X
-    [4X[25Xgap>[125X [27XSize(bl1n[1]);[127X[104X
-    [4X[28X9[128X[104X
-    [4X[25Xgap>[125X [27Xbl1n[3];[127X[104X
-    [4X[28X1564726612[128X[104X
-    [4X[25Xgap>[125X [27XPrint(StructureDescription(Group(bl1n[1])),"\n");[127X[104X
-    [4X[28XC2 x S10[128X[104X
-    [4X[25Xgap>[125X [27X[127X[104X
-    [4X[25Xgap>[125X [27XSetInfoLevel( InfoGlabella, 1 );[127X[104X
-    [4X[25Xgap>[125X [27Xbl1sn:=GraphCanonicalLabelling@glabella(Size(v),johnson,0,false,"sparsenauty");;[127X[104X
-    [4X[28X#I  Invalid plain format colouring, set to 0[128X[104X
-    [4X[28X#I  Invalid nauty format colouring, set to [0,0][128X[104X
-    [4X[25Xgap>[125X [27XSize(bl1sn[1]);[127X[104X
-    [4X[28X9[128X[104X
-    [4X[25Xgap>[125X [27Xbl1sn[3];[127X[104X
-    [4X[28X771356517[128X[104X
-    [4X[25Xgap>[125X [27XPrint(StructureDescription(Group(bl1sn[1])),"\n");[127X[104X
-    [4X[28XC2 x S10[128X[104X
-  [4X[32X[104X
-  
-  [33X[0;0YThe  automorphism  group  of  the  Petersen  graph is isomorphic to [23XS_5[123X. The
-  automorphisms  preserving  two  disjoint  5-cycles  form a dihedral group of
-  order 10.[133X
-  
-  [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27Xpetersen:=[[2,5,6],[1,3,7],[2,4,8],[3,5,9],[1,4,10],[127X[104X
-    [4X[25X>[125X [27X    [1,8,9],[2,9,10],[3,6,10],[4,6,7],[5,7,8]];[127X[104X
-    [4X[28X[ [ 2, 5, 6 ], [ 1, 3, 7 ], [ 2, 4, 8 ], [ 3, 5, 9 ], [ 1, 4, 10 ], [128X[104X
-    [4X[28X  [ 1, 8, 9 ], [ 2, 9, 10 ], [ 3, 6, 10 ], [ 4, 6, 7 ], [ 5, 7, 8 ] ][128X[104X
-    [4X[25Xgap>[125X [27Xbl2:=GraphCanonicalLabelling@glabella(10, petersen, false, false);[127X[104X
-    [4X[28X#I  Invalid plain format colouring, set to 0[128X[104X
-    [4X[28X[ [ (4,8)(5,6)(9,10), (2,5,6)(3,4,9,7,10,8), (1,2,3,4,9,6)(5,7,8) ], [128X[104X
-    [4X[28X  (1,10)(2,9)(3,6,8,4,5,7), 3430842650 ][128X[104X
-    [4X[25Xgap>[125X [27XPrint(StructureDescription(Group(bl2[1])),"\n");[127X[104X
-    [4X[28XS5[128X[104X
-    [4X[25Xgap>[125X [27X[127X[104X
-    [4X[25Xgap>[125X [27Xbl2c:=GraphCanonicalLabelling@glabella(10, petersen, [127X[104X
-    [4X[25X>[125X [27X    [1,1,1,1,1,2,2,2,2,2], false);[127X[104X
-    [4X[28X[ [ (2,5)(3,4)(7,10)(8,9), (1,2,3,4,5)(6,7,8,9,10) ], [128X[104X
-    [4X[28X  (1,5,3,2,4)(6,10,7)(8,9), 2440551578 ][128X[104X
-    [4X[25Xgap>[125X [27XPrint(StructureDescription(Group(bl2c[1])),"\n");[127X[104X
-    [4X[28XD10[128X[104X
-    [4X[25Xgap>[125X [27X[127X[104X
-    [4X[25Xgap>[125X [27Xbl2cn:=GraphCanonicalLabelling@glabella(10, petersen, [127X[104X
-    [4X[25X>[125X [27X    [1,1,1,1,1,2,2,2,2,2], false, "densenauty");[127X[104X
-    [4X[28X#I  Convert colouring to nauty format[128X[104X
-    [4X[28X[ [ (2,5)(3,4)(7,10)(8,9), (1,2)(3,5)(6,7)(8,10) ], (3,5,4)(7,8,9), [128X[104X
-    [4X[28X  1075461802 ][128X[104X
-    [4X[25Xgap>[125X [27XPrint(StructureDescription(Group(bl2cn[1])),"\n");[127X[104X
-    [4X[28XD10[128X[104X
-    [4X[25Xgap>[125X [27X[127X[104X
-    [4X[25Xgap>[125X [27XSetInfoLevel( InfoGlabella, 2 );[127X[104X
-    [4X[25Xgap>[125X [27Xbl2csn:=GraphCanonicalLabelling@glabella(10, petersen, [127X[104X
-    [4X[25X>[125X [27X    [1,1,1,1,1,2,2,2,2,2], false, "sparsenauty");[127X[104X
-    [4X[28X#I  Convert colouring to nauty format[128X[104X
-    [4X[28X#I  SPARSENAUTY_GRAPH_CANONICAL_LABELING called[128X[104X
-    [4X[28X[ [ (2,5)(3,4)(7,10)(8,9), (1,2,3,4,5)(6,7,8,9,10) ], [128X[104X
-    [4X[28X  (2,3,4,5)(6,7,10)(8,9), 1073589711 ][128X[104X
-    [4X[25Xgap>[125X [27XPrint(StructureDescription(Group(bl2csn[1])),"\n");[127X[104X
-    [4X[28XD10[128X[104X
-  [4X[32X[104X
-  
-  [33X[0;0YLet  [23X\Gamma[123X  be  the  direct  product of two oriented cycles of size 3. Then
-  [23XAut(\Gamma)[123X is isomorphic to [23X(C_3 \times C_3).C_2[123X.[133X
-  
-  [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27Xdir_edges:=[[127X[104X
-    [4X[25X>[125X [27X    [1,2],[2,3],[3,1],[4,5],[5,6],[6,4],[7,8],[8,9],[9,7],[127X[104X
-    [4X[25X>[125X [27X    [1,4],[4,7],[7,1],[2,5],[5,8],[8,2],[3,6],[6,9],[9,3][127X[104X
-    [4X[25X>[125X [27X];[127X[104X
-    [4X[28X[ [ 1, 2 ], [ 2, 3 ], [ 3, 1 ], [ 4, 5 ], [ 5, 6 ], [ 6, 4 ], [128X[104X
-    [4X[28X  [ 7, 8 ], [ 8, 9 ], [ 9, 7 ], [ 1, 4 ], [ 4, 7 ], [ 7, 1 ], [128X[104X
-    [4X[28X  [ 2, 5 ], [ 5, 8 ], [ 8, 2 ], [ 3, 6 ], [ 6, 9 ], [ 9, 3 ] ][128X[104X
-    [4X[25Xgap>[125X [27Xdg:=List([1..9],i->Filtered([1..9],j->[i,j] in dir_edges));[127X[104X
-    [4X[28X[ [ 2, 4 ], [ 3, 5 ], [ 1, 6 ], [ 5, 7 ], [ 6, 8 ], [ 4, 9 ], [128X[104X
-    [4X[28X  [ 1, 8 ], [ 2, 9 ], [ 3, 7 ] ][128X[104X
-    [4X[25Xgap>[125X [27Xbl3:=GraphCanonicalLabelling@glabella(9, dg, false, true);[127X[104X
-    [4X[28X#I  Invalid plain format colouring, set to 0[128X[104X
-    [4X[28X#I  BLISS_GRAPH_CANONICAL_LABELING called[128X[104X
-    [4X[28X[ [ (2,4)(3,7)(6,8), (1,2,3)(4,5,6)(7,8,9) ], (1,9)(2,7,5,4,8)(3,6), [128X[104X
-    [4X[28X  895877481 ][128X[104X
-    [4X[25Xgap>[125X [27XPrint(StructureDescription(Group(bl3[1])),"\n");[127X[104X
-    [4X[28XC3 x S3[128X[104X
-    [4X[25Xgap>[125X [27X[127X[104X
-    [4X[25Xgap>[125X [27Xbl4:=GraphCanonicalLabelling@glabella(9, dg, false, false);[127X[104X
-    [4X[28X#I  Invalid plain format colouring, set to 0[128X[104X
-    [4X[28X#I  BLISS_GRAPH_CANONICAL_LABELING called[128X[104X
-    [4X[28X[ [ (2,3)(5,6)(8,9), (2,4)(3,7)(6,8), (1,2)(4,5)(7,8) ], [128X[104X
-    [4X[28X  (1,9)(2,7,5,4,8)(3,6), 3628762130 ][128X[104X
-    [4X[25Xgap>[125X [27XPrint(StructureDescription(Group(bl4[1])),"\n");[127X[104X
-    [4X[28X(S3 x S3) : C2[128X[104X
-  [4X[32X[104X
-  
-  [33X[0;0YThe last example shows that the for undirected simple graphs, one has to use
-  symmetric list of adjacencies.[133X
-  
-  [4X[32X  Example  [32X[104X
-    [4X[25Xgap>[125X [27Xpath:=[[2],[3],[]];[127X[104X
-    [4X[28X[ [ 2 ], [ 3 ], [  ] ][128X[104X
-    [4X[25Xgap>[125X [27XGraphCanonicalLabelling@glabella(3, path, false, true);[127X[104X
-    [4X[28X#I  Invalid plain format colouring, set to 0[128X[104X
-    [4X[28X#I  BLISS_GRAPH_CANONICAL_LABELING called[128X[104X
-    [4X[28X[ [  ], (1,2,3), 1876527224 ][128X[104X
-    [4X[25Xgap>[125X [27XGraphCanonicalLabelling@glabella(3, path, false, false);[127X[104X
-    [4X[28XError, Glabella: for undirected graphs the list of adjacencies must be symmet\[128X[104X
-    [4X[28Xric. at /home/nagyg/MyGAP/pkg/glabella/gap/interfaces.gi:52 called from[128X[104X
-    [4X[28X<function "GraphCanonicalLabelling@glabella">( <arguments> )[128X[104X
-    [4X[28X called from read-eval loop at *stdin*:69[128X[104X
-    [4X[28Xyou can 'quit;' to quit to outer loop, or[128X[104X
-    [4X[28Xyou can 'return;' to continue[128X[104X
-    [4X[26Xbrk>[126X [27Xquit;[127X[104X
-    [4X[25Xgap>[125X [27Xpath_undir:=[[2],[1,3],[2]];[127X[104X
-    [4X[28X[ [ 2 ], [ 1, 3 ], [ 2 ] ][128X[104X
-    [4X[25Xgap>[125X [27XGraphCanonicalLabelling@glabella(3, path_undir, false, false);[127X[104X
-    [4X[28X#I  Invalid plain format colouring, set to 0[128X[104X
-    [4X[28X#I  BLISS_GRAPH_CANONICAL_LABELING called[128X[104X
-    [4X[28X[ [ (1,3) ], (1,2,3), 4110465937 ][128X[104X
-  [4X[32X[104X
-  
-  [33X[0;0YThis  section  will describe the funtions of [5Xglabella[105X, and their nonchecking
-  counterparts.[133X
   
