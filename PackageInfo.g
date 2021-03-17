@@ -10,8 +10,8 @@ SetPackageInfo( rec(
 
 PackageName := "glabella",
 Subtitle := "Low level interfaces to graph automorphism and canonical labelling tools",
-Version := "0.32",
-Date := "13/03/2021", # dd/mm/yyyy format
+Version := "0.33",
+Date := "17/03/2021", # dd/mm/yyyy format
 License := "GPL-2.0-or-later",
 
 Persons := [

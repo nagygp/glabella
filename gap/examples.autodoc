@@ -1,6 +1,4 @@
-@Chapter Usage of the package
-
-@Section Examples
+@Chapter Examples
 
 The Johnson graph $J(n,k)$ is a simple graph whose vertices are the $k$-subsets of $\{1,\ldots,n\}$ and two vertices are connected by an edge if and only if their intersection has size $k-1$. If $2k\neq n$, then the automorphism group of $J(n,k,t)$ is isomorphic to $S_n$ i. If $2k=n$, then the automorphism group is isomorphic to $C_2 \times S_n$. 
 

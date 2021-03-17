@@ -5,7 +5,8 @@
 @Section General aims
 @Section Installation
 @Chapter Usage of the package
+This section will describe the funtions of <Package>glabella</Package>, and their nonchecking counterparts. 
 @Section Theory
 @Section Solvers
 @Section Interfaces
-@Section Examples
+@Chapter Examples

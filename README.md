@@ -48,10 +48,11 @@ For questions, remarks and issues please use the [issue tracker](https://github.
 
 * Testing, benchmarking
 * Add further nauty features (e.g. vertex-invariants)
+* Add further Traces features (e.g. known automorphisms)
 
 ## License
 
-glabella is free software; you can redistribute it and/or modify it under the terms of the Version 2 of the GNU General Public License. For details see the file LICENSE.
+**glabella** is free software; you can redistribute it and/or modify it under the terms of the Version 2 of the GNU General Public License. For details see the file LICENSE.
 
 ## Credits
 

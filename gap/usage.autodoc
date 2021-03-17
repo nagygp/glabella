@@ -1,7 +1,5 @@
 @Chapter Usage of the package
 
-This section will describe the funtions of <Package>glabella</Package>, and their nonchecking counterparts. 
-
 @Section Theory
 
 Let $\Gamma$ be a graph on the set $\{1,\ldots,n\}$ of vertices. $G$ may be directed or not; loops and duplicate edges are ignored. The graph is given by the list of its adjacencies $N_1,\ldots,N_n$, where $N_i$ is the set of (out)neighbors of the vertex $i$. For an undirected simple graph, the list of adjacencies must be symmetric, that is, $i \in N_j$ if and only if $j\in N_i$. 
@@ -10,7 +8,7 @@ A vertex colouring of $\Gamma$ can be given in two different formats. The <E>pla
 $$u=[3,4,6,7,2,1,5,8,9], \quad s=[0,0,1,1,1,0,1,1,0]$$
 represent the colour classes $\{\{3\},\{4\},\{1,2,6,7\},\{5,8,9\}\}$. In plain format, the same colouring can be given by the list $c=[1,1,2,3,4,1,1,4,4]$. 
 
-The solver programs (recently bliss 0.73, nauty 2.7R1) compute the generators of the automorphism group of the (coloured) graph $\Gamma$. Moreover a canonical labelling of $\Gamma$ is computed, this is a permutation of the vertices that bring the graph in a canonical format. Isomorphic graphs in canonical format are equal. Notice that canonical labellings can depend on the solver used, the version of the solver, the version of this packages, the version of GAP, parameter settings of the solver, and possibly even the compiler and computer used. 
+The solver programs (recently bliss 0.73, nauty 2.7R1) compute the generators of the automorphism group of the (coloured) graph $\Gamma$. Moreover a canonical labelling of $\Gamma$ is computed; this is a permutation of the vertices that brings the graph in a canonical format. Isomorphic graphs in canonical format are equal. Notice that canonical labellings can depend on the solver used, the version of the solver, the version of this packages, the version of GAP, parameter settings of the solver, and possibly even the compiler and computer used. 
 
 The solver programs also compute a 32-bit hash value of the graph. The same as above: this hash value is an isomorphy invariant that depends on your software and hardware environment. It also depends on the colouring in bliss, but not in nauty.
  
@@ -18,18 +16,10 @@ The solver programs also compute a 32-bit hash value of the graph. The same as a
 
 Our suggestion is to use **bliss** for directed graphs and **Traces** for undirected graphs. All solvers seem to perform better with undirected graphs. 
 
-@Subsection bliss
+<List>
+<Mark>bliss</Mark><Item>Very efficient solver, written in C++. Works well for both directed and undirected graphs. </Item>
+<Mark>nauty dense graphs</Mark><Item>Written in C. Works for both directed and undirected graphs. Only recommended for small graphs.</Item>
+<Mark>nauty sparse graphs</Mark><Item>Written in C. Works for both directed and undirected graphs. Not recommended for large graphs with few automorphisms. </Item>
+<Mark>Traces</Mark><Item>Very efficient solver, written in C. It only works for undirected graphs. </Item>
+</List>
 
-Very efficient solver, written in C++. Works well for both directed and undirected graphs. 
-
-@Subsection nauty dense graphs
-
-Written in C. Works for both directed and undirected graphs. Only recommended for small graphs.
-
-@Subsection nauty sparse graphs
-
-Written in C. Works for both directed and undirected graphs. Not recommended for large graphs with few automorphisms. 
-
-@Subsection Traces
-
-Very efficient solver, written in C. It only works for undirected graphs. 
