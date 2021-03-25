@@ -4,7 +4,7 @@
 #! @Chapter Usage of the package
 #! @Section Interfaces
 #! 
-#! This section will describe the funtions of <Package>glabella</Package>,  and their nonchecking counterparts. The nonchecking versions are slightly faster but it must be used with extreme care. Bad parameters may result in unpredictable behaviour. 
+#! This section will describe the funtcions of <Package>glabella</Package>,  and their nonchecking counterparts. The nonchecking versions are slightly faster but it must be used with extreme care. Bad parameters may result in unpredictable behaviour. 
 #!
 #! @BeginGroup G1
 #! @Description

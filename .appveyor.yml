@@ -2,6 +2,7 @@
 clone_depth: 5                  # clone entire repository history if not defined
 
 environment:
+  GAPBRANCH: stable-4.11
   matrix:
     - CYG_ARCH: x86
       CYG_ROOT: C:\cygwin
