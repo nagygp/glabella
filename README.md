@@ -7,26 +7,24 @@
 * Website: https://nagygp.github.io/glabella/
 * Repository: https://github.com/nagygp/glabella
 
-This package provides a low level interface to softwware that can compute automorphisms, isomorphisms and canonical labellings of graphs. Recently, the following programs are avaible:
+This package provides a low-level interface to software that can compute automorphisms, isomorphisms and canonical labelings of graphs. Recently, the following programs are available:
 
-* [***bliss:*** A Tool for Computing Automorphism Groups and Canonical Labellings of Graphs](http://www.tcs.hut.fi/Software/bliss/), written by Tommi Junttila and Petteri Kaski. 
+* [***bliss:*** A Tool for Computing Automorphism Groups and Canonical Labellings of Graphs](http://www.tcs.hut.fi/Software/bliss/), written by Tommi Junttila and Petteri Kaski.
 * [***nauty:*** Graph Canonical Labelling and Automorphism Group Computation](https://pallini.di.uniroma1.it/), written by Brendan McKay and Adolfo Piperno.
 
 The **glabella** package uses external binaries and GAP kernel modules, and therefore a complete installation only works on UNIX systems or systems that support a UNIX-like environment, e.g. OS X, Windows with Cygwin, or WSL2. 
 
-On the package website precompiled binaries are available for certain environments. To compile the package, change to the `/pkg/glabella*` directory  of your GAP installation and then call
+To compile the package, change to the `/pkg/glabella*` directory of your GAP installation and then call
 
-	./configure <path>
+	./configure --with-gaproot=<path>
 
-where <path> is a path to the main GAP root directory; so normally you would call
-
-	./configure ../..
-
-(the `../..` is the default and so may be omitted) and then call
+where `<path>` is a path to the main GAP root directory. Often, **glabella** is in `<path>/pkg` and `--with-gaproot=../..` may be omitted. Then then call
 
 	make 
 
-to compile the binary.
+to compile the binary. 
+
+In certain cases, you may need to start by executing `./autogen.sh`; this assumes you have `libtool` and `libtool-dev` environments on your system.  
 
 Now start GAP and type
 
@@ -52,7 +50,7 @@ For questions, remarks and issues please use the [issue tracker](https://github.
 
 ## License
 
-**glabella** is free software; you can redistribute it and/or modify it under the terms of the Version 2 of the GNU General Public License. For details see the file LICENSE.
+**glabella** is free software; you can redistribute it and/or modify it under the terms of Version 2 of the GNU General Public License. For details see the file LICENSE.
 
 ## Credits
 
