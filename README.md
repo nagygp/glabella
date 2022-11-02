@@ -1,5 +1,4 @@
 [![Build Status](https://github.com/nagygp/glabella/workflows/CI/badge.svg?branch=master)](https://github.com/nagygp/glabella/actions?query=workflow%3ACI+branch%3Amaster)
-[![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/nagygp/glabella?branch=master&svg=true)](https://ci.appveyor.com/project/nagygp/glabella)
 [![Code Coverage](https://codecov.io/github/nagygp/glabella/coverage.svg?branch=master&token=)](https://codecov.io/gh/nagygp/glabella)
 
 # The glabella package
@@ -54,4 +53,4 @@ For questions, remarks and issues please use the [issue tracker](https://github.
 
 ## Credits
 
-This package uses open source components of the GAP packages [**Digraphs**](https://github.com/gap-packages/Digraphs) and [**NautyTracesInterface**](https://github.com/gap-packages/NautyTracesInterface). You can find the source code of its open source project along with license information on their websites. 
+This package uses open-source components of the GAP packages [**Digraphs**](https://github.com/gap-packages/Digraphs) and [**NautyTracesInterface**](https://github.com/gap-packages/NautyTracesInterface). You can find the source code of its open-source project along with license information on their websites. 
