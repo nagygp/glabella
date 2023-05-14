@@ -37,7 +37,7 @@ For details on how to use the glabella package see the package documentation in 
 
 ### Maintainer
 
-* [Gábor P. Nagy](https://algebra.math.bme.hu/nagy-gabor), Budapest University of Technology, Hungary.
+* [Gábor P. Nagy](https://algebra.math.bme.hu/nagy-gabor-peter), Budapest University of Technology, Hungary.
 
 For questions, remarks and issues please use the [issue tracker](https://github.com/nagygp/glabella/issues).
 
