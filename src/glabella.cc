@@ -485,7 +485,7 @@ Obj FuncBLISS_GRAPH_CANONICAL_LABELING(Obj self, Obj n, Obj outneigh,
 typedef Obj (*GVarFuncTypeDef)(/*arguments*/);
 
 #define GVAR_FUNC_TABLE_ENTRY(name, nparam, params)                            \
-  { #name, nparam, params, (GVarFuncTypeDef)Func##name, __FILE__ ":" #name }
+  { #name, nparam, params, (ObjFunc)Func##name, __FILE__ ":" #name }
 
 // Table of functions to export
 static StructGVarFunc GVarFuncs[] = {
